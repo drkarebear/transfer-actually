@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+  <meta name="description" content="Where Does My Course Count? helps California Community College faculty find the right source for CSU/UC transferability, Cal-GETC, articulation, major preparation, C-ID, Common Course Numbering, and ADT/TMC questions.">
+  <title>Where Does My Course Count? | Transfer, Actually</title>
+
+  <style>
+    :root {
+      --bg:#faf8f3; --surface:#fff; --surface-soft:#f3f0e8; --ink:#17202a; --muted:#52606d;
+      --line:#d8d2c6; --blue:#1236b8; --blue-soft:#eaf0ff; --navy:#082a85;
+      --cyan:#00bff3; --cyan-soft:#e8fbff; --teal:#007c9e; --teal-soft:#e6f9fe;
+      --rust:#7a3f2d; --rust-soft:#f5ebe7; --gold:#6d5200; --gold-soft:#f8f0d6;
+      --green:#245c3a; --green-soft:#e7f2e9; --violet:#5e4775; --violet-soft:#eee8f5;
+      --focus:#0067c5; --shadow:0 12px 34px rgba(18,54,184,.10);
+      --radius:22px; --radius-sm:14px; --max:1120px;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.65;
+    }
+    a { color:var(--blue); text-underline-offset:.18em; text-decoration-thickness:.08em; text-decoration-color:rgba(18,54,184,.42); }
+    a:hover { text-decoration-thickness:.14em; }
+    a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+      outline:4px solid var(--focus); outline-offset:4px; border-radius:7px;
+    }
+    button,input { font:inherit; }
+
+    .skip-link {
+      position:absolute; left:1rem; top:-5rem; z-index:1000;
+      background:var(--ink); color:#fff; padding:.75rem 1rem;
+      border-radius:0 0 10px 10px; font-weight:800;
+    }
+    .skip-link:focus { top:0; }
+
+    .wrap { width:min(var(--max),calc(100% - 2rem)); margin-inline:auto; }
+
+    header { background:rgba(250,248,243,.97); border-bottom:1px solid var(--line); }
+    header::before { content:""; display:block; height:4px; background:linear-gradient(90deg,var(--navy),var(--blue) 48%,var(--cyan)); }
+    .topbar { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-block:.75rem; }
+    .brand { color:var(--ink); text-decoration:none; font-weight:900; letter-spacing:-.03em; font-size:1.3rem; }
+    .brand span { color:var(--blue); }
+
+    nav ul { margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.25rem; }
+    nav a { display:inline-block; color:var(--ink); text-decoration:none; padding:.5rem .62rem; border-radius:10px; font-weight:700; font-size:.93rem; }
+    nav a:hover { background:var(--surface-soft); }
+
+    .breadcrumb { padding-top:1.1rem; color:var(--muted); font-size:.94rem; }
+    .breadcrumb a { color:var(--muted); }
+
+    .hero { padding:clamp(2.8rem,7vw,5.7rem) 0 clamp(2.8rem,6vw,4.7rem); }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr); gap:clamp(2rem,5vw,4.5rem); align-items:center; }
+    .eyebrow { display:inline-block; margin:0 0 .85rem; color:var(--blue); font-weight:850; letter-spacing:.07em; text-transform:uppercase; font-size:.82rem; }
+
+    h1,h2,h3 { line-height:1.13; letter-spacing:-.035em; text-wrap:balance; }
+    h1 { margin:0; max-width:11ch; font-size:clamp(3rem,7vw,5.45rem); }
+    h2 { margin:0 0 .9rem; font-size:clamp(2rem,5vw,3.15rem); }
+    h3 { margin:0 0 .45rem; font-size:1.25rem; }
+
+    .lede { max-width:760px; margin:1.1rem 0 0; color:var(--muted); font-size:clamp(1.1rem,2vw,1.3rem); }
+
+    .hero-card {
+      background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--cyan);
+      border-radius:var(--radius); padding:clamp(1.3rem,3vw,2rem); box-shadow:var(--shadow);
+    }
+    .hero-card strong { display:block; margin-bottom:.55rem; font-size:1.42rem; line-height:1.3; }
+    .hero-card p { margin:0; color:var(--muted); }
+    .questions { display:grid; gap:.48rem; margin-top:1rem; }
+    .questions span { display:block; padding:.64rem .76rem; border-radius:10px; background:var(--blue-soft); font-weight:800; }
+    .questions span:nth-child(even) { background:var(--cyan-soft); }
+
+    .band { padding:clamp(3.5rem,7vw,5.8rem) 0; }
+    .white { background:var(--surface); border-block:1px solid var(--line); }
+    .section-intro { max-width:850px; margin-bottom:2rem; }
+    .section-intro p { margin:0; color:var(--muted); font-size:1.06rem; }
+
+    .router {
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:#fff; border-radius:var(--radius); padding:clamp(1.35rem,4vw,2.3rem); box-shadow:var(--shadow);
+    }
+    .router h2,.router h3 { color:#fff; }
+    .router > p { color:#dce4ea; max-width:830px; }
+
+    .route-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-top:1.2rem; }
+    .route-option { position:relative; display:block; }
+    .route-option input { position:absolute; opacity:0; pointer-events:none; }
+    .route-option span {
+      display:block; height:100%; padding:1rem; border:2px solid transparent; border-radius:var(--radius-sm);
+      background:#fff; color:var(--ink); cursor:pointer;
+    }
+    .route-option input:checked + span { border-color:var(--cyan); background:var(--cyan-soft); }
+    .route-option input:focus-visible + span { outline:4px solid #fff; outline-offset:3px; }
+    .route-option strong { display:block; margin-bottom:.25rem; }
+    .route-option small { display:block; color:var(--muted); line-height:1.45; }
+
+    .show-route {
+      margin-top:1rem; min-height:48px; border:0; border-radius:11px;
+      background:#fff; color:var(--ink); padding:.75rem 1rem; font-weight:850; cursor:pointer;
+    }
+
+    .route-result { margin-top:1.2rem; padding:1.15rem; border-radius:var(--radius-sm); background:#fff; color:var(--ink); }
+    .route-result[hidden] { display:none; }
+    .route-result h3 { color:var(--ink); font-size:1.5rem; }
+    .route-result dl { margin:.8rem 0 0; }
+    .route-result dt { font-weight:900; margin-top:.7rem; }
+    .route-result dd { margin:.15rem 0 0; color:var(--muted); }
+    .route-links { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.9rem; }
+    .route-links a { display:inline-block; padding:.65rem .8rem; border-radius:10px; background:var(--blue-soft); text-decoration:none; font-weight:800; }
+
+    .map-grid,.proof-grid,.passport-grid,.source-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .map-card,.proof-card,.passport,.source-link {
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm); padding:1.1rem;
+    }
+    .map-card strong { display:block; margin-bottom:.3rem; font-size:1.08rem; }
+    .map-card p,.proof-card p,.passport p { color:var(--muted); margin-bottom:0; }
+    .map-card .source { display:inline-block; margin-bottom:.55rem; padding:.18rem .5rem; border-radius:999px; background:var(--surface-soft); color:var(--muted); font-size:.75rem; font-weight:850; text-transform:uppercase; letter-spacing:.05em; }
+
+    .proof-card.yes { border-top:5px solid var(--green); }
+    .proof-card.no { border-top:5px solid var(--rust); }
+    .proof-card.check { border-top:5px solid var(--blue); }
+
+    .passport {
+      border-top:5px solid var(--cyan); box-shadow:0 8px 24px rgba(18,54,184,.06);
+    }
+    .passport label { display:flex; gap:.6rem; align-items:flex-start; padding:.58rem 0; border-bottom:1px solid var(--line); }
+    .passport label:last-child { border-bottom:0; }
+    .passport input { width:1.16rem; height:1.16rem; margin-top:.3rem; flex:0 0 auto; }
+    .passport strong { display:block; }
+    .passport small { display:block; color:var(--muted); line-height:1.4; }
+
+    .passport-note {
+      background:var(--gold-soft); border:1px solid #d4c27d; border-radius:var(--radius-sm); padding:1.1rem;
+    }
+    .passport-note p { color:var(--ink); }
+    .passport-note ul { padding-left:1.2rem; margin-bottom:0; }
+    .passport-note li + li { margin-top:.4rem; }
+
+    .stack { display:grid; gap:.85rem; }
+    details { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm); overflow:clip; }
+    summary { cursor:pointer; padding:1rem 1.15rem; font-weight:850; }
+    details[open] summary { border-bottom:1px solid var(--line); background:var(--surface-soft); }
+    .details-body { padding:1rem 1.15rem 1.15rem; }
+    .details-body p:first-child { margin-top:0; }
+
+    .course-change {
+      background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff;
+      border-radius:var(--radius); padding:clamp(1.35rem,4vw,2.2rem);
+    }
+    .course-change h2 { color:#fff; }
+    .course-change > p { color:#dce4ea; max-width:850px; }
+    .change-flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.8rem; margin-top:1.1rem; }
+    .change-step { background:#fff; color:var(--ink); border-radius:var(--radius-sm); padding:1rem; }
+    .change-step p { margin:0; color:var(--muted); }
+
+    .source-link { display:block; text-decoration:none; }
+    .source-link:hover { background:var(--cyan-soft); border-color:#7edcf3; }
+    .source-link strong { display:block; color:var(--ink); margin-bottom:.2rem; }
+    .source-link span { display:block; color:var(--muted); font-size:.93rem; }
+
+    .plain { margin-top:1rem; padding:.9rem 1rem; border-left:5px solid var(--blue); border-radius:0 12px 12px 0; background:var(--blue-soft); }
+
+    .next {
+      margin-top:2rem; padding:clamp(1.4rem,4vw,2.2rem); border-radius:var(--radius);
+      background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff;
+    }
+    .next h2 { color:#fff; }
+    .next p { color:#dce4ea; max-width:820px; }
+    .next-links { display:flex; flex-wrap:wrap; gap:.7rem; }
+    .next a { display:inline-block; padding:.75rem 1rem; border-radius:11px; background:#fff; color:var(--ink); text-decoration:none; font-weight:850; }
+
+    footer { border-top:1px solid var(--line); background:var(--surface); padding:2.4rem 0 3rem; }
+    .footer-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:2rem; }
+    .footer-grid p { color:var(--muted); max-width:760px; }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:flex-end; align-content:flex-start; gap:.6rem 1rem; }
+    .meta { margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+
+    @media(max-width:950px) {
+      .hero-grid,.footer-grid { grid-template-columns:1fr; }
+      .change-flow { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .footer-links { justify-content:flex-start; }
+    }
+    @media(max-width:700px) {
+      .topbar { align-items:flex-start; flex-direction:column; }
+      nav ul { justify-content:flex-start; }
+      .route-grid,.map-grid,.proof-grid,.passport-grid,.source-grid,.change-flow { grid-template-columns:1fr; }
+      h1 { font-size:clamp(3rem,15vw,4.6rem); }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; animation-iteration-count:1!important; }
+    }
+    @media(forced-colors:active) {
+      .route-option span,.map-card,.proof-card,.passport,.passport-note,.change-step,.source-link,details { border:2px solid CanvasText; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html#faculty">Faculty</a></li>
+          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
+          <li><a href="where-course-counts.html" aria-current="page">My Course</a></li>
+          <li><a href="student-asked-me.html">Student Asked Me</a></li>
+          <li><a href="assist-actually.html">ASSIST</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> → Where Does My Course Count?
+    </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">A faculty course-checking tool</p>
+          <h1 id="page-title">Where Does My Course Count?</h1>
+          <p class="lede">
+            “Does my course count?” is not one question. Start with what you are trying to prove, then use the source that actually answers that question.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-labelledby="course-questions">
+          <strong id="course-questions">One course can have several different statuses.</strong>
+          <p>None of these automatically proves all the others.</p>
+          <div class="questions">
+            <span>Transferable?</span>
+            <span>Cal-GETC / GE?</span>
+            <span>Articulated?</span>
+            <span>Major preparation?</span>
+            <span>C-ID / CCN?</span>
+            <span>ADT / TMC?</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="router-title">
+      <div class="wrap">
+        <div class="router">
+          <p class="eyebrow" style="color:#8de7f8;">Start with the question</p>
+          <h2 id="router-title">What are you trying to find out about the course?</h2>
+          <p>Choose one. The tool will tell you the best first source, what a positive result actually proves, and what still needs a separate check.</p>
+
+          <fieldset style="border:0;padding:0;margin:0;">
+            <legend style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Choose a course-status question</legend>
+
+            <div class="route-grid">
+              <label class="route-option">
+                <input type="radio" name="route" value="transfer">
+                <span><strong>Is it CSU or UC transferable?</strong><small>I want to know whether the receiving system awards transfer unit credit.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="ge">
+                <span><strong>Does it satisfy Cal-GETC or another GE list?</strong><small>I want to know whether it is approved for a specific GE area/effective term.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="courseart">
+                <span><strong>Is it articulated to a specific university course?</strong><small>I want a course-to-course or department/prefix relationship.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="major">
+                <span><strong>Does it count for a particular transfer major?</strong><small>I want to know whether it satisfies lower-division major preparation.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="cid">
+                <span><strong>Does it have C-ID approval?</strong><small>I want to know whether our course is approved against a C-ID descriptor.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="ccn">
+                <span><strong>Is it a Common Course Numbering course?</strong><small>I want to verify CCN status/template alignment rather than infer it from a similar title.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="adt">
+                <span><strong>Does it sit inside an ADT / TMC?</strong><small>I want to know how the course functions in a statewide transfer degree model or local ADT.</small></span>
+              </label>
+
+              <label class="route-option">
+                <input type="radio" name="route" value="private">
+                <span><strong>What about a California independent university?</strong><small>I want to know whether ASSIST has a participating AICCU agreement or I need the receiving university directly.</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="button" class="show-route">Show me where to check</button>
+          <div class="route-result" id="route-result" hidden aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="map-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">The source map</p>
+          <h2 id="map-title">Use the source that owns the claim.</h2>
+          <p>A common faculty mistake is finding one favorable status and stretching it into a claim the source never made.</p>
+        </div>
+
+        <div class="map-grid">
+          <article class="map-card">
+            <span class="source">ASSIST list</span>
+            <strong>CSU / UC Transferable Courses</strong>
+            <p>Best for: “Will the system award transfer unit credit?” Review the important information at the top of the list and use the correct academic year.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">ASSIST list</span>
+            <strong>Cal-GETC / GE / admissions lists</strong>
+            <p>Best for: approval in the listed area and effective terms. GE status is not a substitute for checking major preparation.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">ASSIST agreement</span>
+            <strong>Department / Prefix / course articulation</strong>
+            <p>Best for: official relationships between a CCC course and the receiving institution's coursework or requirements.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">ASSIST agreement</span>
+            <strong>View Agreement by Major</strong>
+            <p>Best for: whether CCC coursework can satisfy lower-division preparation for the named major at that institution.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">C-ID</span>
+            <strong>Approved course / descriptor search</strong>
+            <p>Best for: verifying whether the local course has been approved against a C-ID descriptor and for reviewing current descriptor/TMC information.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">CCCCO + local COR</span>
+            <strong>Common Course Numbering</strong>
+            <p>Best for: confirming the statewide CCN template and how the locally approved course aligns with the current common-numbered course requirements.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">C-ID TMC + local curriculum</span>
+            <strong>ADT / Transfer Model Curriculum</strong>
+            <p>Best for: understanding the statewide model and then verifying how the local college's approved ADT actually uses the course.</p>
+          </article>
+
+          <article class="map-card">
+            <span class="source">ASSIST or receiving institution</span>
+            <strong>AICCU / independent institutions</strong>
+            <p>Participating AICCU institutions can publish agreements in ASSIST. If the institution does not participate, use the receiving university's official transfer-credit information.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="proof-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">What did you actually prove?</p>
+          <h2 id="proof-title">A positive result has boundaries.</h2>
+        </div>
+
+        <div class="proof-grid">
+          <article class="proof-card yes">
+            <h3>“It is UC transferable.”</h3>
+            <p><strong>You may say:</strong> UC awards transfer unit credit for the course under the applicable list/year.</p>
+            <p><strong>You may not automatically say:</strong> it satisfies Cal-GETC, a specific UC course, or the student's major preparation.</p>
+          </article>
+
+          <article class="proof-card yes">
+            <h3>“It is approved for Cal-GETC Area X.”</h3>
+            <p><strong>You may say:</strong> the course is approved for the listed area during the applicable effective terms.</p>
+            <p><strong>You may not automatically say:</strong> every student should take it or that it satisfies preparation for a specific major.</p>
+          </article>
+
+          <article class="proof-card yes">
+            <h3>“It has a C-ID designation.”</h3>
+            <p><strong>You may say:</strong> the course was approved against the specified C-ID descriptor.</p>
+            <p><strong>You may not automatically say:</strong> it is articulated identically to every CSU/UC course or satisfies every major requirement.</p>
+          </article>
+
+          <article class="proof-card check">
+            <h3>“It has a CCN number.”</h3>
+            <p><strong>You may say:</strong> it is part of the statewide common-numbering framework and should be evaluated against the current CCN template/local COR.</p>
+            <p><strong>You still check separately:</strong> GE, university-specific articulation, major preparation, and local program roles.</p>
+          </article>
+
+          <article class="proof-card check">
+            <h3>“ASSIST shows it in the major agreement.”</h3>
+            <p><strong>You may say:</strong> the agreement identifies how the course can satisfy the named major's lower-division preparation for that institution/year.</p>
+            <p><strong>You still read:</strong> header notes, conditions, required/recommended language, grade requirements, and the whole agreement.</p>
+          </article>
+
+          <article class="proof-card no">
+            <h3>“No course articulated.”</h3>
+            <p><strong>Do not translate this into:</strong> “our course does not transfer.”</p>
+            <p>It means no established articulation is displayed for that item in that agreement. Transferability is a separate question.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="passport-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Build a course passport</p>
+          <h2 id="passport-title">Know the transfer roles your course actually has.</h2>
+          <p>This is not a score. A course does not need every box checked. The goal is to replace vague institutional memory with a current profile.</p>
+        </div>
+
+        <div class="passport-grid">
+          <div class="passport" id="passport">
+            <label><input type="checkbox"><span><strong>CSU transferability checked</strong><small>Current ASSIST transferable-course list / applicable year.</small></span></label>
+            <label><input type="checkbox"><span><strong>UC transferability checked</strong><small>Current ASSIST transferable-course list / applicable year.</small></span></label>
+            <label><input type="checkbox"><span><strong>Cal-GETC / relevant GE lists checked</strong><small>Include effective begin/end terms where relevant.</small></span></label>
+            <label><input type="checkbox"><span><strong>Course-to-course / department articulation checked</strong><small>At the destinations that actually matter to your students/program.</small></span></label>
+            <label><input type="checkbox"><span><strong>Major-preparation agreements checked</strong><small>Especially common destinations and majors.</small></span></label>
+            <label><input type="checkbox"><span><strong>C-ID status checked</strong><small>Descriptor and approval status, if applicable.</small></span></label>
+            <label><input type="checkbox"><span><strong>CCN status/template checked</strong><small>Current phase/template and local COR, if applicable.</small></span></label>
+            <label><input type="checkbox"><span><strong>ADT/TMC / local program use checked</strong><small>Which degrees/pathways actually require or allow the course?</small></span></label>
+          </div>
+
+          <aside class="passport-note">
+            <h3>What to record beside the boxes</h3>
+            <ul>
+              <li><strong>Academic year / effective term.</strong> Status can change.</li>
+              <li><strong>Source link.</strong> Make the next check easy.</li>
+              <li><strong>Destinations checked.</strong> “Articulated” is not universal.</li>
+              <li><strong>Notes / conditions.</strong> Do not reduce an agreement to a green checkmark.</li>
+              <li><strong>Last reviewed date.</strong> Institutional memory needs an expiration date.</li>
+            </ul>
+            <p class="plain"><strong>Useful department practice:</strong> keep this as a lightweight shared course profile rather than asking every faculty member to rediscover the same information independently.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="terms-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Questions that cause trouble</p>
+          <h2 id="terms-title">Open these before making the easy assumption.</h2>
+        </div>
+
+        <div class="stack">
+          <details>
+            <summary>Our course has the same CCN number. Does that mean articulation is automatic everywhere?</summary>
+            <div class="details-body">
+              <p>No. CCN improves statewide comparability, numbering, and mobility, but a faculty member should still verify the actual GE, major-preparation, and university-specific articulation claims being made.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Our course has C-ID. Why do I still need ASSIST?</summary>
+            <div class="details-body">
+              <p>C-ID verifies alignment to a statewide descriptor. ASSIST answers institution-pair and agreement questions. When the claim is “this satisfies requirement X at University Y,” use the source that actually publishes that relationship.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>The course has been in Cal-GETC before. Can I just call it Cal-GETC approved?</summary>
+            <div class="details-body">
+              <p>Check the current ASSIST list and effective terms. ASSIST specifically publishes effective begin/end information for Cal-GETC lists. A historical approval does not justify an undated claim forever.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>We changed the COR but kept the same course number. Are the old transfer roles safe?</summary>
+            <div class="details-body">
+              <p>Do not assume that. Substantive local curriculum changes can intersect with articulation, C-ID, CCN template requirements, GE, and program use. Bring the articulation officer into the review early.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="change-title">
+      <div class="wrap">
+        <div class="course-change">
+          <p class="eyebrow" style="color:#8de7f8;">If the course is changing</p>
+          <h2 id="change-title">The course passport becomes your pre-revision checklist.</h2>
+          <p>Before approving a transfer-relevant revision, identify every current role that could be affected.</p>
+
+          <div class="change-flow">
+            <article class="change-step">
+              <h3>1. Capture today</h3>
+              <p>Document current transferability, GE, articulation, C-ID/CCN, and program roles before changing the COR.</p>
+            </article>
+            <article class="change-step">
+              <h3>2. Compare the revision</h3>
+              <p>Which content, objectives, units, methods, texts, prerequisites, or other elements are changing?</p>
+            </article>
+            <article class="change-step">
+              <h3>3. Ask articulation early</h3>
+              <p>Identify which approvals or agreements may need review, resubmission, notification, or monitoring.</p>
+            </article>
+            <article class="change-step">
+              <h3>4. Update the passport</h3>
+              <p>After approval, replace old assumptions with the new effective status and review date.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" id="sources" aria-labelledby="sources-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Official-source shelf</p>
+          <h2 id="sources-title">Bookmark the sources, not somebody's old spreadsheet.</h2>
+        </div>
+
+        <div class="source-grid">
+          <a class="source-link" href="https://assist.org/">
+            <strong>ASSIST</strong>
+            <span>Live transferability lists, GE/admissions lists, and articulation agreements.</span>
+          </a>
+
+          <a class="source-link" href="https://resource.assist.org/Students-Faculty-Staff">
+            <strong>ASSIST guidance for students, faculty, and staff</strong>
+            <span>Current explanation of academic years, agreement types, transferable-course lists, Cal-GETC effective terms, and ASSIST's limits.</span>
+          </a>
+
+          <a class="source-link" href="https://c-id.net/">
+            <strong>C-ID</strong>
+            <span>Current course descriptors, approved course information, Transfer Model Curriculum resources, and related transfer infrastructure.</span>
+          </a>
+
+          <a class="source-link" href="https://www.cccco.edu/About-Us/Chancellors-Office/Divisions/Educational-Services-and-Support/common-course-numbering-project">
+            <strong>CCCCO Common Course Numbering</strong>
+            <span>Current CCN implementation, purpose, phases, and statewide resources.</span>
+          </a>
+
+          <a class="source-link" href="https://www.cccco.edu/About-Us/Chancellors-Office/Divisions/Educational-Services-and-Support/course-outline-of-records-submission">
+            <strong>CCCCO CCN templates / course-outline guidance</strong>
+            <span>Current required template elements and local curriculum materials for common-numbered courses.</span>
+          </a>
+
+          <a class="source-link" href="transfer-for-faculty.html">
+            <strong>Transfer for Faculty, Actually</strong>
+            <span>Review the overall course → transferability → articulation → requirement → pathway → student-plan mental model.</span>
+          </a>
+
+          <a class="source-link" href="assist-actually.html">
+            <strong>ASSIST, Actually</strong>
+            <span>Practice choosing the correct academic year, institution pair, agreement view, and reading strategy.</span>
+          </a>
+
+          <a class="source-link" href="student-asked-me.html">
+            <strong>A Student Just Asked Me…</strong>
+            <span>Turn course-status knowledge into safer answers to real student questions.</span>
+          </a>
+        </div>
+
+        <div class="next">
+          <h2>Next: <a href="revising-course.html" style="color:#fff;">We're Revising a Course. What Should We Check?</a></h2>
+          <p>“Where Does My Course Count?” tells faculty what roles the course has today. The next page should turn that profile into a curriculum workflow: what to document before revision, when to involve articulation, and what needs to be rechecked after local approval.</p>
+          <div class="next-links">
+            <a href="revising-course.html">Course-revision workflow →</a>
+            <a href="transfer-for-faculty.html">Faculty orientation →</a>
+            <a href="assist-actually.html">ASSIST, Actually →</a>
+            <a href="student-asked-me.html">Student question guide →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Transfer<span>, Actually</span></a>
+          <p>An independent, faculty-created educational project. This tool helps faculty identify the right source for course-status questions; it does not replace local articulation review, curriculum procedures, counseling, admissions guidance, or official institutional information.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+          <a href="index.html">Home</a>
+          <a href="index.html#faculty">Faculty</a>
+          <a href="transfer-for-faculty.html">Faculty Orientation</a>
+          <a href="#sources">Official sources</a>
+        </div>
+      </div>
+      <p class="meta">Last reviewed: September 2026. Transferability, articulation, Cal-GETC, C-ID, CCN, TMC, and local program roles can change. Record the academic year/effective term and verify current information with the authoritative source.</p>
+    </div>
+  </footer>
+
+  <script>
+    const routes = {
+      transfer: {
+        title: "Check the transferable-course list in ASSIST.",
+        source: "ASSIST → choose the CCC and academic year → CSU Transferable Courses and/or UC Transferable Courses.",
+        proves: "A positive listing means the receiving system awards transfer unit credit under the applicable list/year.",
+        not: "It does not automatically prove Cal-GETC, course-to-course articulation, or major preparation.",
+        next: "If the real question is about a requirement, continue to the relevant GE or articulation agreement.",
+        links: [["Open ASSIST","https://assist.org/"],["ASSIST guide","assist-actually.html"]]
+      },
+      ge: {
+        title: "Check the relevant GE / Cal-GETC list in ASSIST.",
+        source: "ASSIST publishes lists for Cal-GETC and other CSU/UC GE or admissions uses. Read the top-of-list notes and effective terms.",
+        proves: "A listing supports the specific area/use and effective period shown.",
+        not: "It does not automatically tell you whether the course prepares a student for a particular major.",
+        next: "If students take the course because of a major, check the major agreement separately.",
+        links: [["Open ASSIST","https://assist.org/"],["Cal-GETC, Actually","cal-getc-actually.html"]]
+      },
+      courseart: {
+        title: "Check the institution-pair articulation agreement in ASSIST.",
+        source: "Select academic year → sending CCC → receiving institution → use Department, Prefix, Major, or other available agreement view.",
+        proves: "The published agreement establishes the relationship displayed for that institution pair and academic year.",
+        not: "One articulation agreement is not universal articulation to every CSU, UC, or AICCU institution.",
+        next: "Read the header, notes, conditions, and effective year—not only the row containing your course.",
+        links: [["Open ASSIST","https://assist.org/"],["Practice reading ASSIST","assist-actually.html"]]
+      },
+      major: {
+        title: "Use View Agreement by Major in ASSIST.",
+        source: "Choose the academic year and institution pair, then open the major agreement if one is published.",
+        proves: "The agreement shows how CCC coursework may satisfy lower-division preparation for the named major/program.",
+        not: "It does not by itself decide a student's full admission eligibility or course sequence.",
+        next: "If several destinations matter, compare their major agreements instead of treating one campus as statewide.",
+        links: [["Open ASSIST","https://assist.org/"],["Major Prep, Actually","major-prep-actually.html"]]
+      },
+      cid: {
+        title: "Verify the course in C-ID.",
+        source: "Use the C-ID site to review approved courses and the current descriptor.",
+        proves: "C-ID approval means the submitted course was found to match the designated descriptor's required elements.",
+        not: "It is not a universal statement that every CSU/UC course or major requirement is automatically satisfied.",
+        next: "Use ASSIST for a destination-specific articulation claim and the TMC resources if the question is about an ADT.",
+        links: [["Open C-ID","https://c-id.net/"],["Faculty orientation","transfer-for-faculty.html"]]
+      },
+      ccn: {
+        title: "Verify the current CCN template and your locally approved COR.",
+        source: "Use CCCO Common Course Numbering resources/templates plus the local approved course record/catalog implementation.",
+        proves: "It verifies that the course participates in the statewide common-numbering structure and the applicable template framework.",
+        not: "A CCN number alone is not a shortcut for every GE, articulation, major-prep, or admission claim.",
+        next: "Check each transfer role separately, especially after local curriculum changes.",
+        links: [["CCN project","https://www.cccco.edu/About-Us/Chancellors-Office/Divisions/Educational-Services-and-Support/common-course-numbering-project"],["CCN templates","https://www.cccco.edu/About-Us/Chancellors-Office/Divisions/Educational-Services-and-Support/course-outline-of-records-submission"]]
+      },
+      adt: {
+        title: "Check the statewide TMC and the local approved ADT.",
+        source: "Use C-ID's current Transfer Model Curriculum resources, then verify how the local college's approved degree uses the course.",
+        proves: "You can identify whether the course is an allowed/required component under the applicable statewide model and local program.",
+        not: "A course appearing in one TMC or local ADT does not mean it plays the same role in every degree or campus.",
+        next: "If the degree is being revised, verify current TMC/C-ID requirements and involve articulation/curriculum expertise early.",
+        links: [["C-ID / TMC","https://c-id.net/"],["ADT, Actually","adt-actually.html"]]
+      },
+      private: {
+        title: "First check whether the independent institution participates in ASSIST.",
+        source: "Participating AICCU institutions can publish agreements in ASSIST. If the institution is not there, use its official transfer-credit/articulation information directly.",
+        proves: "An ASSIST agreement proves the relationship actually published by that participating institution.",
+        not: "The absence of an AICCU institution from ASSIST does not mean it accepts no CCC credit; participation is optional.",
+        next: "For a nonparticipating institution, contact/use the receiving university because it owns its transfer-credit decisions.",
+        links: [["Open ASSIST","https://assist.org/"],["ASSIST faculty guidance","https://resource.assist.org/Students-Faculty-Staff"]]
+      }
+    };
+
+    const result = document.getElementById("route-result");
+    document.querySelector(".show-route").addEventListener("click", () => {
+      const selected = document.querySelector('input[name="route"]:checked');
+
+      if (!selected) {
+        result.hidden = false;
+        result.innerHTML = "<h3>Choose the question you are trying to answer.</h3><p>The source changes depending on the claim.</p>";
+        return;
+      }
+
+      const r = routes[selected.value];
+      const links = r.links.map(([label,href]) => `<a href="${href}">${label}</a>`).join("");
+
+      result.innerHTML = `
+        <h3>${r.title}</h3>
+        <dl>
+          <dt>Best first source</dt><dd>${r.source}</dd>
+          <dt>What a positive result proves</dt><dd>${r.proves}</dd>
+          <dt>What it does not prove</dt><dd>${r.not}</dd>
+          <dt>Next move</dt><dd>${r.next}</dd>
+        </dl>
+        <div class="route-links">${links}</div>
+      `;
+      result.hidden = false;
+      result.scrollIntoView({block:"nearest",behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    });
+  </script>
+</body>
+</html>
