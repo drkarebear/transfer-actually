@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Major Prep, Actually explains lower-division major preparation for California Community College transfer students and faculty: what it is, why it can matter more than GE, how it varies by campus, and how to verify it in ASSIST.">
+  <title>Major Prep, Actually | Transfer, Actually</title>
+
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --surface: #ffffff;
+      --surface-soft: #f3f0e8;
+      --ink: #17202a;
+      --muted: #52606d;
+      --line: #d8d2c6;
+      --blue: #1a4d7a;
+      --blue-soft: #e8f1f8;
+      --teal: #1f5a5b;
+      --teal-soft: #e6f1ef;
+      --rust: #7a3f2d;
+      --rust-soft: #f5ebe7;
+      --gold-soft: #f8f0d6;
+      --green-soft: #e8f2e9;
+      --focus: #8a4fff;
+      --shadow: 0 12px 34px rgba(23, 32, 42, .08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--blue);
+      text-underline-offset: .18em;
+      text-decoration-thickness: .08em;
+    }
+
+    a:hover { text-decoration-thickness: .14em; }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 4px solid var(--focus);
+      outline-offset: 4px;
+      border-radius: 7px;
+    }
+
+    button, input { font: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -5rem;
+      z-index: 1000;
+      background: var(--ink);
+      color: #fff;
+      padding: .75rem 1rem;
+      border-radius: 0 0 10px 10px;
+      font-weight: 800;
+    }
+
+    .skip-link:focus { top: 0; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    header {
+      background: rgba(250,248,243,.97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: .75rem;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      font-size: 1.3rem;
+    }
+
+    .brand span { color: var(--rust); }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: .25rem;
+    }
+
+    nav a {
+      display: inline-block;
+      color: var(--ink);
+      text-decoration: none;
+      padding: .5rem .62rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .94rem;
+    }
+
+    nav a:hover { background: var(--surface-soft); }
+
+    .breadcrumb {
+      padding-top: 1.1rem;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .breadcrumb a { color: var(--muted); }
+
+    .hero {
+      padding: clamp(2.8rem, 7vw, 5.7rem) 0 clamp(2.8rem, 6vw, 4.7rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 .85rem;
+      color: var(--rust);
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      font-size: .82rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.13;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 10ch;
+      font-size: clamp(3.1rem, 8vw, 6rem);
+    }
+
+    h2 {
+      margin: 0 0 .9rem;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+    }
+
+    h3 {
+      margin: 0 0 .45rem;
+      font-size: 1.28rem;
+    }
+
+    .lede {
+      max-width: 720px;
+      margin: 1.1rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(1.35rem, 3vw, 2rem);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: .55rem;
+      font-size: 1.45rem;
+      line-height: 1.3;
+    }
+
+    .hero-card p { margin: 0; color: var(--muted); }
+
+    .formula {
+      margin-top: 1rem;
+      padding: .9rem 1rem;
+      background: var(--teal-soft);
+      border-radius: 12px;
+      font-weight: 850;
+    }
+
+    .band { padding: clamp(3.5rem, 7vw, 5.8rem) 0; }
+
+    .white {
+      background: var(--surface);
+      border-block: 1px solid var(--line);
+    }
+
+    .section-intro {
+      max-width: 820px;
+      margin-bottom: 2rem;
+    }
+
+    .section-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .two-columns,
+    .card-grid,
+    .audience-grid,
+    .source-grid,
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .concept-card,
+    .priority-card,
+    .audience-card,
+    .source-link,
+    .scenario,
+    .comparison-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem;
+    }
+
+    .concept-card.ge { border-top: 5px solid var(--blue); }
+    .concept-card.major { border-top: 5px solid var(--teal); }
+
+    .concept-card p,
+    .priority-card p,
+    .audience-card p,
+    .comparison-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .concept-card ul,
+    .priority-card ul,
+    .audience-card ul {
+      margin-bottom: 0;
+      padding-left: 1.25rem;
+    }
+
+    .concept-card li + li,
+    .priority-card li + li,
+    .audience-card li + li {
+      margin-top: .35rem;
+    }
+
+    .plain {
+      margin-top: 1.15rem;
+      padding: 1rem 1.1rem;
+      border-left: 5px solid var(--rust);
+      border-radius: 0 12px 12px 0;
+      background: var(--rust-soft);
+    }
+
+    .question-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .8rem;
+      margin-top: 1.3rem;
+    }
+
+    .flow-step {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.05rem;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -.7rem;
+      top: 43%;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--rust);
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .flow-num {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: .6rem;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .flow-step p { margin: 0; color: var(--muted); }
+
+    .example-shell {
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: clamp(1.3rem, 4vw, 2.2rem);
+    }
+
+    .example-shell h2 { color: #fff; }
+
+    .example-shell > p { color: #dce4ea; max-width: 820px; }
+
+    .campus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: .8rem;
+      margin-top: 1.3rem;
+    }
+
+    .campus-card {
+      background: #fff;
+      color: var(--ink);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+    }
+
+    .campus-card .fictional {
+      display: inline-block;
+      padding: .16rem .5rem;
+      margin-bottom: .5rem;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #5e4800;
+      font-size: .75rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .campus-card ul { padding-left: 1.2rem; margin-bottom: 0; }
+
+    .compare-note {
+      margin-top: 1rem;
+      color: #dce4ea;
+      font-size: .95rem;
+    }
+
+    .stack { display: grid; gap: .85rem; }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      overflow: clip;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 1rem 1.15rem;
+      font-weight: 850;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .details-body { padding: 1rem 1.15rem 1.15rem; }
+    .details-body p:first-child { margin-top: 0; }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: .65rem;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .priority-card.urgent { border-top: 5px solid var(--rust); }
+    .priority-card.flex { border-top: 5px solid var(--blue); }
+    .priority-card.system { border-top: 5px solid var(--teal); }
+    .priority-card.faculty { border-top: 5px solid #6b4d8a; }
+
+    .toolbox {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: .85rem;
+    }
+
+    .tool {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.05rem;
+    }
+
+    .tool strong { display: block; margin-bottom: .3rem; }
+    .tool p { margin: 0; color: var(--muted); }
+
+    .scenario fieldset {
+      border: 0;
+      padding: 0;
+      margin: .85rem 0 0;
+    }
+
+    .scenario legend { font-weight: 800; margin-bottom: .55rem; }
+
+    .choice {
+      display: flex;
+      gap: .55rem;
+      align-items: flex-start;
+      margin: .48rem 0;
+    }
+
+    .choice input {
+      margin-top: .32rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      flex: 0 0 auto;
+    }
+
+    .check-answer {
+      min-height: 44px;
+      margin-top: .8rem;
+      border: 0;
+      border-radius: 11px;
+      background: var(--ink);
+      color: #fff;
+      padding: .7rem .9rem;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .feedback {
+      margin-top: .8rem;
+      padding: .85rem .95rem;
+      border-radius: 11px;
+    }
+
+    .feedback.good {
+      background: var(--green-soft);
+      border: 1px solid #a5c0a9;
+    }
+
+    .feedback.retry {
+      background: var(--gold-soft);
+      border: 1px solid #c8b46c;
+    }
+
+    .feedback[hidden] { display: none; }
+
+    .source-link {
+      display: block;
+      text-decoration: none;
+    }
+
+    .source-link:hover {
+      background: var(--blue-soft);
+      border-color: #9ebdd5;
+    }
+
+    .source-link strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+
+    .source-link span {
+      display: block;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .next {
+      margin-top: 2rem;
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: clamp(1.4rem, 4vw, 2.2rem);
+    }
+
+    .next h2 { color: #fff; }
+    .next p { color: #dce4ea; max-width: 780px; }
+
+    .next-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .next a {
+      display: inline-block;
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      padding: .75rem 1rem;
+      border-radius: 11px;
+      font-weight: 850;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+      padding: 2.4rem 0 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 2rem;
+    }
+
+    .footer-grid p {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-content: flex-start;
+      gap: .6rem 1rem;
+    }
+
+    .meta {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .question-flow { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .flow-step:nth-child(2)::after { display: none; }
+
+      .campus-grid,
+      .toolbox { grid-template-columns: 1fr; }
+
+      .footer-links { justify-content: flex-start; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      nav ul { justify-content: flex-start; }
+
+      .two-columns,
+      .card-grid,
+      .audience-grid,
+      .source-grid,
+      .scenario-grid,
+      .question-flow { grid-template-columns: 1fr; }
+
+      .flow-step:not(:last-child)::after {
+        content: "↓";
+        right: auto;
+        left: 1.2rem;
+        top: auto;
+        bottom: -.78rem;
+        display: grid;
+      }
+
+      h1 { font-size: clamp(3.1rem, 16vw, 4.7rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .concept-card,
+      .priority-card,
+      .audience-card,
+      .source-link,
+      .scenario,
+      .comparison-card,
+      .flow-step,
+      .tool,
+      details {
+        border: 2px solid CanvasText;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
+
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html#students">Students</a></li>
+          <li><a href="i-know-my-major.html">My Major</a></li>
+          <li><a href="i-know-where.html">My Destination</a></li>
+          <li><a href="index.html#faculty">Faculty</a></li>
+          <li><a href="will-this-count.html">Will This Count?</a></li>
+          <li><a href="assist-actually.html">ASSIST</a></li>
+          <li><a href="adt-actually.html">ADT</a></li>
+          <li><a href="cal-getc-actually.html">Cal-GETC</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> → Major Prep, Actually
+    </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">The other half of transfer preparation</p>
+          <h1 id="page-title">Major Prep, Actually.</h1>
+          <p class="lede">
+            General education helps you transfer as a broadly educated student. Major preparation helps you arrive ready for the specific program you want to enter.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-labelledby="one-idea">
+          <strong id="one-idea">The one idea to remember</strong>
+          <p>
+            Two students can both be “done with GE” and be in very different positions for transfer if one has completed the courses expected for the intended major and the other has not.
+          </p>
+          <div class="formula">GE answers: “What broad learning do I need?”<br>Major prep answers: “What does this major expect before I arrive?”</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="pair-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Do not mix these up</p>
+          <h2 id="pair-title">Cal-GETC and major preparation solve different problems.</h2>
+          <p>You often need both. The amount of attention each deserves depends on the student's major and destination.</p>
+        </div>
+
+        <div class="two-columns">
+          <article class="concept-card ge">
+            <span class="badge">General education</span>
+            <h3>Cal-GETC</h3>
+            <ul>
+              <li>Broad lower-division general education</li>
+              <li>Organized into statewide subject areas</li>
+              <li>Can help satisfy lower-division GE after transfer</li>
+              <li>Does not, by itself, tell you what a particular major expects</li>
+            </ul>
+          </article>
+
+          <article class="concept-card major">
+            <span class="badge">Major-specific</span>
+            <h3>Major preparation</h3>
+            <ul>
+              <li>Courses tied to the intended field of study</li>
+              <li>Can differ by university, campus, school, and major</li>
+              <li>May include required and recommended coursework</li>
+              <li>Can affect admission competitiveness and progress after transfer</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="plain">
+          <strong>The trap:</strong> “I finished my GE” can sound like “I finished everything I need before transfer.”
+          Those are not the same sentence.
+        </p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="questions-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">The four-question habit</p>
+          <h2 id="questions-title">Major prep only makes sense after you name the destination.</h2>
+          <p>Before looking for courses, pin down these four things.</p>
+        </div>
+
+        <div class="question-flow">
+          <article class="flow-step">
+            <span class="flow-num" aria-hidden="true">1</span>
+            <h3>What major?</h3>
+            <p>“Biology” and “Biochemistry” may have different preparation even at the same university.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-num" aria-hidden="true">2</span>
+            <h3>Which university?</h3>
+            <p>The same major can have different preparation across CSU, UC, and participating independent institutions.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-num" aria-hidden="true">3</span>
+            <h3>Which campus/program?</h3>
+            <p>A campus, college, school, or impacted program may add its own expectations.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-num" aria-hidden="true">4</span>
+            <h3>Which academic year?</h3>
+            <p>Articulation and requirements can change. Match the plan to the correct current agreement or guidance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="same-major-title">
+      <div class="wrap">
+        <div class="example-shell">
+          <p class="eyebrow" style="color:#f0c7b9;">Why this gets confusing</p>
+          <h2 id="same-major-title">Same major name. Different preparation.</h2>
+          <p>
+            This fictional example shows the pattern—not real requirements. The point is to notice why “I want to major in psychology” is not enough information to build a transfer plan.
+          </p>
+
+          <div class="campus-grid">
+            <article class="campus-card">
+              <span class="fictional">Fictional example</span>
+              <h3>University A · Psychology</h3>
+              <ul>
+                <li>Introductory psychology</li>
+                <li>Statistics</li>
+                <li>Biological science</li>
+              </ul>
+            </article>
+
+            <article class="campus-card">
+              <span class="fictional">Fictional example</span>
+              <h3>University B · Psychology</h3>
+              <ul>
+                <li>Introductory psychology</li>
+                <li>Statistics</li>
+                <li>Research methods</li>
+              </ul>
+            </article>
+
+            <article class="campus-card">
+              <span class="fictional">Fictional example</span>
+              <h3>University C · Psychology</h3>
+              <ul>
+                <li>Introductory psychology</li>
+                <li>Statistics</li>
+                <li>Two additional social-science courses</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="compare-note">
+            Real requirements must come from current ASSIST agreements and university guidance. This example is intentionally fictional so it cannot become stale transfer advice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="priority-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">What deserves priority?</p>
+          <h2 id="priority-title">Some majors make major preparation especially urgent.</h2>
+          <p>
+            There is no universal rule that says “finish all GE first.” The balance depends on the program.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="priority-card urgent">
+            <span class="badge">High-prep majors</span>
+            <h3>Engineering, many sciences, and other sequential programs</h3>
+            <p>
+              Courses can build on one another in long sequences. Missing an early calculus, chemistry, physics, or prerequisite course can delay later coursework.
+            </p>
+          </article>
+
+          <article class="priority-card flex">
+            <span class="badge">Keep options open</span>
+            <h3>Students considering several campuses</h3>
+            <p>
+              Compare preparation across destinations before assuming one campus's list will work everywhere. UC Transfer Pathways can simplify preparation for selected UC majors.
+            </p>
+          </article>
+
+          <article class="priority-card system">
+            <span class="badge">CSU</span>
+            <h3>Impacted campuses and majors</h3>
+            <p>
+              A CSU campus or program with more qualified applicants than available space may use higher or additional admission standards. Current campus/program information matters.
+            </p>
+          </article>
+
+          <article class="priority-card faculty">
+            <span class="badge">Faculty</span>
+            <h3>Courses that sit inside transfer pathways</h3>
+            <p>
+              A course revision may affect articulation or how the course serves a transfer major. Faculty should involve the articulation officer rather than assuming a curricular change is transfer-neutral.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="assist-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Where the answer lives</p>
+          <h2 id="assist-title">For a specific campus and major, start with the major agreement in ASSIST.</h2>
+          <p>
+            ASSIST major agreements show university major requirements and the community-college courses that may be used to satisfy those lower-division requirements. They may also include advisories or admission notes.
+          </p>
+        </div>
+
+        <div class="toolbox">
+          <article class="tool">
+            <strong>1. Open the right academic year</strong>
+            <p>Requirements and articulation can change. Do not automatically use the newest year if a different year applies to the student's planning context.</p>
+          </article>
+          <article class="tool">
+            <strong>2. Choose “View Agreement by Major”</strong>
+            <p>When a major agreement is published, this is the clearest place to see lower-division preparation for that program.</p>
+          </article>
+          <article class="tool">
+            <strong>3. Read every note</strong>
+            <p>Required, recommended, admissions, grade, sequence, and selection notes can matter as much as the course-to-course rows.</p>
+          </article>
+        </div>
+
+        <p class="plain">
+          <strong>Useful habit:</strong> do not stop when you find one matching course. Read the entire major agreement as a plan.
+          <a href="assist-actually.html">Practice reading an agreement in “ASSIST, Actually.”</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="language-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Transfer language</p>
+          <h2 id="language-title">Required, recommended, and articulated are not synonyms.</h2>
+          <p>Open the terms you need. These tiny distinctions can change how a student prioritizes coursework.</p>
+        </div>
+
+        <div class="stack">
+          <details>
+            <summary>Required preparation</summary>
+            <div class="details-body">
+              <p>
+                Coursework or conditions a program identifies as required for admission, selection, or preparation. The exact consequence of missing a requirement depends on the institution and program, so verify the current wording.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Recommended preparation</summary>
+            <div class="details-body">
+              <p>
+                Coursework a program strongly encourages but does not label the same way as a required course. “Recommended” should not automatically be read as “irrelevant,” especially in selective or highly sequential majors.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Articulated course</summary>
+            <div class="details-body">
+              <p>
+                An official agreement identifies how coursework at the sending institution may satisfy a receiving-institution course or requirement. Articulation answers a different question from whether the receiving program requires that course in the first place.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>No course articulated</summary>
+            <div class="details-body">
+              <p>
+                ASSIST explains that this means no established articulation is displayed for that university course and community college in the agreement. It does not automatically mean the CCC course is nontransferable.
+              </p>
+              <p><a href="will-this-count.html">Review the five meanings of “count” in “Will This Count?”</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="uc-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">A useful UC shortcut</p>
+          <h2 id="uc-title">Know your major but not your UC campus?</h2>
+          <p>
+            UC Transfer Pathways provide a single set of major-preparation courses for selected popular majors across participating UC campuses. They can help students keep multiple UC options open.
+          </p>
+        </div>
+
+        <div class="two-columns">
+          <article class="comparison-card">
+            <span class="badge">Specific destination</span>
+            <h3>Use ASSIST</h3>
+            <p>
+              Best when you want to know what a particular campus and major expects from students at your California Community College.
+            </p>
+          </article>
+
+          <article class="comparison-card">
+            <span class="badge">Multiple UC options</span>
+            <h3>Use a UC Transfer Pathway when available</h3>
+            <p>
+              Useful when you know the major and want a preparation roadmap designed to work across UC campuses offering that pathway.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="practice-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Try it</p>
+          <h2 id="practice-title">Which transfer problem is hiding here?</h2>
+          <p>Choose the best next move, then check the explanation.</p>
+        </div>
+
+        <div class="scenario-grid">
+          <article class="scenario" data-answer="b">
+            <h3>Ana finished Cal-GETC and wants to transfer into engineering.</h3>
+            <fieldset>
+              <legend>What should she check next?</legend>
+              <label class="choice"><input type="radio" name="q1" value="a"> Nothing. Finishing Cal-GETC means all lower-division transfer preparation is complete.</label>
+              <label class="choice"><input type="radio" name="q1" value="b"> The major-preparation sequences for her intended campuses, especially math and science prerequisites.</label>
+              <label class="choice"><input type="radio" name="q1" value="c"> Only whether she has exactly 60 units.</label>
+            </fieldset>
+            <button class="check-answer" type="button">Check answer</button>
+            <div class="feedback" hidden aria-live="polite"></div>
+          </article>
+
+          <article class="scenario" data-answer="c">
+            <h3>Marcus wants Psychology at three different UC campuses.</h3>
+            <fieldset>
+              <legend>What's the best strategy?</legend>
+              <label class="choice"><input type="radio" name="q2" value="a"> Assume Psychology preparation is identical everywhere.</label>
+              <label class="choice"><input type="radio" name="q2" value="b"> Finish GE first and wait until after transfer to look at major prerequisites.</label>
+              <label class="choice"><input type="radio" name="q2" value="c"> Compare current major preparation and see whether a UC Transfer Pathway can help keep several campus options open.</label>
+            </fieldset>
+            <button class="check-answer" type="button">Check answer</button>
+            <div class="feedback" hidden aria-live="polite"></div>
+          </article>
+
+          <article class="scenario" data-answer="a">
+            <h3>A professor is revising a course that appears in several transfer-major agreements.</h3>
+            <fieldset>
+              <legend>What's the smartest faculty move?</legend>
+              <label class="choice"><input type="radio" name="q3" value="a"> Involve the articulation officer before assuming the revision will have no transfer consequences.</label>
+              <label class="choice"><input type="radio" name="q3" value="b"> Ignore articulation because transfer is only a counseling issue.</label>
+              <label class="choice"><input type="radio" name="q3" value="c"> Tell students the course will continue to satisfy every same requirement automatically.</label>
+            </fieldset>
+            <button class="check-answer" type="button">Check answer</button>
+            <div class="feedback" hidden aria-live="polite"></div>
+          </article>
+
+          <article class="scenario" data-answer="b">
+            <h3>Jules sees “no course articulated” next to one university course.</h3>
+            <fieldset>
+              <legend>What can Jules safely conclude?</legend>
+              <label class="choice"><input type="radio" name="q4" value="a"> No CCC course can ever transfer to the university.</label>
+              <label class="choice"><input type="radio" name="q4" value="b"> No established articulation is displayed for that item in this agreement; that is not the same as saying every CCC course is nontransferable.</label>
+              <label class="choice"><input type="radio" name="q4" value="c"> The university course is optional.</label>
+            </fieldset>
+            <button class="check-answer" type="button">Check answer</button>
+            <div class="feedback" hidden aria-live="polite"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="audience-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">What do I do with this?</p>
+          <h2 id="audience-title">Students and faculty have different jobs.</h2>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card">
+            <span class="badge">Student</span>
+            <h3>Build the plan backward from the destination.</h3>
+            <ul>
+              <li>Name the intended major.</li>
+              <li>Choose realistic campuses to compare.</li>
+              <li>Check the correct ASSIST major agreements.</li>
+              <li>Notice required, recommended, grade, sequence, and admissions notes.</li>
+              <li>Review the full plan with counseling rather than planning from one webpage in isolation.</li>
+            </ul>
+          </article>
+
+          <article class="audience-card">
+            <span class="badge">Faculty</span>
+            <h3>Understand the pathway without becoming the student's counselor.</h3>
+            <ul>
+              <li>Know whether your course appears in major-preparation pathways.</li>
+              <li>Understand how articulation differs from transferability.</li>
+              <li>Loop in articulation when revising transfer-relevant courses.</li>
+              <li>Help students identify what to verify rather than guessing individualized requirements.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="sources" aria-labelledby="sources-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Official sources</p>
+          <h2 id="sources-title">Major prep is too specific to memorize from a static webpage.</h2>
+          <p>Use this page to understand the system. Use the live sources below to make actual transfer decisions.</p>
+        </div>
+
+        <div class="source-grid">
+          <a class="source-link" href="https://assist.org/">
+            <strong>Check current major agreements in ASSIST</strong>
+            <span>The official repository for California articulation and transferability information.</span>
+          </a>
+
+          <a class="source-link" href="https://resource.assist.org/Students-Faculty-Staff">
+            <strong>Learn how students and faculty use ASSIST</strong>
+            <span>Current guidance for choosing academic year, institutions, and agreement type.</span>
+          </a>
+
+          <a class="source-link" href="https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/preparing-to-transfer/">
+            <strong>Review UC transfer preparation guidance</strong>
+            <span>Major preparation, GPA, general education, and transfer-planning resources.</span>
+          </a>
+
+          <a class="source-link" href="https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/transfer-pathways/">
+            <strong>Explore UC Transfer Pathways</strong>
+            <span>A common major-preparation roadmap for selected majors across UC campuses.</span>
+          </a>
+
+          <a class="source-link" href="https://www.calstate.edu/apply/transfer/Pages/upper-division-transfer.aspx/">
+            <strong>Review current CSU upper-division transfer guidance</strong>
+            <span>Admission requirements, CSU Transfer Planner, ASSIST, and impaction resources.</span>
+          </a>
+
+          <a class="source-link" href="https://www.calstate.edu/apply/choosing-a-degree">
+            <strong>Explore CSU degrees and impacted programs</strong>
+            <span>Current CSU degree-search and impaction resources for campus and program planning.</span>
+          </a>
+        </div>
+
+        <div class="next">
+          <h2>You now have the two big preparation buckets.</h2>
+          <p>
+            Cal-GETC explains the general-education side. Major Prep explains the program-specific side.
+            Next, we can build the page that ties them together for real student planning: <a href="i-know-my-major.html" style="color:#fff;"><strong>“I Know My Major. Now What?”</strong></a>
+          </p>
+          <div class="next-links">
+            <a href="i-know-my-major.html">Start the major-based planning route →</a>
+            <a href="cal-getc-actually.html">Review Cal-GETC, Actually →</a>
+            <a href="assist-actually.html">Practice in ASSIST, Actually →</a>
+            <a href="will-this-count.html">Review Will This Count? →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Transfer<span>, Actually</span></a>
+          <p>
+            An independent, faculty-created educational project. It explains transfer concepts and points to authoritative sources; it does not replace academic counseling, admissions guidance, articulation review, or official institutional information.
+          </p>
+        </div>
+
+        <div class="footer-links" aria-label="Footer links">
+          <a href="index.html">Home</a>
+          <a href="cal-getc-actually.html">Cal-GETC</a>
+          <a href="assist-actually.html">ASSIST</a>
+          <a href="will-this-count.html">Will This Count?</a>
+          <a href="#sources">Official sources</a>
+        </div>
+      </div>
+
+      <p class="meta">
+        Last reviewed for statewide major-preparation source links: September 2026.
+        Major preparation, articulation, admission standards, and impaction can change; verify individualized or time-sensitive information with current official sources.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.scenario').forEach((card) => {
+      const button = card.querySelector('.check-answer');
+      const feedback = card.querySelector('.feedback');
+
+      button.addEventListener('click', () => {
+        const selected = card.querySelector('input[type="radio"]:checked');
+
+        if (!selected) {
+          feedback.className = 'feedback retry';
+          feedback.textContent = 'Choose an answer first. Look for the option that separates broad GE completion from the preparation expected by the actual major and destination.';
+          feedback.hidden = false;
+          return;
+        }
+
+        if (selected.value === card.dataset.answer) {
+          feedback.className = 'feedback good';
+          feedback.textContent = 'Yes. Major preparation is destination-specific. The safest habit is to verify the current major agreement, read the notes, and connect that information to the student’s full transfer plan.';
+        } else {
+          feedback.className = 'feedback retry';
+          feedback.textContent = 'Not quite. Watch for answers that assume finishing GE finishes major preparation, that one campus represents every campus, or that articulation and transferability mean the same thing.';
+        }
+
+        feedback.hidden = false;
+      });
+    });
+  </script>
+</body>
+</html>
