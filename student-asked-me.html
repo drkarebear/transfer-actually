@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+<meta name="description" content="A Student Just Asked Me helps California Community College faculty answer common transfer questions without guessing: what faculty can explain, what to verify, and when to refer students to counseling, articulation, admissions, or financial aid.">
+  <title>A Student Just Asked Me… | Transfer, Actually</title>
+
+  <style>
+    :root{
+      --bg:#faf8f3; --surface:#fff; --surface-soft:#f3f0e8; --ink:#17202a; --muted:#52606d;
+      --line:#d8d2c6; --blue:#1a4d7a; --blue-soft:#e8f1f8; --teal:#1f5a5b; --teal-soft:#e6f1ef;
+      --rust:#7a3f2d; --rust-soft:#f5ebe7; --gold:#6d5200; --gold-soft:#f8f0d6;
+      --green:#245c3a; --green-soft:#e7f2e9; --violet:#5e4775; --violet-soft:#eee8f5;
+      --focus:#8a4fff; --shadow:0 12px 34px rgba(23,32,42,.08); --radius:22px; --radius-sm:14px; --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+    a{color:var(--blue);text-underline-offset:.18em;text-decoration-thickness:.08em}
+    a:hover{text-decoration-thickness:.14em}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:4px solid var(--focus);outline-offset:4px;border-radius:7px}
+    button{font:inherit}
+    .skip-link{position:absolute;left:1rem;top:-5rem;z-index:1000;background:var(--ink);color:#fff;padding:.75rem 1rem;border-radius:0 0 10px 10px;font-weight:800}
+    .skip-link:focus{top:0}
+    .wrap{width:min(var(--max),calc(100% - 2rem));margin-inline:auto}
+    header{background:rgba(250,248,243,.97);border-bottom:1px solid var(--line)}
+    .topbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.75rem}
+    .brand{color:var(--ink);text-decoration:none;font-weight:900;letter-spacing:-.03em;font-size:1.3rem}.brand span{color:var(--rust)}
+    nav ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.25rem}
+    nav a{display:inline-block;color:var(--ink);text-decoration:none;padding:.5rem .62rem;border-radius:10px;font-weight:700;font-size:.93rem}
+    nav a:hover{background:var(--surface-soft)}
+    .breadcrumb{padding-top:1.1rem;color:var(--muted);font-size:.94rem}.breadcrumb a{color:var(--muted)}
+    .hero{padding:clamp(2.8rem,7vw,5.7rem) 0 clamp(2.8rem,6vw,4.7rem)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+    .eyebrow{display:inline-block;margin:0 0 .85rem;color:var(--rust);font-weight:850;letter-spacing:.07em;text-transform:uppercase;font-size:.82rem}
+    h1,h2,h3{line-height:1.13;letter-spacing:-.035em;text-wrap:balance}
+    h1{margin:0;max-width:12ch;font-size:clamp(3rem,7vw,5.5rem)}
+    h2{margin:0 0 .9rem;font-size:clamp(2rem,5vw,3.15rem)}
+    h3{margin:0 0 .45rem;font-size:1.25rem}
+    .lede{max-width:750px;margin:1.1rem 0 0;color:var(--muted);font-size:clamp(1.1rem,2vw,1.3rem)}
+    .hero-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.3rem,3vw,2rem);box-shadow:var(--shadow)}
+    .hero-card strong{display:block;margin-bottom:.55rem;font-size:1.42rem;line-height:1.3}.hero-card p{margin:0;color:var(--muted)}
+    .four-part{display:grid;gap:.5rem;margin-top:1rem}
+    .four-part span{display:block;padding:.65rem .78rem;border-radius:10px;font-weight:800}
+    .four-part .explain{background:var(--green-soft)}.four-part .check{background:var(--gold-soft)}.four-part .refer{background:var(--blue-soft)}.four-part .guess{background:var(--rust-soft)}
+    .band{padding:clamp(3.5rem,7vw,5.8rem) 0}.white{background:var(--surface);border-block:1px solid var(--line)}
+    .section-intro{max-width:835px;margin-bottom:2rem}.section-intro p{margin:0;color:var(--muted);font-size:1.06rem}
+    .principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+    .principle{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1rem}
+    .principle strong{display:block;margin-bottom:.3rem}.principle p{margin:0;color:var(--muted);font-size:.94rem}
+    .principle.explain{border-top:5px solid var(--green)}.principle.check{border-top:5px solid #a17a10}.principle.refer{border-top:5px solid var(--blue)}.principle.guess{border-top:5px solid var(--rust)}
+    .filters{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.2rem}
+    .filter{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:.6rem .8rem;border-radius:999px;font-weight:800;cursor:pointer}
+    .filter[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .scenario{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.15rem;box-shadow:0 4px 16px rgba(23,32,42,.04)}
+    .scenario[hidden]{display:none}
+    .question{font-size:1.32rem;font-weight:900;line-height:1.25;margin:.15rem 0 .85rem;letter-spacing:-.025em}
+    .tag{display:inline-block;margin-bottom:.45rem;padding:.18rem .52rem;border-radius:999px;background:var(--surface-soft);color:var(--muted);font-size:.75rem;font-weight:850;letter-spacing:.04em;text-transform:uppercase}
+    .answer-block{padding:.82rem .88rem;border-radius:11px;margin-top:.65rem}
+    .answer-block strong{display:block;margin-bottom:.2rem}
+    .answer-block p{margin:0;color:var(--ink)}
+    .answer-block.explain{background:var(--green-soft)}.answer-block.check{background:var(--gold-soft)}.answer-block.refer{background:var(--blue-soft)}.answer-block.guess{background:var(--rust-soft)}
+    .response{margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--line)}
+    .response strong{display:block;margin-bottom:.25rem}
+    .response p{margin:0;color:var(--muted);font-style:italic}
+    .deep-link{margin-top:.7rem;font-weight:800}
+    .script-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:clamp(1.35rem,4vw,2.2rem)}
+    .script-shell h2{color:#fff}.script-shell>p{color:#dce4ea;max-width:820px}
+    .script-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin-top:1.2rem}
+    .script{background:#fff;color:var(--ink);border-radius:var(--radius-sm);padding:1rem}
+    .script strong{display:block;margin-bottom:.4rem}.script p{margin:0;color:var(--muted)}
+    .who-grid,.source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .who,.source-link{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.1rem}
+    .who p{margin-bottom:0;color:var(--muted)}
+    .who.counsel{border-top:5px solid var(--blue)}.who.ao{border-top:5px solid var(--teal)}.who.admit{border-top:5px solid var(--rust)}.who.aid{border-top:5px solid #8b6a12}
+    .source-link{display:block;text-decoration:none}.source-link:hover{background:var(--blue-soft);border-color:#9ebdd5}
+    .source-link strong{display:block;color:var(--ink);margin-bottom:.2rem}.source-link span{display:block;color:var(--muted);font-size:.93rem}
+    .note{margin-top:1rem;padding:.9rem 1rem;border-left:5px solid var(--teal);border-radius:0 12px 12px 0;background:var(--teal-soft)}
+    .next{margin-top:2rem;padding:clamp(1.4rem,4vw,2.2rem);border-radius:var(--radius);background:var(--ink);color:#fff}
+    .next h2{color:#fff}.next p{color:#dce4ea;max-width:810px}.next-links{display:flex;flex-wrap:wrap;gap:.7rem}
+    .next a{display:inline-block;padding:.75rem 1rem;border-radius:11px;background:#fff;color:var(--ink);text-decoration:none;font-weight:850}
+    footer{border-top:1px solid var(--line);background:var(--surface);padding:2.4rem 0 3rem}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem}.footer-grid p{color:var(--muted);max-width:760px}
+    .footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:.6rem 1rem}
+    .meta{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    @media(max-width:950px){.hero-grid,.footer-grid{grid-template-columns:1fr}.principles{grid-template-columns:repeat(2,minmax(0,1fr))}.script-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+    @media(max-width:700px){.topbar{align-items:flex-start;flex-direction:column}nav ul{justify-content:flex-start}.principles,.scenario-grid,.who-grid,.source-grid{grid-template-columns:1fr}h1{font-size:clamp(3rem,15vw,4.6rem)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+    @media(forced-colors:active){.principle,.scenario,.script,.who,.source-link,.filter{border:2px solid CanvasText}}
+  
+    /* Transfer, Actually blue brand refresh — favicon12 */
+    :root {
+      --blue: #1236b8;
+      --blue-soft: #eaf0ff;
+      --teal: #007c9e;
+      --teal-soft: #e6f9fe;
+      --navy: #082a85;
+      --cyan: #00bff3;
+      --cyan-soft: #e8fbff;
+      --focus: #0067c5;
+    }
+
+    header::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 48%, var(--cyan) 100%);
+    }
+
+    .brand span,
+    .eyebrow {
+      color: var(--blue);
+    }
+
+    a {
+      text-decoration-color: rgba(18, 54, 184, .42);
+    }
+
+    .hero-card,
+    .big-idea {
+      border-top: 4px solid var(--cyan);
+      box-shadow: 0 12px 34px rgba(18, 54, 184, .10);
+    }
+
+    .decision-shell,
+    .wizard,
+    .system-pick,
+    .systems,
+    .script-shell,
+    .after-apply,
+    .timeline,
+    .example-shell,
+    .next {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    }
+
+    .check-answer {
+      background: var(--blue);
+    }
+
+    .filter[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .source-link:hover {
+      background: var(--cyan-soft);
+      border-color: #7edcf3;
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html#students">Students</a></li>
+          <li><a href="ready-to-apply.html">Student Paths</a></li>
+          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
+          <li><a href="student-asked-me.html" aria-current="page">Faculty Help</a></li>
+          <li><a href="assist-actually.html">ASSIST</a></li>
+          <li><a href="major-prep-actually.html">Major Prep</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> → A Student Just Asked Me…
+    </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Faculty transfer help in the moment</p>
+          <h1 id="page-title">A Student Just Asked Me…</h1>
+          <p class="lede">
+            You do not need to become a transfer counselor to be useful. You need enough transfer literacy to explain the concept, recognize what must be checked, and help the student reach the right next source without confidently guessing.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-labelledby="pattern-title">
+          <strong id="pattern-title">Use the same four-part response every time.</strong>
+          <div class="four-part">
+            <span class="explain">1. What can I explain?</span>
+            <span class="check">2. What needs a current check?</span>
+            <span class="refer">3. Who owns the individualized answer?</span>
+            <span class="guess">4. What should I not guess?</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="boundary-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">The faculty boundary</p>
+          <h2 id="boundary-title">Explain the system. Do not invent the student's plan.</h2>
+          <p>Faculty expertise is especially useful for concepts, curriculum, disciplines, and helping students interpret what they are seeing. Individual transfer planning can depend on the complete record, destination, term, catalog context, and current institutional rules.</p>
+        </div>
+
+        <div class="principles">
+          <article class="principle explain">
+            <strong>🟢 You can explain</strong>
+            <p>Transferability vs. articulation, GE vs. major prep, what ASSIST is, what an ADT generally does, and why destination matters.</p>
+          </article>
+          <article class="principle check">
+            <strong>🔎 Check before answering</strong>
+            <p>A particular campus, major, academic year, course articulation, similar-major status, impaction, or current admissions rule.</p>
+          </article>
+          <article class="principle refer">
+            <strong>👤 Refer individualized planning</strong>
+            <p>Transcript-wide decisions, course sequencing, repeats, unit totals, catalog rights, eligibility, admission conditions, or financial aid.</p>
+          </article>
+          <article class="principle guess">
+            <strong>⛔ Do not guess</strong>
+            <p>Whether a student “will get in,” whether one course substitution is safe, or whether a change cannot affect an offer of admission.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="scenarios-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Real questions</p>
+          <h2 id="scenarios-title">What did the student ask?</h2>
+          <p>Filter by the kind of question you are dealing with, or scan them all.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter faculty transfer scenarios">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="course" aria-pressed="false">Course counting</button>
+          <button class="filter" type="button" data-filter="major" aria-pressed="false">Major + GE</button>
+          <button class="filter" type="button" data-filter="pathway" aria-pressed="false">ADT + pathways</button>
+          <button class="filter" type="button" data-filter="record" aria-pressed="false">Grades + record</button>
+          <button class="filter" type="button" data-filter="admission" aria-pressed="false">Admission</button>
+        </div>
+
+        <div class="scenario-grid" id="scenario-grid">
+
+          <article class="scenario" data-category="course">
+            <span class="tag">Course counting</span>
+            <p class="question">“Will your class transfer to UCLA?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>A course can be UC-transferable for unit credit without being articulated to a specific UCLA course or satisfying this student's major preparation.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the current ASSIST academic year, the CCC's UC-transferable course list, and the relevant UCLA agreement if the question is about a particular requirement.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>If the student is deciding whether this course belongs in the full education plan, counseling should review the destination and major with the complete record.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not turn “UC transferable” into “this satisfies the UCLA requirement you need.”</p></div>
+            <div class="response"><strong>A useful response</strong><p>“It may transfer for unit credit, but let's separate that from whether it satisfies something specific at UCLA. ASSIST is where we can verify that part.”</p></div>
+            <p class="deep-link"><a href="will-this-count.html">Review the five meanings of “count” →</a></p>
+          </article>
+
+          <article class="scenario" data-category="course">
+            <span class="tag">Course counting</span>
+            <p class="question">“Is this class UC transferable?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>“UC transferable” means UC has approved the course for transfer unit credit. It does not automatically mean GE, major preparation, or course-to-course articulation.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Use ASSIST's current UC Transferable Courses list for the student's CCC and the correct academic year.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>If the real question is “Should I take it?”, the answer belongs inside the student's complete transfer plan.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not rely on an old syllabus, memory, or “it has always transferred.”</p></div>
+            <div class="response"><strong>A useful response</strong><p>“We can verify whether UC gives it transfer unit credit. Then we still need a separate check if you're asking whether it fills GE or your major.”</p></div>
+            <p class="deep-link"><a href="assist-actually.html">Go to ASSIST, Actually →</a></p>
+          </article>
+
+          <article class="scenario" data-category="major">
+            <span class="tag">Major preparation</span>
+            <p class="question">“Do I need this class for my major?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Major preparation is destination-specific. The same major name can have different lower-division preparation at different universities.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Use the current major agreement in ASSIST and the receiving campus's program/admissions information.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling should help prioritize courses when several campuses, prerequisites, GE, and timeline constraints compete.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not answer from the discipline name alone or from what one university requires.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“Maybe—but the university and exact program decide that. Let's first identify where you want to transfer.”</p></div>
+            <p class="deep-link"><a href="major-prep-actually.html">Review Major Prep, Actually →</a></p>
+          </article>
+
+          <article class="scenario" data-category="major">
+            <span class="tag">GE + major</span>
+            <p class="question">“I finished Cal-GETC. Am I ready to transfer?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Cal-GETC addresses lower-division general education. Transfer preparation can also include major preparation, minimum admission requirements, units/GPA, and campus/program selection criteria.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the intended university and major, current admission requirements, and major preparation.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling should verify whether the student's overall transfer plan is complete.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not equate “GE complete” with “transfer-ready for this major.”</p></div>
+            <div class="response"><strong>A useful response</strong><p>“That's a big piece of the puzzle. Now we need to make sure your major prep and admission requirements are lined up too.”</p></div>
+            <p class="deep-link"><a href="cal-getc-actually.html">Review Cal-GETC, Actually →</a></p>
+          </article>
+
+          <article class="scenario" data-category="pathway">
+            <span class="tag">ADT</span>
+            <p class="question">“I have an ADT. Am I guaranteed into CSUN?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>The statewide ADT benefit is priority admission to the CSU system for eligible students; it is not, by itself, a guarantee of one specific campus or major.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check whether the CSU program is deemed similar to the ADT, current campus/major admission conditions, and any impaction.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling/admissions can help the student apply the ADT to the actual campus/major plan.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not translate “Degree with a Guarantee” into a promise of the student's chosen campus.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“Your ADT gives you important CSU transfer benefits, but the statewide guarantee does not mean automatic admission to CSUN specifically. Let's verify the similar-major and campus details.”</p></div>
+            <p class="deep-link"><a href="adt-actually.html">Review ADT, Actually →</a></p>
+          </article>
+
+          <article class="scenario" data-category="course">
+            <span class="tag">ASSIST language</span>
+            <p class="question">“ASSIST says ‘no course articulated.’ Does that mean my class doesn't transfer?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>No established articulation for that item is not the same statement as “this course is nontransferable.” Transferability and articulation answer different questions.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the appropriate transferability list plus the complete agreement and its notes for the correct year.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>If the missing articulation changes the student's major plan, counseling and/or the articulation officer can help identify what the agreement means in context.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not invent an equivalency that ASSIST does not show.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“That means ASSIST is not showing an established articulation for that item. Let's not turn that into a broader claim about whether your course transfers at all.”</p></div>
+            <p class="deep-link"><a href="assist-actually.html">Practice reading agreements →</a></p>
+          </article>
+
+          <article class="scenario" data-category="record">
+            <span class="tag">Changed major</span>
+            <p class="question">“I changed my major. Did I waste all these classes?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>A course can still serve transfer credit, GE, another requirement, or elective units even if it no longer serves the new major. The old and new pathways need to be compared.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Recheck the new major's preparation, the destination, GE, and any structured pathway such as ADT or TAG.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>This is exactly the kind of transcript-wide replanning counseling should do with the student.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not call courses “wasted” or promise that everything will apply to the new degree.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“Not necessarily. Let's separate what those courses still do from what the new major requires. Your counselor can help rebuild the plan without assuming you start over.”</p></div>
+            <p class="deep-link"><a href="something-changed.html">Use Something Changed →</a></p>
+          </article>
+
+          <article class="scenario" data-category="record">
+            <span class="tag">Grade / W</span>
+            <p class="question">“I got a W. Did I ruin my transfer?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>There is no useful one-word answer. The consequence depends on what course it was, the larger record, whether a required sequence changed, and the rules of the destination/program.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check whether the course is required for eligibility, major preparation, GE, or a transfer pathway and whether the student's timeline changed.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling should review the whole record; after application or admission, the receiving campus may also need an update.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not reassure with “Ws don't matter” or alarm with “a W will prevent transfer.”</p></div>
+            <div class="response"><strong>A useful response</strong><p>“A W doesn't tell me enough to predict your transfer outcome. Let's figure out what role that course played and where you are in the application process.”</p></div>
+            <p class="deep-link"><a href="something-changed.html">Use the recovery route →</a></p>
+          </article>
+
+          <article class="scenario" data-category="record">
+            <span class="tag">Unit total</span>
+            <p class="question">“I have too many units. Can I still transfer?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>A raw total is not enough information. Receiving institutions may treat CCC transferable units, nontransferable coursework, and four-year/upper-division coursework differently.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>The student's complete record and the receiving institution's current unit policies need review.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Send this to counseling and, when needed, the receiving university's admissions/evaluation office.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not add units aloud from the student's memory and pronounce them eligible or ineligible.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“The total alone doesn't answer that. We need to know what kind of units they are and how your destination treats them.”</p></div>
+          </article>
+
+          <article class="scenario" data-category="major">
+            <span class="tag">Course choice</span>
+            <p class="question">“Should I take your class or another GE class?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>You can explain what your course covers, whether it is currently approved for transfer/GE when verified, and how it fits the discipline.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the student's intended pathway and destination before treating two “GE-looking” choices as interchangeable.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>The choice belongs in the student's whole education plan, especially if one option also serves major preparation or a prerequisite.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not choose a course for the student based only on which one seems easier, more interesting, or broadly transferable.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“I can tell you exactly what my course does. Before I tell you it's the better choice, let's make sure it fits the transfer plan you're actually following.”</p></div>
+          </article>
+
+          <article class="scenario" data-category="admission">
+            <span class="tag">After transfer</span>
+            <p class="question">“Can I just change majors after I transfer?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Change-of-major rules are set by the receiving institution and can be especially restrictive for selective, capped, impacted, or highly sequenced programs.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Use the actual university/program's rules for transfer students, not a general assumption about changing majors.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Admissions or the receiving program should answer whether the intended switch is possible.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not advise students to apply to an easier major as a back door unless the institution explicitly supports the later change.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“Maybe, but that's a university-specific policy—not a safe transfer strategy to assume. Let's check the rule before you build a plan around changing later.”</p></div>
+            <p class="deep-link"><a href="i-know-where.html">Use the destination-first route →</a></p>
+          </article>
+
+          <article class="scenario" data-category="admission">
+            <span class="tag">Conflicting advice</span>
+            <p class="question">“My counselor told me something different. Who is right?”</p>
+            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Transfer answers can differ because people are answering different questions, using different academic years, or discussing different campuses/majors. A conflict is a cue to locate the authoritative source—not to create a faculty-versus-counselor contest.</p></div>
+            <div class="answer-block check"><strong>🔎 Verify</strong><p>Identify the exact claim, destination, major, term/year, and source. Check ASSIST or the institution that owns the policy.</p></div>
+            <div class="answer-block refer"><strong>👤 Refer</strong><p>Bring the source back to the counselor; involve the articulation officer when the dispute is specifically about articulation.</p></div>
+            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not tell the student the counselor is wrong based on a rule you remember from another campus or year.</p></div>
+            <div class="response"><strong>A useful response</strong><p>“Let's make the disagreement specific. What exact requirement are we talking about, for which campus and major, and what current source answers it?”</p></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="scripts-title">
+      <div class="wrap">
+        <div class="script-shell">
+          <p class="eyebrow" style="color:#8de7f8;">Three sentences worth memorizing</p>
+          <h2 id="scripts-title">You do not need a perfect answer on the spot.</h2>
+          <p>These are useful because they help without pretending certainty.</p>
+          <div class="script-grid">
+            <article class="script">
+              <strong>When you know the concept</strong>
+              <p>“I can explain what that term means. Then let's check how it applies to your university and major.”</p>
+            </article>
+            <article class="script">
+              <strong>When you need to verify</strong>
+              <p>“I don't want to answer that from memory because the academic year and destination matter. Let's look at the current source.”</p>
+            </article>
+            <article class="script">
+              <strong>When it becomes individualized advising</strong>
+              <p>“I can help you understand the system, but I don't want to guess about your whole transfer plan. This is a good one to take to counseling with the source we just found.”</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="who-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Who owns which question?</p>
+          <h2 id="who-title">Referral is more useful when it is specific.</h2>
+        </div>
+
+        <div class="who-grid">
+          <article class="who counsel">
+            <h3>Counselor / advisor</h3>
+            <p>Whole education plan, sequencing, transcript-wide decisions, GE/major/pathway integration, catalog-rights questions, and individualized transfer planning.</p>
+          </article>
+          <article class="who ao">
+            <h3>Articulation officer</h3>
+            <p>How institutional courses articulate, questions about ASSIST agreement interpretation or missing articulation, and faculty curriculum changes that may affect articulation.</p>
+          </article>
+          <article class="who admit">
+            <h3>Receiving university admissions / program</h3>
+            <p>Admission eligibility, program selection, impaction/selectivity, conditions of admission, change-of-major rules, application-specific questions, and policies owned by that institution.</p>
+          </article>
+          <article class="who aid">
+            <h3>Financial aid office</h3>
+            <p>FAFSA/CADAA issues, satisfactory academic progress, aid eligibility, special-circumstance review, award questions, and financial consequences of enrollment decisions.</p>
+          </article>
+        </div>
+
+        <p class="note"><strong>A useful faculty move:</strong> when you refer, send the student with a specific question and—when possible—the official page you were looking at. “Go see counseling” is much more useful when it becomes “Take this ASSIST major agreement to counseling and ask which of these preparation courses should come first in your plan.”</p>
+      </div>
+    </section>
+
+    <section class="band white" id="sources" aria-labelledby="sources-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Official-source shelf</p>
+          <h2 id="sources-title">Keep these close when students ask transfer questions.</h2>
+        </div>
+
+        <div class="source-grid">
+          <a class="source-link" href="https://resource.assist.org/Students-Faculty-Staff">
+            <strong>ASSIST guidance for students, faculty, and staff</strong>
+            <span>What ASSIST covers, how to choose academic year and agreement type, transferability lists, and why ASSIST should be used with counseling/advising.</span>
+          </a>
+          <a class="source-link" href="https://assist.org/">
+            <strong>Open the live ASSIST database</strong>
+            <span>Official articulation and transferability information for California public institutions and participating AICCU institutions.</span>
+          </a>
+          <a class="source-link" href="https://www.calstate.edu/apply/transfer/Pages/ccc-associate-degree-for-transfer.aspx">
+            <strong>Check current CSU ADT guidance</strong>
+            <span>What the Associate Degree for Transfer guarantees and what it does not guarantee.</span>
+          </a>
+          <a class="source-link" href="https://www.calstate.edu/apply/transfer">
+            <strong>Check current CSU transfer information</strong>
+            <span>Transfer applicant types, admission resources, ADT, TSP, and current application guidance.</span>
+          </a>
+          <a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/how-applications-are-reviewed.html">
+            <strong>See how UC reviews transfer applicants</strong>
+            <span>Current comprehensive-review factors, including major preparation, transferable GPA, and transfer pathways.</span>
+          </a>
+          <a class="source-link" href="https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/uc-transfer-programs/pathways-plus.html">
+            <strong>Review UC Transfer Pathways, TAG, and Pathways+</strong>
+            <span>Useful when students ask how major preparation and a possible UC admission guarantee fit together.</span>
+          </a>
+        </div>
+
+        <div class="next">
+          <h2>Next faculty build: Transfer for Faculty, Actually.</h2>
+          <p>This page solves the “student is standing in front of me” problem. Next I would make a short faculty orientation that gives instructors the whole transfer mental model in about ten minutes—transferable, articulated, GE, major prep, ADT, ASSIST, CCN/C-ID, and who does what on campus.</p>
+          <div class="next-links">
+            <a href="transfer-for-faculty.html">10-minute faculty orientation →</a>
+            <a href="assist-actually.html">ASSIST, Actually →</a>
+            <a href="major-prep-actually.html">Major Prep →</a>
+            <a href="adt-actually.html">ADT, Actually →</a>
+            <a href="will-this-count.html">Will This Count? →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Transfer<span>, Actually</span></a>
+          <p>An independent, faculty-created educational project. It helps faculty understand and explain transfer concepts; it does not authorize faculty to make individualized counseling, admissions, articulation, or financial-aid determinations.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+          <a href="index.html">Home</a>
+          <a href="index.html#faculty">Faculty</a>
+          <a href="assist-actually.html">ASSIST</a>
+          <a href="#sources">Official sources</a>
+        </div>
+      </div>
+      <p class="meta">Last reviewed: September 2026. Transfer articulation, admission policies, pathways, and campus requirements can change. Use current official sources for time-sensitive or individualized questions.</p>
+    </div>
+  </footer>
+
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const scenarios = document.querySelectorAll('.scenario');
+
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        filters.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+
+        scenarios.forEach(card => {
+          card.hidden = !(filter === 'all' || card.dataset.category === filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

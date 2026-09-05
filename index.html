@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Transfer, Actually explains California Community College transfer in plain language for students and faculty.">
+    <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+<meta name="description" content="Transfer, Actually explains California Community College transfer in plain language for students and faculty.">
   <title>Transfer, Actually | California Community College Transfer in Plain Language</title>
 
   <style>
@@ -723,6 +726,68 @@
         border: 2px solid CanvasText;
       }
     }
+  
+    /* Transfer, Actually blue brand refresh — favicon12 */
+    :root {
+      --blue: #1236b8;
+      --blue-soft: #eaf0ff;
+      --teal: #007c9e;
+      --teal-soft: #e6f9fe;
+      --navy: #082a85;
+      --cyan: #00bff3;
+      --cyan-soft: #e8fbff;
+      --focus: #0067c5;
+    }
+
+    header::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 48%, var(--cyan) 100%);
+    }
+
+    .brand span,
+    .eyebrow {
+      color: var(--blue);
+    }
+
+    a {
+      text-decoration-color: rgba(18, 54, 184, .42);
+    }
+
+    .hero-card,
+    .big-idea {
+      border-top: 4px solid var(--cyan);
+      box-shadow: 0 12px 34px rgba(18, 54, 184, .10);
+    }
+
+    .decision-shell,
+    .wizard,
+    .system-pick,
+    .systems,
+    .script-shell,
+    .after-apply,
+    .timeline,
+    .example-shell,
+    .next {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    }
+
+    .check-answer {
+      background: var(--blue);
+    }
+
+    .filter[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .source-link:hover {
+      background: var(--cyan-soft);
+      border-color: #7edcf3;
+    }
+
   </style>
 </head>
 
@@ -740,7 +805,11 @@
           <li><a href="#students">Students</a></li>
           <li><a href="i-know-my-major.html">My Major</a></li>
           <li><a href="i-know-where.html">My Destination</a></li>
+          <li><a href="something-changed.html">Something Changed</a></li>
+          <li><a href="ready-to-apply.html">Ready to Apply</a></li>
           <li><a href="#faculty">Faculty</a></li>
+          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
+          <li><a href="student-asked-me.html">Faculty Help</a></li>
           <li><a href="#basics">Learn the Basics</a></li>
           <li><a href="#official-sources">Official Sources</a></li>
           <li><a href="#about">About</a></li>
@@ -792,8 +861,10 @@
           <a href="cal-getc-actually.html">What's Cal-GETC?</a>
           <a href="i-know-my-major.html">I know my major. What now?</a>
           <a href="i-know-where.html">I know where I want to go. What now?</a>
+          <a href="something-changed.html">Something changed. What now?</a>
+          <a href="ready-to-apply.html">I'm ready to apply. What now?</a>
           <a href="major-prep-actually.html">What is major preparation?</a>
-          <a href="#faculty">A student just asked me something.</a>
+          <a href="student-asked-me.html">A student just asked me something.</a>
         </div>
       </div>
     </section>
@@ -881,14 +952,14 @@
             <span class="tag">Application</span>
             <h3>I'm getting ready to apply.</h3>
             <p>Know which requirements and deadlines need to come from current official university sources.</p>
-            <a href="#official-sources">Go to official transfer resources →</a>
+            <a href="ready-to-apply.html">Build my application-season checklist →</a>
           </article>
 
           <article class="card student">
             <span class="tag">Plans change</span>
             <h3>Something changed.</h3>
             <p>You changed your major, got a W, switched campuses, or learned a requirement is different. Start by identifying what changed and what needs to be rechecked.</p>
-            <a href="#trust">See what to verify →</a>
+            <a href="something-changed.html">Build my recovery plan →</a>
           </article>
         </div>
       </div>
@@ -923,7 +994,7 @@
             <span class="tag">Student question</span>
             <h3>A student just asked me…</h3>
             <p>Learn what faculty can safely explain, what should be verified in current sources, and when individualized planning belongs with counseling.</p>
-            <a href="#trust">See the “check before you answer” guide →</a>
+            <a href="student-asked-me.html">Open the faculty question guide →</a>
           </article>
 
           <article class="card faculty">

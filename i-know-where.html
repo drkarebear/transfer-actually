@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="I Know Where I Want to Go. Now What? is a destination-first California Community College transfer planning guide that helps students work backward from a university through major preparation, ASSIST, GE, transfer pathways, deadlines, and backup plans.">
+    <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+<meta name="description" content="I Know Where I Want to Go. Now What? is a destination-first California Community College transfer planning guide that helps students work backward from a university through major preparation, ASSIST, GE, transfer pathways, deadlines, and backup plans.">
   <title>I Know Where I Want to Go. Now What? | Transfer, Actually</title>
 
   <style>
@@ -672,6 +675,68 @@
         border: 2px solid CanvasText;
       }
     }
+  
+    /* Transfer, Actually blue brand refresh — favicon12 */
+    :root {
+      --blue: #1236b8;
+      --blue-soft: #eaf0ff;
+      --teal: #007c9e;
+      --teal-soft: #e6f9fe;
+      --navy: #082a85;
+      --cyan: #00bff3;
+      --cyan-soft: #e8fbff;
+      --focus: #0067c5;
+    }
+
+    header::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 48%, var(--cyan) 100%);
+    }
+
+    .brand span,
+    .eyebrow {
+      color: var(--blue);
+    }
+
+    a {
+      text-decoration-color: rgba(18, 54, 184, .42);
+    }
+
+    .hero-card,
+    .big-idea {
+      border-top: 4px solid var(--cyan);
+      box-shadow: 0 12px 34px rgba(18, 54, 184, .10);
+    }
+
+    .decision-shell,
+    .wizard,
+    .system-pick,
+    .systems,
+    .script-shell,
+    .after-apply,
+    .timeline,
+    .example-shell,
+    .next {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    }
+
+    .check-answer {
+      background: var(--blue);
+    }
+
+    .filter[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .source-link:hover {
+      background: var(--cyan-soft);
+      border-color: #7edcf3;
+    }
+
   </style>
 </head>
 
@@ -727,7 +792,7 @@
     <section class="band white" aria-labelledby="wizard-title">
       <div class="wrap">
         <div class="wizard">
-          <p class="eyebrow" style="color:#f1c4b5;">Build your route</p>
+          <p class="eyebrow" style="color:#8de7f8;">Build your route</p>
           <h2 id="wizard-title">Tell us two things about your destination.</h2>
           <p>You do not need to enter the university name. We only need to know what kind of destination it is and how settled you are on the major.</p>
 
@@ -935,7 +1000,7 @@
     <section class="band white" aria-labelledby="timeline-title">
       <div class="wrap">
         <div class="timeline">
-          <p class="eyebrow" style="color:#f1c4b5;">Right now · September 2026</p>
+          <p class="eyebrow" style="color:#8de7f8;">Right now · September 2026</p>
           <h2 id="timeline-title">If you are aiming for fall 2027, some clocks are already running.</h2>
           <p>This snapshot is deliberately dated. Always use the current official calendar before acting.</p>
 
@@ -1034,9 +1099,10 @@
           <p>
             We now have two complementary routes: <strong>“I know my major”</strong> and <strong>“I know my destination.”</strong>
             The next workflow I would build is the one students need when the clean plan breaks:
-            <strong>“Something Changed. Now What?”</strong>
+            <a href="something-changed.html" style="color:#fff;"><strong>“Something Changed. Now What?”</strong></a>
           </p>
           <div class="next-links">
+            <a href="something-changed.html">Go to the recovery route →</a>
             <a href="i-know-my-major.html">I know my major →</a>
             <a href="major-prep-actually.html">Review Major Prep →</a>
             <a href="assist-actually.html">Practice in ASSIST →</a>

@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Major Prep, Actually explains lower-division major preparation for California Community College transfer students and faculty: what it is, why it can matter more than GE, how it varies by campus, and how to verify it in ASSIST.">
+    <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+<meta name="description" content="Major Prep, Actually explains lower-division major preparation for California Community College transfer students and faculty: what it is, why it can matter more than GE, how it varies by campus, and how to verify it in ASSIST.">
   <title>Major Prep, Actually | Transfer, Actually</title>
 
   <style>
@@ -621,6 +624,68 @@
         border: 2px solid CanvasText;
       }
     }
+  
+    /* Transfer, Actually blue brand refresh — favicon12 */
+    :root {
+      --blue: #1236b8;
+      --blue-soft: #eaf0ff;
+      --teal: #007c9e;
+      --teal-soft: #e6f9fe;
+      --navy: #082a85;
+      --cyan: #00bff3;
+      --cyan-soft: #e8fbff;
+      --focus: #0067c5;
+    }
+
+    header::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 48%, var(--cyan) 100%);
+    }
+
+    .brand span,
+    .eyebrow {
+      color: var(--blue);
+    }
+
+    a {
+      text-decoration-color: rgba(18, 54, 184, .42);
+    }
+
+    .hero-card,
+    .big-idea {
+      border-top: 4px solid var(--cyan);
+      box-shadow: 0 12px 34px rgba(18, 54, 184, .10);
+    }
+
+    .decision-shell,
+    .wizard,
+    .system-pick,
+    .systems,
+    .script-shell,
+    .after-apply,
+    .timeline,
+    .example-shell,
+    .next {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    }
+
+    .check-answer {
+      background: var(--blue);
+    }
+
+    .filter[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .source-link:hover {
+      background: var(--cyan-soft);
+      border-color: #7edcf3;
+    }
+
   </style>
 </head>
 
@@ -636,6 +701,10 @@
           <li><a href="index.html#students">Students</a></li>
           <li><a href="i-know-my-major.html">My Major</a></li>
           <li><a href="i-know-where.html">My Destination</a></li>
+          <li><a href="something-changed.html">Something Changed</a></li>
+          <li><a href="ready-to-apply.html">Ready to Apply</a></li>
+          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
+          <li><a href="student-asked-me.html">Faculty Help</a></li>
           <li><a href="index.html#faculty">Faculty</a></li>
           <li><a href="will-this-count.html">Will This Count?</a></li>
           <li><a href="assist-actually.html">ASSIST</a></li>
@@ -747,7 +816,7 @@
     <section class="band white" aria-labelledby="same-major-title">
       <div class="wrap">
         <div class="example-shell">
-          <p class="eyebrow" style="color:#f0c7b9;">Why this gets confusing</p>
+          <p class="eyebrow" style="color:#8de7f8;">Why this gets confusing</p>
           <h2 id="same-major-title">Same major name. Different preparation.</h2>
           <p>
             This fictional example shows the pattern—not real requirements. The point is to notice why “I want to major in psychology” is not enough information to build a transfer plan.

@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Understand Cal-GETC in plain language: what it covers, what it does not cover, how it relates to major preparation, and what California Community College students and faculty should verify.">
+    <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+<meta name="description" content="Understand Cal-GETC in plain language: what it covers, what it does not cover, how it relates to major preparation, and what California Community College students and faculty should verify.">
   <title>Cal-GETC, Actually | Transfer, Actually</title>
   <style>
     :root {
@@ -45,6 +48,68 @@
     @media(max-width:680px){.topbar{align-items:flex-start;flex-direction:column}.two-col,.myth-grid,.audience-grid,.source-grid,.scenario-grid,.areas,.flow,.not-equal{grid-template-columns:1fr}.neq{text-align:center;transform:rotate(90deg)}.step:not(:last-child)::after{content:"↓";right:auto;left:1.2rem;top:auto;bottom:-.78rem;display:grid}h1{font-size:clamp(3rem,15vw,4.4rem)}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
     @media(forced-colors:active){.callout,.myth-card,.audience-card,.source-link,.area,.step,.box,.scenario,details{border:2px solid CanvasText}}
+  
+    /* Transfer, Actually blue brand refresh — favicon12 */
+    :root {
+      --blue: #1236b8;
+      --blue-soft: #eaf0ff;
+      --teal: #007c9e;
+      --teal-soft: #e6f9fe;
+      --navy: #082a85;
+      --cyan: #00bff3;
+      --cyan-soft: #e8fbff;
+      --focus: #0067c5;
+    }
+
+    header::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 48%, var(--cyan) 100%);
+    }
+
+    .brand span,
+    .eyebrow {
+      color: var(--blue);
+    }
+
+    a {
+      text-decoration-color: rgba(18, 54, 184, .42);
+    }
+
+    .hero-card,
+    .big-idea {
+      border-top: 4px solid var(--cyan);
+      box-shadow: 0 12px 34px rgba(18, 54, 184, .10);
+    }
+
+    .decision-shell,
+    .wizard,
+    .system-pick,
+    .systems,
+    .script-shell,
+    .after-apply,
+    .timeline,
+    .example-shell,
+    .next {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    }
+
+    .check-answer {
+      background: var(--blue);
+    }
+
+    .filter[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .source-link:hover {
+      background: var(--cyan-soft);
+      border-color: #7edcf3;
+    }
+
   </style>
 </head>
 <body>
@@ -57,6 +122,10 @@
           <li><a href="index.html#students">Students</a></li>
           <li><a href="i-know-my-major.html">My Major</a></li>
           <li><a href="i-know-where.html">My Destination</a></li>
+          <li><a href="something-changed.html">Something Changed</a></li>
+          <li><a href="ready-to-apply.html">Ready to Apply</a></li>
+          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
+          <li><a href="student-asked-me.html">Faculty Help</a></li>
           <li><a href="index.html#faculty">Faculty</a></li>
           <li><a href="will-this-count.html">Will This Count?</a></li>
           <li><a href="assist-actually.html">ASSIST, Actually</a></li>
