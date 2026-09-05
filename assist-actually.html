@@ -264,6 +264,128 @@
       border-color: #7edcf3;
     }
 
+  
+
+    /* Site-wide consistency + accessibility pass — September 2026 */
+    :root { color-scheme: light; }
+
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+    /* Keep interior-page type hierarchy consistent. The homepage retains its larger display scale. */
+    body:not(.transfer-home) h1 { font-size: clamp(3.2rem, 7vw, 5.8rem) !important; }
+    body:not(.transfer-home) h2 { font-size: clamp(2rem, 5vw, 3.2rem) !important; }
+    body:not(.transfer-home) h3 { font-size: 1.25rem !important; }
+
+    /* Small labels should still be comfortably readable. */
+    small,
+    .eyebrow,
+    .badge,
+    .tag,
+    .label,
+    .source,
+    .status,
+    .status-chip,
+    .fictional {
+      font-size: .875rem !important;
+      line-height: 1.4;
+    }
+
+    /* WCAG-friendly, visually consistent native controls. Hidden card radios remain hidden. */
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+      min-width: 1.25rem !important;
+      min-height: 1.25rem !important;
+      flex: 0 0 1.25rem !important;
+      accent-color: var(--blue);
+    }
+
+    .choice input,
+    .checklist input,
+    .passport input {
+      margin-top: .25rem !important;
+    }
+
+    .choice {
+      min-height: 44px;
+      padding-block: .2rem;
+    }
+
+    /* Consistent target sizes for frequently used controls. */
+    nav a {
+      min-height: 44px;
+      display: inline-flex !important;
+      align-items: center;
+    }
+
+    .check-answer,
+    .show-route,
+    .show-plan,
+    .show-route,
+    .show-plan,
+    .show-route,
+    .filter {
+      min-height: 44px;
+    }
+
+    summary {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Consistent focus treatment. Light cyan is used on dark blue panels for contrast. */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible,
+    select:focus-visible {
+      outline: 4px solid var(--focus) !important;
+      outline-offset: 4px !important;
+    }
+
+    .router :focus-visible,
+    .wizard :focus-visible,
+    .system-pick :focus-visible,
+    .systems :focus-visible,
+    .script-shell :focus-visible,
+    .after-apply :focus-visible,
+    .timeline :focus-visible,
+    .example-shell :focus-visible,
+    .next :focus-visible,
+    .course-change :focus-visible,
+    .ao-panel :focus-visible,
+    .decision-shell :focus-visible {
+      outline-color: #8de7f8 !important;
+    }
+
+    /* Blue-brand decorative arrows; rust remains reserved for warnings and caution. */
+    .step:not(:last-child)::after,
+    .flow-step:not(:last-child)::after,
+    .node:not(:last-child)::after,
+    .phase:not(:last-child)::after,
+    .ladder-step:not(:last-child)::after {
+      color: var(--blue) !important;
+    }
+
+    /* Reusable visually-hidden class for legends/captions when needed. */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (forced-colors: active) {
+      input[type="radio"], input[type="checkbox"] { accent-color: auto; }
+    }
+
   </style>
 </head>
 <body>
@@ -274,28 +396,19 @@
       <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
       <nav aria-label="Primary navigation">
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="index.html#students">Students</a></li>
-          <li><a href="i-know-my-major.html">My Major</a></li>
-          <li><a href="i-know-where.html">My Destination</a></li>
-          <li><a href="something-changed.html">Something Changed</a></li>
-          <li><a href="ready-to-apply.html">Ready to Apply</a></li>
-          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
-          <li><a href="where-course-counts.html">My Course</a></li>
-          <li><a href="revising-course.html">Course Revision</a></li>
-          <li><a href="student-asked-me.html">Faculty Help</a></li>
           <li><a href="index.html#faculty">Faculty</a></li>
-          <li><a href="will-this-count.html">Will This Count?</a></li>
-          <li><a href="adt-actually.html">ADT, Actually</a></li>
-          <li><a href="cal-getc-actually.html">Cal-GETC, Actually</a></li>
-          <li><a href="major-prep-actually.html">Major Prep</a></li>
-          <li><a href="#sources">Official Sources</a></li>
+          <li><a href="assist-actually.html">ASSIST</a></li>
+          <li><a href="index.html#official-sources">Sources</a></li>
+          <li><a href="index.html#about">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+    <div class="wrap breadcrumb" role="navigation" aria-label="Breadcrumb">
       <a href="index.html">Home</a> <span aria-hidden="true">/</span> ASSIST, Actually
     </div>
 
@@ -413,10 +526,11 @@
                 <li>General Education / Breadth</li>
               </ul>
             </aside>
-            <div class="demo-content">
+            <div class="demo-content" role="region" aria-label="Fictional ASSIST major-preparation table" tabindex="0">
               <h3>Preparation for the Major</h3>
               <p><strong>Important note:</strong> Complete the courses shown below with the grades and conditions stated by the receiving institution.</p>
               <table>
+                <caption class="sr-only">Fictional example of an ASSIST major-preparation articulation agreement</caption>
                 <thead>
                   <tr>
                     <th scope="col">Sending institution</th>
@@ -511,7 +625,7 @@
               <label class="choice"><input type="radio" name="s1" value="b"> <span>The major agreement for that institution pair and academic year</span></label>
               <label class="choice"><input type="radio" name="s1" value="c"> <span>The student's transcript only</span></label>
             </fieldset>
-            <button class="check-answer" type="button">Check my answer</button>
+            <button class="check-answer" type="button">Check answer</button>
             <div class="feedback" hidden></div>
           </article>
 
@@ -524,7 +638,7 @@
               <label class="choice"><input type="radio" name="s2" value="b"> <span>Assume there is no articulation at all</span></label>
               <label class="choice"><input type="radio" name="s2" value="c"> <span>Review the closest available year, but verify which agreement applies to the actual question</span></label>
             </fieldset>
-            <button class="check-answer" type="button">Check my answer</button>
+            <button class="check-answer" type="button">Check answer</button>
             <div class="feedback" hidden></div>
           </article>
 
@@ -537,7 +651,7 @@
               <label class="choice"><input type="radio" name="s3" value="b"> <span>It satisfies every CSU major requirement</span></label>
               <label class="choice"><input type="radio" name="s3" value="c"> <span>It is equivalent to a specific CSU course everywhere</span></label>
             </fieldset>
-            <button class="check-answer" type="button">Check my answer</button>
+            <button class="check-answer" type="button">Check answer</button>
             <div class="feedback" hidden></div>
           </article>
 
@@ -550,7 +664,7 @@
               <label class="choice"><input type="radio" name="s4" value="b"> <span>The Agreement Comparison tool</span></label>
               <label class="choice"><input type="radio" name="s4" value="c"> <span>The CSU application</span></label>
             </fieldset>
-            <button class="check-answer" type="button">Check my answer</button>
+            <button class="check-answer" type="button">Check answer</button>
             <div class="feedback" hidden></div>
           </article>
         </div>
@@ -614,8 +728,8 @@
         </div>
 
         <div class="next">
-          <h2>Next: ADT, Actually</h2>
-          <p>Once learners can read the evidence, the next useful skill is understanding one of California's most important transfer pathways: what an Associate Degree for Transfer does, what it guarantees, and what people often assume it guarantees when it does not.</p>
+          <h2>Use the evidence in the pathway pages.</h2>
+          <p>Once you can read ASSIST evidence, continue to <a href="adt-actually.html" style="color:#fff;"><strong>ADT, Actually</strong></a>, <a href="cal-getc-actually.html" style="color:#fff;"><strong>Cal-GETC, Actually</strong></a>, or <a href="major-prep-actually.html" style="color:#fff;"><strong>Major Prep, Actually</strong></a> to connect the agreement to the transfer question you are trying to answer.</p>
           <a href="major-prep-actually.html">Learn Major Prep next</a> · <a href="adt-actually.html">Continue to ADT, Actually</a> · <a href="cal-getc-actually.html">Learn Cal-GETC</a>
         </div>
       </div>
@@ -631,11 +745,14 @@
         </div>
         <div class="footer-links" aria-label="Footer links">
           <a href="index.html">Home</a>
-          <a href="will-this-count.html">Will This Count?</a>
-          <a href="#sources">Official sources</a>
+          <a href="index.html#students">Students</a>
+          <a href="index.html#faculty">Faculty</a>
+          <a href="assist-actually.html">ASSIST</a>
+          <a href="index.html#official-sources">Sources</a>
+          <a href="index.html#about">About</a>
         </div>
       </div>
-      <p class="meta">Last reviewed against current ASSIST public guidance: September 2026. The practice agreement on this page is fictional and is not articulation advice.</p>
+      <p class="meta">Last reviewed: September 2026. The practice agreement on this page is fictional and is not articulation advice.</p>
     </div>
   </footer>
 

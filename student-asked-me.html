@@ -154,6 +154,128 @@
       border-color: #7edcf3;
     }
 
+  
+
+    /* Site-wide consistency + accessibility pass — September 2026 */
+    :root { color-scheme: light; }
+
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+    /* Keep interior-page type hierarchy consistent. The homepage retains its larger display scale. */
+    body:not(.transfer-home) h1 { font-size: clamp(3.2rem, 7vw, 5.8rem) !important; }
+    body:not(.transfer-home) h2 { font-size: clamp(2rem, 5vw, 3.2rem) !important; }
+    body:not(.transfer-home) h3 { font-size: 1.25rem !important; }
+
+    /* Small labels should still be comfortably readable. */
+    small,
+    .eyebrow,
+    .badge,
+    .tag,
+    .label,
+    .source,
+    .status,
+    .status-chip,
+    .fictional {
+      font-size: .875rem !important;
+      line-height: 1.4;
+    }
+
+    /* WCAG-friendly, visually consistent native controls. Hidden card radios remain hidden. */
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+      min-width: 1.25rem !important;
+      min-height: 1.25rem !important;
+      flex: 0 0 1.25rem !important;
+      accent-color: var(--blue);
+    }
+
+    .choice input,
+    .checklist input,
+    .passport input {
+      margin-top: .25rem !important;
+    }
+
+    .choice {
+      min-height: 44px;
+      padding-block: .2rem;
+    }
+
+    /* Consistent target sizes for frequently used controls. */
+    nav a {
+      min-height: 44px;
+      display: inline-flex !important;
+      align-items: center;
+    }
+
+    .check-answer,
+    .show-route,
+    .show-plan,
+    .show-route,
+    .show-plan,
+    .show-route,
+    .filter {
+      min-height: 44px;
+    }
+
+    summary {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Consistent focus treatment. Light cyan is used on dark blue panels for contrast. */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible,
+    select:focus-visible {
+      outline: 4px solid var(--focus) !important;
+      outline-offset: 4px !important;
+    }
+
+    .router :focus-visible,
+    .wizard :focus-visible,
+    .system-pick :focus-visible,
+    .systems :focus-visible,
+    .script-shell :focus-visible,
+    .after-apply :focus-visible,
+    .timeline :focus-visible,
+    .example-shell :focus-visible,
+    .next :focus-visible,
+    .course-change :focus-visible,
+    .ao-panel :focus-visible,
+    .decision-shell :focus-visible {
+      outline-color: #8de7f8 !important;
+    }
+
+    /* Blue-brand decorative arrows; rust remains reserved for warnings and caution. */
+    .step:not(:last-child)::after,
+    .flow-step:not(:last-child)::after,
+    .node:not(:last-child)::after,
+    .phase:not(:last-child)::after,
+    .ladder-step:not(:last-child)::after {
+      color: var(--blue) !important;
+    }
+
+    /* Reusable visually-hidden class for legends/captions when needed. */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (forced-colors: active) {
+      input[type="radio"], input[type="checkbox"] { accent-color: auto; }
+    }
+
   </style>
 </head>
 <body>
@@ -164,22 +286,19 @@
       <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
       <nav aria-label="Primary navigation">
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="index.html#students">Students</a></li>
-          <li><a href="ready-to-apply.html">Student Paths</a></li>
-          <li><a href="transfer-for-faculty.html">Faculty Orientation</a></li>
-          <li><a href="where-course-counts.html">My Course</a></li>
-          <li><a href="revising-course.html">Course Revision</a></li>
-          <li><a href="student-asked-me.html" aria-current="page">Faculty Help</a></li>
+          <li><a href="index.html#faculty">Faculty</a></li>
           <li><a href="assist-actually.html">ASSIST</a></li>
-          <li><a href="major-prep-actually.html">Major Prep</a></li>
-          <li><a href="#sources">Sources</a></li>
+          <li><a href="index.html#official-sources">Sources</a></li>
+          <li><a href="index.html#about">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+    <div class="wrap breadcrumb" role="navigation" aria-label="Breadcrumb">
       <a href="index.html">Home</a> → A Student Just Asked Me…
     </div>
 
@@ -215,19 +334,19 @@
 
         <div class="principles">
           <article class="principle explain">
-            <strong>🟢 You can explain</strong>
+            <strong><span aria-hidden="true">🟢</span> You can explain</strong>
             <p>Transferability vs. articulation, GE vs. major prep, what ASSIST is, what an ADT generally does, and why destination matters.</p>
           </article>
           <article class="principle check">
-            <strong>🔎 Check before answering</strong>
+            <strong><span aria-hidden="true">🔎</span> Check before answering</strong>
             <p>A particular campus, major, academic year, course articulation, similar-major status, impaction, or current admissions rule.</p>
           </article>
           <article class="principle refer">
-            <strong>👤 Refer individualized planning</strong>
+            <strong><span aria-hidden="true">👤</span> Refer individualized planning</strong>
             <p>Transcript-wide decisions, course sequencing, repeats, unit totals, catalog rights, eligibility, admission conditions, or financial aid.</p>
           </article>
           <article class="principle guess">
-            <strong>⛔ Do not guess</strong>
+            <strong><span aria-hidden="true">⛔</span> Do not guess</strong>
             <p>Whether a student “will get in,” whether one course substitution is safe, or whether a change cannot affect an offer of admission.</p>
           </article>
         </div>
@@ -256,10 +375,10 @@
           <article class="scenario" data-category="course">
             <span class="tag">Course counting</span>
             <p class="question">“Will your class transfer to UCLA?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>A course can be UC-transferable for unit credit without being articulated to a specific UCLA course or satisfying this student's major preparation.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the current ASSIST academic year, the CCC's UC-transferable course list, and the relevant UCLA agreement if the question is about a particular requirement.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>If the student is deciding whether this course belongs in the full education plan, counseling should review the destination and major with the complete record.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not turn “UC transferable” into “this satisfies the UCLA requirement you need.”</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>A course can be UC-transferable for unit credit without being articulated to a specific UCLA course or satisfying this student's major preparation.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Check the current ASSIST academic year, the CCC's UC-transferable course list, and the relevant UCLA agreement if the question is about a particular requirement.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>If the student is deciding whether this course belongs in the full education plan, counseling should review the destination and major with the complete record.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not turn “UC transferable” into “this satisfies the UCLA requirement you need.”</p></div>
             <div class="response"><strong>A useful response</strong><p>“It may transfer for unit credit, but let's separate that from whether it satisfies something specific at UCLA. ASSIST is where we can verify that part.”</p></div>
             <p class="deep-link"><a href="will-this-count.html">Review the five meanings of “count” →</a></p>
           </article>
@@ -267,10 +386,10 @@
           <article class="scenario" data-category="course">
             <span class="tag">Course counting</span>
             <p class="question">“Is this class UC transferable?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>“UC transferable” means UC has approved the course for transfer unit credit. It does not automatically mean GE, major preparation, or course-to-course articulation.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Use ASSIST's current UC Transferable Courses list for the student's CCC and the correct academic year.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>If the real question is “Should I take it?”, the answer belongs inside the student's complete transfer plan.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not rely on an old syllabus, memory, or “it has always transferred.”</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>“UC transferable” means UC has approved the course for transfer unit credit. It does not automatically mean GE, major preparation, or course-to-course articulation.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Use ASSIST's current UC Transferable Courses list for the student's CCC and the correct academic year.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>If the real question is “Should I take it?”, the answer belongs inside the student's complete transfer plan.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not rely on an old syllabus, memory, or “it has always transferred.”</p></div>
             <div class="response"><strong>A useful response</strong><p>“We can verify whether UC gives it transfer unit credit. Then we still need a separate check if you're asking whether it fills GE or your major.”</p></div>
             <p class="deep-link"><a href="assist-actually.html">Go to ASSIST, Actually →</a></p>
           </article>
@@ -278,10 +397,10 @@
           <article class="scenario" data-category="major">
             <span class="tag">Major preparation</span>
             <p class="question">“Do I need this class for my major?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Major preparation is destination-specific. The same major name can have different lower-division preparation at different universities.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Use the current major agreement in ASSIST and the receiving campus's program/admissions information.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling should help prioritize courses when several campuses, prerequisites, GE, and timeline constraints compete.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not answer from the discipline name alone or from what one university requires.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>Major preparation is destination-specific. The same major name can have different lower-division preparation at different universities.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Use the current major agreement in ASSIST and the receiving campus's program/admissions information.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Counseling should help prioritize courses when several campuses, prerequisites, GE, and timeline constraints compete.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not answer from the discipline name alone or from what one university requires.</p></div>
             <div class="response"><strong>A useful response</strong><p>“Maybe—but the university and exact program decide that. Let's first identify where you want to transfer.”</p></div>
             <p class="deep-link"><a href="major-prep-actually.html">Review Major Prep, Actually →</a></p>
           </article>
@@ -289,10 +408,10 @@
           <article class="scenario" data-category="major">
             <span class="tag">GE + major</span>
             <p class="question">“I finished Cal-GETC. Am I ready to transfer?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Cal-GETC addresses lower-division general education. Transfer preparation can also include major preparation, minimum admission requirements, units/GPA, and campus/program selection criteria.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the intended university and major, current admission requirements, and major preparation.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling should verify whether the student's overall transfer plan is complete.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not equate “GE complete” with “transfer-ready for this major.”</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>Cal-GETC addresses lower-division general education. Transfer preparation can also include major preparation, minimum admission requirements, units/GPA, and campus/program selection criteria.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Check the intended university and major, current admission requirements, and major preparation.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Counseling should verify whether the student's overall transfer plan is complete.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not equate “GE complete” with “transfer-ready for this major.”</p></div>
             <div class="response"><strong>A useful response</strong><p>“That's a big piece of the puzzle. Now we need to make sure your major prep and admission requirements are lined up too.”</p></div>
             <p class="deep-link"><a href="cal-getc-actually.html">Review Cal-GETC, Actually →</a></p>
           </article>
@@ -300,10 +419,10 @@
           <article class="scenario" data-category="pathway">
             <span class="tag">ADT</span>
             <p class="question">“I have an ADT. Am I guaranteed into CSUN?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>The statewide ADT benefit is priority admission to the CSU system for eligible students; it is not, by itself, a guarantee of one specific campus or major.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check whether the CSU program is deemed similar to the ADT, current campus/major admission conditions, and any impaction.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling/admissions can help the student apply the ADT to the actual campus/major plan.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not translate “Degree with a Guarantee” into a promise of the student's chosen campus.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>The statewide ADT benefit is priority admission to the CSU system for eligible students; it is not, by itself, a guarantee of one specific campus or major.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Check whether the CSU program is deemed similar to the ADT, current campus/major admission conditions, and any impaction.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Counseling/admissions can help the student apply the ADT to the actual campus/major plan.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not translate “Degree with a Guarantee” into a promise of the student's chosen campus.</p></div>
             <div class="response"><strong>A useful response</strong><p>“Your ADT gives you important CSU transfer benefits, but the statewide guarantee does not mean automatic admission to CSUN specifically. Let's verify the similar-major and campus details.”</p></div>
             <p class="deep-link"><a href="adt-actually.html">Review ADT, Actually →</a></p>
           </article>
@@ -311,10 +430,10 @@
           <article class="scenario" data-category="course">
             <span class="tag">ASSIST language</span>
             <p class="question">“ASSIST says ‘no course articulated.’ Does that mean my class doesn't transfer?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>No established articulation for that item is not the same statement as “this course is nontransferable.” Transferability and articulation answer different questions.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the appropriate transferability list plus the complete agreement and its notes for the correct year.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>If the missing articulation changes the student's major plan, counseling and/or the articulation officer can help identify what the agreement means in context.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not invent an equivalency that ASSIST does not show.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>No established articulation for that item is not the same statement as “this course is nontransferable.” Transferability and articulation answer different questions.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Check the appropriate transferability list plus the complete agreement and its notes for the correct year.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>If the missing articulation changes the student's major plan, counseling and/or the articulation officer can help identify what the agreement means in context.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not invent an equivalency that ASSIST does not show.</p></div>
             <div class="response"><strong>A useful response</strong><p>“That means ASSIST is not showing an established articulation for that item. Let's not turn that into a broader claim about whether your course transfers at all.”</p></div>
             <p class="deep-link"><a href="assist-actually.html">Practice reading agreements →</a></p>
           </article>
@@ -322,10 +441,10 @@
           <article class="scenario" data-category="record">
             <span class="tag">Changed major</span>
             <p class="question">“I changed my major. Did I waste all these classes?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>A course can still serve transfer credit, GE, another requirement, or elective units even if it no longer serves the new major. The old and new pathways need to be compared.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Recheck the new major's preparation, the destination, GE, and any structured pathway such as ADT or TAG.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>This is exactly the kind of transcript-wide replanning counseling should do with the student.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not call courses “wasted” or promise that everything will apply to the new degree.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>A course can still serve transfer credit, GE, another requirement, or elective units even if it no longer serves the new major. The old and new pathways need to be compared.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Recheck the new major's preparation, the destination, GE, and any structured pathway such as ADT or TAG.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>This is exactly the kind of transcript-wide replanning counseling should do with the student.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not call courses “wasted” or promise that everything will apply to the new degree.</p></div>
             <div class="response"><strong>A useful response</strong><p>“Not necessarily. Let's separate what those courses still do from what the new major requires. Your counselor can help rebuild the plan without assuming you start over.”</p></div>
             <p class="deep-link"><a href="something-changed.html">Use Something Changed →</a></p>
           </article>
@@ -333,10 +452,10 @@
           <article class="scenario" data-category="record">
             <span class="tag">Grade / W</span>
             <p class="question">“I got a W. Did I ruin my transfer?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>There is no useful one-word answer. The consequence depends on what course it was, the larger record, whether a required sequence changed, and the rules of the destination/program.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check whether the course is required for eligibility, major preparation, GE, or a transfer pathway and whether the student's timeline changed.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Counseling should review the whole record; after application or admission, the receiving campus may also need an update.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not reassure with “Ws don't matter” or alarm with “a W will prevent transfer.”</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>There is no useful one-word answer. The consequence depends on what course it was, the larger record, whether a required sequence changed, and the rules of the destination/program.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Check whether the course is required for eligibility, major preparation, GE, or a transfer pathway and whether the student's timeline changed.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Counseling should review the whole record; after application or admission, the receiving campus may also need an update.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not reassure with “Ws don't matter” or alarm with “a W will prevent transfer.”</p></div>
             <div class="response"><strong>A useful response</strong><p>“A W doesn't tell me enough to predict your transfer outcome. Let's figure out what role that course played and where you are in the application process.”</p></div>
             <p class="deep-link"><a href="something-changed.html">Use the recovery route →</a></p>
           </article>
@@ -344,30 +463,30 @@
           <article class="scenario" data-category="record">
             <span class="tag">Unit total</span>
             <p class="question">“I have too many units. Can I still transfer?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>A raw total is not enough information. Receiving institutions may treat CCC transferable units, nontransferable coursework, and four-year/upper-division coursework differently.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>The student's complete record and the receiving institution's current unit policies need review.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Send this to counseling and, when needed, the receiving university's admissions/evaluation office.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not add units aloud from the student's memory and pronounce them eligible or ineligible.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>A raw total is not enough information. Receiving institutions may treat CCC transferable units, nontransferable coursework, and four-year/upper-division coursework differently.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>The student's complete record and the receiving institution's current unit policies need review.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Send this to counseling and, when needed, the receiving university's admissions/evaluation office.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not add units aloud from the student's memory and pronounce them eligible or ineligible.</p></div>
             <div class="response"><strong>A useful response</strong><p>“The total alone doesn't answer that. We need to know what kind of units they are and how your destination treats them.”</p></div>
           </article>
 
           <article class="scenario" data-category="major">
             <span class="tag">Course choice</span>
             <p class="question">“Should I take your class or another GE class?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>You can explain what your course covers, whether it is currently approved for transfer/GE when verified, and how it fits the discipline.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Check the student's intended pathway and destination before treating two “GE-looking” choices as interchangeable.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>The choice belongs in the student's whole education plan, especially if one option also serves major preparation or a prerequisite.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not choose a course for the student based only on which one seems easier, more interesting, or broadly transferable.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>You can explain what your course covers, whether it is currently approved for transfer/GE when verified, and how it fits the discipline.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Check the student's intended pathway and destination before treating two “GE-looking” choices as interchangeable.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>The choice belongs in the student's whole education plan, especially if one option also serves major preparation or a prerequisite.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not choose a course for the student based only on which one seems easier, more interesting, or broadly transferable.</p></div>
             <div class="response"><strong>A useful response</strong><p>“I can tell you exactly what my course does. Before I tell you it's the better choice, let's make sure it fits the transfer plan you're actually following.”</p></div>
           </article>
 
           <article class="scenario" data-category="admission">
             <span class="tag">After transfer</span>
             <p class="question">“Can I just change majors after I transfer?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Change-of-major rules are set by the receiving institution and can be especially restrictive for selective, capped, impacted, or highly sequenced programs.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Use the actual university/program's rules for transfer students, not a general assumption about changing majors.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Admissions or the receiving program should answer whether the intended switch is possible.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not advise students to apply to an easier major as a back door unless the institution explicitly supports the later change.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>Change-of-major rules are set by the receiving institution and can be especially restrictive for selective, capped, impacted, or highly sequenced programs.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Use the actual university/program's rules for transfer students, not a general assumption about changing majors.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Admissions or the receiving program should answer whether the intended switch is possible.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not advise students to apply to an easier major as a back door unless the institution explicitly supports the later change.</p></div>
             <div class="response"><strong>A useful response</strong><p>“Maybe, but that's a university-specific policy—not a safe transfer strategy to assume. Let's check the rule before you build a plan around changing later.”</p></div>
             <p class="deep-link"><a href="i-know-where.html">Use the destination-first route →</a></p>
           </article>
@@ -375,10 +494,10 @@
           <article class="scenario" data-category="admission">
             <span class="tag">Conflicting advice</span>
             <p class="question">“My counselor told me something different. Who is right?”</p>
-            <div class="answer-block explain"><strong>🟢 Explain</strong><p>Transfer answers can differ because people are answering different questions, using different academic years, or discussing different campuses/majors. A conflict is a cue to locate the authoritative source—not to create a faculty-versus-counselor contest.</p></div>
-            <div class="answer-block check"><strong>🔎 Verify</strong><p>Identify the exact claim, destination, major, term/year, and source. Check ASSIST or the institution that owns the policy.</p></div>
-            <div class="answer-block refer"><strong>👤 Refer</strong><p>Bring the source back to the counselor; involve the articulation officer when the dispute is specifically about articulation.</p></div>
-            <div class="answer-block guess"><strong>⛔ Do not guess</strong><p>Do not tell the student the counselor is wrong based on a rule you remember from another campus or year.</p></div>
+            <div class="answer-block explain"><strong><span aria-hidden="true">🟢</span> Explain</strong><p>Transfer answers can differ because people are answering different questions, using different academic years, or discussing different campuses/majors. A conflict is a cue to locate the authoritative source—not to create a faculty-versus-counselor contest.</p></div>
+            <div class="answer-block check"><strong><span aria-hidden="true">🔎</span> Verify</strong><p>Identify the exact claim, destination, major, term/year, and source. Check ASSIST or the institution that owns the policy.</p></div>
+            <div class="answer-block refer"><strong><span aria-hidden="true">👤</span> Refer</strong><p>Bring the source back to the counselor; involve the articulation officer when the dispute is specifically about articulation.</p></div>
+            <div class="answer-block guess"><strong><span aria-hidden="true">⛔</span> Do not guess</strong><p>Do not tell the student the counselor is wrong based on a rule you remember from another campus or year.</p></div>
             <div class="response"><strong>A useful response</strong><p>“Let's make the disagreement specific. What exact requirement are we talking about, for which campus and major, and what current source answers it?”</p></div>
           </article>
 
@@ -475,8 +594,8 @@
         </div>
 
         <div class="next">
-          <h2>Next faculty build: Transfer for Faculty, Actually.</h2>
-          <p>This page solves the “student is standing in front of me” problem. Next I would make a short faculty orientation that gives instructors the whole transfer mental model in about ten minutes—transferable, articulated, GE, major prep, ADT, ASSIST, CCN/C-ID, and who does what on campus.</p>
+          <h2>Want the whole faculty mental model?</h2>
+          <p><a href="transfer-for-faculty.html" style="color:#fff;"><strong>Transfer for Faculty, Actually</strong></a> is the 10-minute orientation to transferable vs. articulated, GE vs. major prep, ADT, ASSIST, CCN/C-ID, curriculum implications, and who owns which transfer decision.</p>
           <div class="next-links">
             <a href="transfer-for-faculty.html">10-minute faculty orientation →</a>
             <a href="assist-actually.html">ASSIST, Actually →</a>
@@ -498,9 +617,11 @@
         </div>
         <div class="footer-links" aria-label="Footer links">
           <a href="index.html">Home</a>
+          <a href="index.html#students">Students</a>
           <a href="index.html#faculty">Faculty</a>
           <a href="assist-actually.html">ASSIST</a>
-          <a href="#sources">Official sources</a>
+          <a href="index.html#official-sources">Sources</a>
+          <a href="index.html#about">About</a>
         </div>
       </div>
       <p class="meta">Last reviewed: September 2026. Transfer articulation, admission policies, pathways, and campus requirements can change. Use current official sources for time-sensitive or individualized questions.</p>

@@ -737,6 +737,128 @@
       border-color: #7edcf3;
     }
 
+  
+
+    /* Site-wide consistency + accessibility pass — September 2026 */
+    :root { color-scheme: light; }
+
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+    /* Keep interior-page type hierarchy consistent. The homepage retains its larger display scale. */
+    body:not(.transfer-home) h1 { font-size: clamp(3.2rem, 7vw, 5.8rem) !important; }
+    body:not(.transfer-home) h2 { font-size: clamp(2rem, 5vw, 3.2rem) !important; }
+    body:not(.transfer-home) h3 { font-size: 1.25rem !important; }
+
+    /* Small labels should still be comfortably readable. */
+    small,
+    .eyebrow,
+    .badge,
+    .tag,
+    .label,
+    .source,
+    .status,
+    .status-chip,
+    .fictional {
+      font-size: .875rem !important;
+      line-height: 1.4;
+    }
+
+    /* WCAG-friendly, visually consistent native controls. Hidden card radios remain hidden. */
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+      min-width: 1.25rem !important;
+      min-height: 1.25rem !important;
+      flex: 0 0 1.25rem !important;
+      accent-color: var(--blue);
+    }
+
+    .choice input,
+    .checklist input,
+    .passport input {
+      margin-top: .25rem !important;
+    }
+
+    .choice {
+      min-height: 44px;
+      padding-block: .2rem;
+    }
+
+    /* Consistent target sizes for frequently used controls. */
+    nav a {
+      min-height: 44px;
+      display: inline-flex !important;
+      align-items: center;
+    }
+
+    .check-answer,
+    .show-route,
+    .show-plan,
+    .show-route,
+    .show-plan,
+    .show-route,
+    .filter {
+      min-height: 44px;
+    }
+
+    summary {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Consistent focus treatment. Light cyan is used on dark blue panels for contrast. */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible,
+    select:focus-visible {
+      outline: 4px solid var(--focus) !important;
+      outline-offset: 4px !important;
+    }
+
+    .router :focus-visible,
+    .wizard :focus-visible,
+    .system-pick :focus-visible,
+    .systems :focus-visible,
+    .script-shell :focus-visible,
+    .after-apply :focus-visible,
+    .timeline :focus-visible,
+    .example-shell :focus-visible,
+    .next :focus-visible,
+    .course-change :focus-visible,
+    .ao-panel :focus-visible,
+    .decision-shell :focus-visible {
+      outline-color: #8de7f8 !important;
+    }
+
+    /* Blue-brand decorative arrows; rust remains reserved for warnings and caution. */
+    .step:not(:last-child)::after,
+    .flow-step:not(:last-child)::after,
+    .node:not(:last-child)::after,
+    .phase:not(:last-child)::after,
+    .ladder-step:not(:last-child)::after {
+      color: var(--blue) !important;
+    }
+
+    /* Reusable visually-hidden class for legends/captions when needed. */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (forced-colors: active) {
+      input[type="radio"], input[type="checkbox"] { accent-color: auto; }
+    }
+
   </style>
 </head>
 
@@ -748,20 +870,19 @@
       <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
       <nav aria-label="Primary navigation">
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="index.html#students">Students</a></li>
-          <li><a href="i-know-my-major.html">My Major</a></li>
-          <li><a href="i-know-where.html" aria-current="page">My Destination</a></li>
-          <li><a href="major-prep-actually.html">Major Prep</a></li>
+          <li><a href="index.html#faculty">Faculty</a></li>
           <li><a href="assist-actually.html">ASSIST</a></li>
-          <li><a href="adt-actually.html">ADT</a></li>
-          <li><a href="#sources">Sources</a></li>
+          <li><a href="index.html#official-sources">Sources</a></li>
+          <li><a href="index.html#about">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+    <div class="wrap breadcrumb" role="navigation" aria-label="Breadcrumb">
       <a href="index.html">Home</a> → I Know Where I Want to Go. Now What?
     </div>
 
@@ -1095,11 +1216,10 @@
         </div>
 
         <div class="next">
-          <h2>The student side is becoming a real decision system.</h2>
+          <h2>If the plan changes, switch to recovery mode.</h2>
           <p>
-            We now have two complementary routes: <strong>“I know my major”</strong> and <strong>“I know my destination.”</strong>
-            The next workflow I would build is the one students need when the clean plan breaks:
-            <a href="something-changed.html" style="color:#fff;"><strong>“Something Changed. Now What?”</strong></a>
+            Major-first and destination-first planning work well until a course, grade, major, destination, admission result, or financial situation changes.
+            <a href="something-changed.html" style="color:#fff;"><strong>“Something Changed. Now What?”</strong></a> helps identify what needs replanning, reporting, or prompt campus follow-up.
           </p>
           <div class="next-links">
             <a href="something-changed.html">Go to the recovery route →</a>
@@ -1125,10 +1245,11 @@
 
         <div class="footer-links" aria-label="Footer links">
           <a href="index.html">Home</a>
-          <a href="i-know-my-major.html">My Major</a>
-          <a href="major-prep-actually.html">Major Prep</a>
+          <a href="index.html#students">Students</a>
+          <a href="index.html#faculty">Faculty</a>
           <a href="assist-actually.html">ASSIST</a>
-          <a href="#sources">Official sources</a>
+          <a href="index.html#official-sources">Sources</a>
+          <a href="index.html#about">About</a>
         </div>
       </div>
 
