@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn the different ways a California Community College course can count toward transfer, general education, major preparation, articulation, and a degree pathway.">
+  <title>Will This Count? | Transfer, Actually</title>
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --surface: #ffffff;
+      --surface-soft: #f3f0e8;
+      --ink: #17202a;
+      --muted: #52606d;
+      --line: #d8d2c6;
+      --blue: #1a4d7a;
+      --blue-soft: #e8f1f8;
+      --teal: #1f5a5b;
+      --teal-soft: #e6f1ef;
+      --rust: #7a3f2d;
+      --rust-soft: #f5ebe7;
+      --gold: #7a5b00;
+      --gold-soft: #f8f0d6;
+      --green: #245c3a;
+      --green-soft: #e7f2e9;
+      --focus: #8a4fff;
+      --shadow: 0 12px 34px rgba(23, 32, 42, .08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    a { color: var(--blue); text-underline-offset: .18em; text-decoration-thickness: .08em; }
+    a:hover { text-decoration-thickness: .14em; }
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+      outline: 4px solid var(--focus);
+      outline-offset: 4px;
+      border-radius: 7px;
+    }
+    button, input { font: inherit; }
+    .skip-link {
+      position: absolute; left: 1rem; top: -5rem; z-index: 1000;
+      background: var(--ink); color: #fff; padding: .75rem 1rem;
+      border-radius: 0 0 10px 10px; font-weight: 800;
+    }
+    .skip-link:focus { top: 0; }
+    .wrap { width: min(var(--max), calc(100% - 2rem)); margin-inline: auto; }
+
+    header { background: rgba(250,248,243,.97); border-bottom: 1px solid var(--line); }
+    .topbar { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .75rem; }
+    .brand { color: var(--ink); text-decoration: none; font-weight: 900; letter-spacing: -.03em; font-size: 1.3rem; }
+    .brand span { color: var(--rust); }
+    nav ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .3rem; }
+    nav a { display: inline-block; color: var(--ink); text-decoration: none; padding: .55rem .72rem; border-radius: 10px; font-weight: 700; }
+    nav a:hover { background: var(--surface-soft); }
+
+    .breadcrumb { padding-top: 1.1rem; font-size: .94rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); }
+
+    .hero { padding: clamp(2.8rem,7vw,5.7rem) 0 clamp(2.6rem,6vw,4.5rem); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1.12fr) minmax(290px,.88fr); gap: clamp(2rem,5vw,4.5rem); align-items: center; }
+    .eyebrow { display: inline-block; margin: 0 0 .85rem; color: var(--rust); font-weight: 850; letter-spacing: .07em; text-transform: uppercase; font-size: .82rem; }
+    h1, h2, h3 { line-height: 1.13; letter-spacing: -.035em; text-wrap: balance; }
+    h1 { margin: 0; font-size: clamp(3.2rem,8vw,6rem); max-width: 10ch; }
+    h2 { margin: 0 0 .9rem; font-size: clamp(2rem,5vw,3.25rem); }
+    h3 { margin: 0 0 .45rem; font-size: 1.28rem; }
+    .lede { max-width: 680px; margin: 1.1rem 0 0; color: var(--muted); font-size: clamp(1.1rem,2vw,1.3rem); }
+    .big-idea {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: clamp(1.35rem,3vw,2rem); box-shadow: var(--shadow);
+    }
+    .big-idea strong { display: block; font-size: 1.45rem; line-height: 1.3; margin-bottom: .65rem; }
+    .big-idea p { margin: 0; color: var(--muted); }
+    .big-idea .formula { margin-top: 1rem; padding: .9rem 1rem; border-radius: 12px; background: var(--rust-soft); color: var(--ink); font-weight: 800; }
+
+    .band { padding: clamp(3.5rem,7vw,5.7rem) 0; }
+    .white { background: var(--surface); border-block: 1px solid var(--line); }
+    .section-intro { max-width: 760px; margin-bottom: 2rem; }
+    .section-intro p { margin: 0; color: var(--muted); font-size: 1.06rem; }
+
+    .count-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .8rem; }
+    .count-button {
+      min-height: 158px; border: 1px solid var(--line); border-top: 5px solid var(--blue);
+      border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); text-align: left;
+      padding: 1rem; cursor: pointer; transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    }
+    .count-button:hover { transform: translateY(-2px); box-shadow: var(--shadow); background: var(--blue-soft); }
+    .count-button[aria-pressed="true"] { background: var(--blue-soft); border-color: #86aac6; }
+    .count-num { display: grid; place-items: center; width: 2rem; height: 2rem; margin-bottom: .75rem; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 900; }
+    .count-button strong { display: block; font-size: 1.03rem; line-height: 1.25; }
+    .count-button span:last-child { display: block; margin-top: .45rem; color: var(--muted); font-size: .91rem; }
+
+    .answer-panel { margin-top: 1rem; border: 1px solid #9ebdd5; background: var(--blue-soft); border-radius: var(--radius); padding: clamp(1.2rem,3vw,1.8rem); }
+    .answer-panel[hidden] { display: none; }
+    .answer-panel h3 { font-size: 1.45rem; }
+    .answer-panel p { max-width: 800px; }
+    .answer-meta { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1rem; }
+    .answer-meta > div { background: rgba(255,255,255,.75); border: 1px solid rgba(26,77,122,.2); border-radius: 12px; padding: .95rem; }
+    .answer-meta strong { display: block; margin-bottom: .25rem; }
+
+    .stack { display: grid; gap: .85rem; }
+    details { border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); overflow: clip; }
+    summary { cursor: pointer; padding: 1rem 1.15rem; font-weight: 850; }
+    details[open] summary { border-bottom: 1px solid var(--line); background: var(--surface-soft); }
+    .details-body { padding: 1rem 1.15rem 1.15rem; }
+    .details-body p:first-child { margin-top: 0; }
+
+    .ladder { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 1.6rem; }
+    .ladder-step { position: relative; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius-sm); padding: 1.15rem; }
+    .ladder-step:not(:last-child)::after { content: "→"; position: absolute; right: -.75rem; top: 44%; width: 1.5rem; height: 1.5rem; display: grid; place-items: center; border-radius: 50%; background: var(--bg); color: var(--rust); font-weight: 900; }
+    .ladder-step strong { display: inline-block; color: var(--rust); margin-bottom: .4rem; }
+    .ladder-step p { margin: 0; color: var(--muted); }
+
+    .scenarios { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+    .scenario { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 1.25rem; }
+    .scenario .label { display: inline-block; margin-bottom: .6rem; padding: .2rem .55rem; border-radius: 999px; background: var(--surface-soft); color: var(--muted); font-size: .78rem; font-weight: 850; text-transform: uppercase; letter-spacing: .05em; }
+    .scenario fieldset { border: 0; padding: 0; margin: .9rem 0 0; }
+    .scenario legend { font-weight: 800; margin-bottom: .55rem; }
+    .choice { display: flex; gap: .55rem; align-items: flex-start; margin: .48rem 0; }
+    .choice input { margin-top: .32rem; width: 1.15rem; height: 1.15rem; }
+    .check-answer { margin-top: .8rem; min-height: 44px; border: 0; border-radius: 11px; background: var(--ink); color: #fff; padding: .7rem .9rem; font-weight: 850; cursor: pointer; }
+    .feedback { margin-top: .8rem; padding: .85rem .95rem; border-radius: 11px; }
+    .feedback.good { background: var(--green-soft); border: 1px solid #9fbea8; }
+    .feedback.retry { background: var(--gold-soft); border: 1px solid #c8b46c; }
+    .feedback[hidden] { display: none; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem,3vw,1.8rem); }
+    .panel.student { background: var(--blue-soft); }
+    .panel.faculty { background: var(--teal-soft); }
+    .panel p:last-child, .panel ul:last-child { margin-bottom: 0; }
+    .panel ul { padding-left: 1.2rem; }
+
+    .warning { margin-top: 1.4rem; border-left: 5px solid var(--gold); background: var(--gold-soft); padding: 1rem 1.1rem; border-radius: 0 12px 12px 0; }
+    .warning strong { display: block; margin-bottom: .25rem; }
+
+    .source-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+    .source-link { display: block; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); padding: 1rem; text-decoration: none; }
+    .source-link:hover { background: var(--blue-soft); border-color: #9ebdd5; }
+    .source-link strong { display: block; color: var(--ink); margin-bottom: .2rem; }
+    .source-link span { color: var(--muted); font-size: .93rem; }
+
+    .next { margin-top: 2rem; border-radius: var(--radius); background: var(--ink); color: #fff; padding: clamp(1.4rem,4vw,2.2rem); }
+    .next p { max-width: 720px; color: #dce4ea; }
+    .next a { display: inline-block; margin-top: .4rem; background: #fff; color: var(--ink); padding: .75rem 1rem; border-radius: 11px; text-decoration: none; font-weight: 850; }
+
+    footer { border-top: 1px solid var(--line); background: var(--surface); padding: 2.4rem 0 3rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 2rem; }
+    .footer-grid p { max-width: 760px; color: var(--muted); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-content: flex-start; justify-content: flex-end; }
+    .meta { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+    @media (max-width: 920px) {
+      .hero-grid, .split, .footer-grid { grid-template-columns: 1fr; }
+      .count-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .ladder { grid-template-columns: 1fr; }
+      .ladder-step:not(:last-child)::after { content: "↓"; right: auto; left: 1.2rem; top: auto; bottom: -.78rem; }
+      .footer-links { justify-content: flex-start; }
+    }
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .count-grid, .scenarios, .source-grid, .answer-meta { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(3.1rem,16vw,4.6rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      .count-button:hover { transform: none; }
+    }
+    @media (forced-colors: active) {
+      .count-button, .answer-panel, .scenario, .panel, .source-link, details, .ladder-step { border: 2px solid CanvasText; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html#students">Students</a></li>
+          <li><a href="index.html#faculty">Faculty</a></li>
+          <li><a href="index.html#basics">Learn the Basics</a></li>
+          <li><a href="#sources">Official Sources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <span aria-hidden="true">/</span> Will This Count?
+    </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">One question. Five possible meanings.</p>
+          <h1 id="page-title">Will This Count?</h1>
+          <p class="lede">
+            Maybe. But first we need to know what you mean by <em>count</em>. A course can transfer for credit and still not satisfy the particular GE, major, course, or degree requirement you have in mind.
+          </p>
+        </div>
+
+        <aside class="big-idea" aria-labelledby="one-idea">
+          <strong id="one-idea">The one idea to remember</strong>
+          <p>“Transferable” is useful information. It is not the end of the question.</p>
+          <div class="formula">Transferable ≠ automatically counts for everything</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="meaning-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Choose what you mean</p>
+          <h2 id="meaning-title">When you say “count,” which question are you asking?</h2>
+          <p>Select one. The page will give you the short answer, what it means, and where you should verify it.</p>
+        </div>
+
+        <div class="count-grid" role="group" aria-label="Five meanings of count">
+          <button class="count-button" type="button" data-count="credit" aria-pressed="false">
+            <span class="count-num" aria-hidden="true">1</span>
+            <strong>Will I get transfer credit?</strong>
+            <span>Will the receiving university recognize the course for transfer credit?</span>
+          </button>
+          <button class="count-button" type="button" data-count="ge" aria-pressed="false">
+            <span class="count-num" aria-hidden="true">2</span>
+            <strong>Will it meet GE?</strong>
+            <span>Does it satisfy a general education area or pattern?</span>
+          </button>
+          <button class="count-button" type="button" data-count="major" aria-pressed="false">
+            <span class="count-num" aria-hidden="true">3</span>
+            <strong>Will it count for my major?</strong>
+            <span>Does it satisfy or prepare me for a requirement in the major?</span>
+          </button>
+          <button class="count-button" type="button" data-count="articulation" aria-pressed="false">
+            <span class="count-num" aria-hidden="true">4</span>
+            <strong>Does it replace a specific course?</strong>
+            <span>Is there a course-to-course articulation agreement?</span>
+          </button>
+          <button class="count-button" type="button" data-count="pathway" aria-pressed="false">
+            <span class="count-num" aria-hidden="true">5</span>
+            <strong>Will it fit my degree or pathway?</strong>
+            <span>Does it satisfy a local degree, ADT, or other pathway requirement?</span>
+          </button>
+        </div>
+
+        <div class="answer-panel" id="count-answer" role="region" aria-live="polite" tabindex="-1" hidden>
+          <h3 id="answer-title"></h3>
+          <p id="answer-copy"></p>
+          <div class="answer-meta">
+            <div>
+              <strong>Where to check</strong>
+              <span id="answer-check"></span>
+            </div>
+            <div>
+              <strong>Do not assume</strong>
+              <span id="answer-caution"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="layers-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">See the layers</p>
+          <h2 id="layers-title">One course can have several different transfer relationships.</h2>
+          <p>These relationships can overlap. The important move is to ask which relationship answers the question in front of you.</p>
+        </div>
+
+        <div class="stack">
+          <details>
+            <summary>Transfer credit: “Will the units transfer?”</summary>
+            <div class="details-body">
+              <p>A transferable course can earn credit at a receiving institution. For UC, approved CCC transferable courses are listed through the UC Transfer Course Agreement information available in ASSIST. UC also explains that a transferable course may earn elective credit even when it is not equivalent to one particular UC course.</p>
+              <p><strong>Translation:</strong> getting transfer credit does not automatically tell you how that credit will apply to GE, a major, or a specific course requirement.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>General education: “Will this satisfy a GE area?”</summary>
+            <div class="details-body">
+              <p>General education is a separate question from basic transferability. A course may be transferable but not approved for the GE area a student needs.</p>
+              <p><strong>Translation:</strong> check the current GE pattern or agreement that applies to the student rather than relying only on the word “transferable.”</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Major preparation: “Will this help me enter or progress in my major?”</summary>
+            <div class="details-body">
+              <p>Major-preparation agreements identify community college coursework that may satisfy preparation requirements for a particular major or program at a receiving institution. UC explicitly distinguishes these agreements from general education and course-by-course articulation.</p>
+              <p><strong>Translation:</strong> completing GE does not necessarily mean major preparation is complete.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Course-to-course articulation: “Does this replace that university course?”</summary>
+            <div class="details-body">
+              <p>ASSIST defines articulation agreements as formal agreements between institutions that explain how coursework at one institution may satisfy requirements at another. Department and prefix agreements can show course-to-course or series articulation.</p>
+              <p><strong>Translation:</strong> this is the question to ask when you mean, “Does my CCC course stand in for this specific university course?”</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Degree or pathway use: “Does it fit the program I am completing here?”</summary>
+            <div class="details-body">
+              <p>A course can also satisfy a requirement in a local associate degree, an Associate Degree for Transfer, or another college program. That is a different question from whether the receiving university gives transfer credit or uses it for a specific major.</p>
+              <p><strong>Translation:</strong> the same course can play one role at the community college and a different role after transfer.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="verify-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">A three-step habit</p>
+          <h2 id="verify-title">Before you say “yes, it counts,” do this.</h2>
+          <p>This tiny checking habit prevents a lot of transfer misunderstandings.</p>
+        </div>
+
+        <div class="ladder">
+          <article class="ladder-step">
+            <strong>Step 1 · Name the question</strong>
+            <h3>What kind of “count”?</h3>
+            <p>Transfer credit? GE? Major prep? A specific university course? A degree or pathway requirement?</p>
+          </article>
+          <article class="ladder-step">
+            <strong>Step 2 · Name the destination</strong>
+            <h3>For which institution and major?</h3>
+            <p>Transfer relationships can depend on the receiving institution, campus, major, and academic year.</p>
+          </article>
+          <article class="ladder-step">
+            <strong>Step 3 · Verify</strong>
+            <h3>Use the current official source.</h3>
+            <p>For California articulation, start with ASSIST. For individualized planning, confirm with the appropriate counselor or college professional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="practice-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Try it</p>
+          <h2 id="practice-title">Can you spot the missing question?</h2>
+          <p>These are intentionally simple. The goal is to practice the mental move, not memorize a policy.</p>
+        </div>
+
+        <div class="scenarios">
+          <article class="scenario" data-correct="b" data-explain="Right. UC transferability answers the credit question; a specific UCLA major requirement is a separate relationship to verify in the current agreement.">
+            <span class="label">Scenario 1</span>
+            <h3>“My class is UC-transferable, so it definitely satisfies the major requirement at UCLA.”</h3>
+            <fieldset>
+              <legend>What is the best response?</legend>
+              <label class="choice"><input type="radio" name="s1" value="a"> <span>Yes. UC-transferable means it counts for any UC requirement.</span></label>
+              <label class="choice"><input type="radio" name="s1" value="b"> <span>Not necessarily. Check the current major/articulation agreement for the specific campus and major.</span></label>
+              <label class="choice"><input type="radio" name="s1" value="c"> <span>No. Transferable courses never count for major preparation.</span></label>
+            </fieldset>
+            <button class="check-answer" type="button">Check my answer</button>
+            <div class="feedback" aria-live="polite" hidden></div>
+          </article>
+
+          <article class="scenario" data-correct="c" data-explain="Right. General education and major preparation are different layers. A student may finish one while still needing coursework for the other.">
+            <span class="label">Scenario 2</span>
+            <h3>“I finished my general education, so I must be finished with major preparation too.”</h3>
+            <fieldset>
+              <legend>What is the best response?</legend>
+              <label class="choice"><input type="radio" name="s2" value="a"> <span>Yes. GE and major preparation are the same thing.</span></label>
+              <label class="choice"><input type="radio" name="s2" value="b"> <span>Yes, as long as every course is transferable.</span></label>
+              <label class="choice"><input type="radio" name="s2" value="c"> <span>Not necessarily. Major preparation is a separate set of requirements to check.</span></label>
+            </fieldset>
+            <button class="check-answer" type="button">Check my answer</button>
+            <div class="feedback" aria-live="polite" hidden></div>
+          </article>
+
+          <article class="scenario" data-correct="a" data-explain="Right. ASSIST explains that ‘no course articulated’ means established articulation is not shown for that relationship. It does not, by itself, answer every other transfer-credit question.">
+            <span class="label">Scenario 3</span>
+            <h3>“ASSIST says ‘no course articulated.’ Does that mean the CCC course is worthless?”</h3>
+            <fieldset>
+              <legend>What is the best response?</legend>
+              <label class="choice"><input type="radio" name="s3" value="a"> <span>No. It means established articulation is not shown for that course relationship; other kinds of credit or applicability are separate questions.</span></label>
+              <label class="choice"><input type="radio" name="s3" value="b"> <span>Yes. The course cannot transfer in any way.</span></label>
+              <label class="choice"><input type="radio" name="s3" value="c"> <span>Yes. The course must be repeated immediately.</span></label>
+            </fieldset>
+            <button class="check-answer" type="button">Check my answer</button>
+            <div class="feedback" aria-live="polite" hidden></div>
+          </article>
+
+          <article class="scenario" data-correct="b" data-explain="Right. Faculty can teach the transfer concept and help students locate the live source while leaving individualized educational-plan decisions to the appropriate college professional.">
+            <span class="label">Scenario 4</span>
+            <h3>“A student asks whether my course will count toward their exact transfer plan.”</h3>
+            <fieldset>
+              <legend>What is the strongest faculty move?</legend>
+              <label class="choice"><input type="radio" name="s4" value="a"> <span>Give a definite answer from memory so the student does not have to look it up.</span></label>
+              <label class="choice"><input type="radio" name="s4" value="b"> <span>Explain the relevant concept, help identify what needs checking, and point the student to the current agreement/counseling for individualized planning.</span></label>
+              <label class="choice"><input type="radio" name="s4" value="c"> <span>Refuse to discuss transfer at all.</span></label>
+            </fieldset>
+            <button class="check-answer" type="button">Check my answer</button>
+            <div class="feedback" aria-live="polite" hidden></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white" aria-labelledby="audience-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Use the idea differently</p>
+          <h2 id="audience-title">Student and faculty versions of the same skill</h2>
+        </div>
+
+        <div class="split">
+          <article class="panel student">
+            <h3>If you're a student</h3>
+            <p>You do not have to decode every transfer rule yourself. Your job is to get specific enough to ask the right question.</p>
+            <ul>
+              <li>“Will this course transfer for credit?”</li>
+              <li>“Does it satisfy my GE pattern?”</li>
+              <li>“Does it satisfy major preparation for this campus and major?”</li>
+              <li>“Is there an articulation agreement for this course?”</li>
+            </ul>
+          </article>
+
+          <article class="panel faculty">
+            <h3>If you're faculty</h3>
+            <p>You can be genuinely helpful without taking on the role of an academic counselor.</p>
+            <ul>
+              <li>Explain the difference among transferability, GE, articulation, and major preparation.</li>
+              <li>Show students where current information lives.</li>
+              <li>Avoid making individualized promises from memory.</li>
+              <li>Refer complete educational-plan questions to counseling or the appropriate campus professional.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="warning">
+          <strong>Why the academic year matters</strong>
+          ASSIST notes that institutions publish and update agreements on different timelines. Always look at the academic year that is relevant to the question, and do not assume an older agreement tells you what is current.
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="sources" aria-labelledby="sources-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow">Official source shelf</p>
+          <h2 id="sources-title">Verify with the live source.</h2>
+          <p>The explanations on this page build transfer literacy. These sources provide the current official information behind the concepts.</p>
+        </div>
+
+        <div class="source-grid">
+          <a class="source-link" href="https://assist.org/">
+            <strong>Search current articulation and transferability information in ASSIST</strong>
+            <span>California's official repository of articulation information.</span>
+          </a>
+          <a class="source-link" href="https://resource.assist.org/FAQ">
+            <strong>Read the ASSIST Resource Center frequently asked questions</strong>
+            <span>Definitions, agreement types, update timing, and explanations of “no course articulated.”</span>
+          </a>
+          <a class="source-link" href="https://admission.universityofcalifornia.edu/counselors/preparing-transfer-students/transfer-credit-practice.html">
+            <strong>Review UC transfer credit and articulation practices</strong>
+            <span>UC explanations of transferability, GE/breadth, major preparation, and course-by-course agreements.</span>
+          </a>
+          <a class="source-link" href="https://www.calstate.edu/apply/transfer/Pages/default.aspx">
+            <strong>Review current CSU transfer information</strong>
+            <span>Current CSU transfer planning, requirements, pathways, and application information.</span>
+          </a>
+        </div>
+
+        <div class="next">
+          <h2>Now you know what to ask.</h2>
+          <p>The next skill is learning how to find the answer efficiently inside ASSIST. That is what <strong>ASSIST, Actually</strong> will teach.</p>
+          <a href="index.html">Return to the Transfer, Actually homepage</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Transfer<span>, Actually</span></a>
+          <p><em>Transfer, Actually</em> is an independent, faculty-created educational project. It is not an official website of the California Community Colleges Chancellor's Office, California State University, University of California, or ASSIST, and it does not replace academic counseling or official articulation information.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+          <a href="index.html">Home</a>
+          <a href="index.html#students">Student side</a>
+          <a href="index.html#faculty">Faculty side</a>
+          <a href="#sources">Official sources</a>
+        </div>
+      </div>
+      <p class="meta">Last reviewed: September 2026. Transferability and articulation information can change; verify time-sensitive or individualized information with the current official source.</p>
+    </div>
+  </footer>
+
+  <script>
+    const countInfo = {
+      credit: {
+        title: "Will I get transfer credit?",
+        copy: "This asks whether the receiving university recognizes the course as transferable credit. That does not, by itself, tell you whether the course satisfies GE, a major requirement, or a particular university course.",
+        check: "Use the current transferable-course information in ASSIST and the receiving institution's current policies.",
+        caution: "Do not turn ‘transferable’ into ‘satisfies every requirement.’"
+      },
+      ge: {
+        title: "Will it meet general education?",
+        copy: "This asks whether the course is approved for the general education pattern or area that applies to the student. GE approval is a separate layer from basic transferability.",
+        check: "Check the current applicable GE list or agreement and verify which GE pattern applies to the student.",
+        caution: "Do not assume every transferable course fills the GE area you need."
+      },
+      major: {
+        title: "Will it count for my major?",
+        copy: "This asks whether the course satisfies or supports preparation for a particular major at a particular receiving institution. Major preparation can vary by campus and major.",
+        check: "Look at the current major articulation agreement in ASSIST and the receiving institution's current major requirements.",
+        caution: "Finishing GE is not the same thing as finishing major preparation."
+      },
+      articulation: {
+        title: "Does it replace a specific university course?",
+        copy: "This is a course-to-course articulation question: whether an official agreement says the CCC course can satisfy a particular course or course sequence at the receiving institution.",
+        check: "Use the current department, prefix, or other relevant articulation agreement in ASSIST.",
+        caution: "‘No course articulated’ does not automatically mean the course earns no transfer credit at all."
+      },
+      pathway: {
+        title: "Will it fit my degree or pathway?",
+        copy: "This asks how the course applies to a program the student is completing at the community college, such as an associate degree or ADT. That local/pathway role is related to transfer, but it is not identical to how the receiving university will use the course.",
+        check: "Check the current college degree/pathway requirements and, when transfer is involved, the relevant receiving-institution information too.",
+        caution: "A course can fulfill a CCC program requirement without having the exact same role after transfer."
+      }
+    };
+
+    const buttons = document.querySelectorAll('.count-button');
+    const panel = document.getElementById('count-answer');
+    const answerTitle = document.getElementById('answer-title');
+    const answerCopy = document.getElementById('answer-copy');
+    const answerCheck = document.getElementById('answer-check');
+    const answerCaution = document.getElementById('answer-caution');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        button.setAttribute('aria-pressed', 'true');
+        const info = countInfo[button.dataset.count];
+        answerTitle.textContent = info.title;
+        answerCopy.textContent = info.copy;
+        answerCheck.textContent = info.check;
+        answerCaution.textContent = info.caution;
+        panel.hidden = false;
+        panel.focus();
+      });
+    });
+
+    document.querySelectorAll('.scenario').forEach(card => {
+      const button = card.querySelector('.check-answer');
+      const feedback = card.querySelector('.feedback');
+      button.addEventListener('click', () => {
+        const selected = card.querySelector('input[type="radio"]:checked');
+        if (!selected) {
+          feedback.hidden = false;
+          feedback.className = 'feedback retry';
+          feedback.textContent = 'Choose an answer first. The goal is to practice the distinction.';
+          return;
+        }
+        const correct = selected.value === card.dataset.correct;
+        feedback.hidden = false;
+        feedback.className = correct ? 'feedback good' : 'feedback retry';
+        feedback.textContent = correct
+          ? card.dataset.explain
+          : 'Not quite. Ask which kind of “count” is being claimed, then verify that specific relationship. Try another answer.';
+      });
+    });
+  </script>
+</body>
+</html>
