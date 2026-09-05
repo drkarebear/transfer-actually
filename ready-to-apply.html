@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1236b8">
-  <link rel="icon" type="image/png" href="favicon12.png">
-  <link rel="apple-touch-icon" href="favicon12.png">
-<meta name="description" content="I'm Ready to Apply. Now What? is a brain-friendly California Community College transfer application checklist for CSU and UC applicants, from preparation through post-submission updates.">
-  <title>I'm Ready to Apply. Now What? | Transfer, Actually</title>
-
-  <style>
+<meta charset="utf-8"/><meta content="default-src 'self'; script-src 'self' 'sha256-FNk24LUNSjDAzlLb8OrxGzrZiWLikVNE7A2cWNyH/h4='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="no-referrer" name="referrer"/>
+<meta content="#1236b8" name="theme-color"/>
+<link href="favicon12.png" rel="icon" type="image/png"/>
+<link href="favicon12.png" rel="apple-touch-icon"/>
+<meta content="I'm Ready to Apply. Now What? is a brain-friendly California Community College transfer application checklist for CSU and UC applicants, from preparation through post-submission updates." name="description"/>
+<title>I'm Ready to Apply. Now What? | Transfer, Actually</title>
+<style>
     :root {
       --bg:#faf8f3; --surface:#fff; --surface-soft:#f3f0e8; --ink:#17202a; --muted:#52606d;
       --line:#d8d2c6; --blue:#1a4d7a; --blue-soft:#e8f1f8; --teal:#1f5a5b; --teal-soft:#e6f1ef;
@@ -276,334 +277,302 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <header>
-    <div class="wrap topbar">
-      <a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a>
-      <nav aria-label="Primary navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#students">Students</a></li>
-          <li><a href="index.html#faculty">Faculty</a></li>
-          <li><a href="assist-actually.html">ASSIST</a></li>
-          <li><a href="index.html#official-sources">Sources</a></li>
-          <li><a href="index.html#about">About</a></li>
-        </ul>
-      </nav>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+<div class="wrap topbar">
+<a aria-label="Transfer, Actually home" class="brand" href="index.html">Transfer<span>, Actually</span></a>
+<nav aria-label="Primary navigation">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#students">Students</a></li>
+<li><a href="index.html#faculty">Faculty</a></li>
+<li><a href="assist-actually.html">ASSIST</a></li>
+<li><a href="index.html#official-sources">Sources</a></li>
+<li><a href="index.html#about">About</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<div aria-label="Breadcrumb" class="wrap breadcrumb" role="navigation">
+<a href="index.html">Home</a> → I'm Ready to Apply. Now What?
     </div>
-  </header>
-
-  <main id="main-content">
-    <div class="wrap breadcrumb" role="navigation" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> → I'm Ready to Apply. Now What?
-    </div>
-
-    <section class="hero" aria-labelledby="page-title">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Application season without the tab explosion</p>
-          <h1 id="page-title">I'm Ready to Apply. Now What?</h1>
-          <p class="lede">
+<section aria-labelledby="page-title" class="hero">
+<div class="wrap hero-grid">
+<div>
+<p class="eyebrow">Application season without the tab explosion</p>
+<h1 id="page-title">I'm Ready to Apply. Now What?</h1>
+<p class="lede">
             The application is not where you should discover your transfer plan. By now, your job is simpler: make sure the plan is accurate, enter it carefully, submit on time, and keep doing the after-submit tasks universities still expect.
           </p>
-        </div>
-        <aside class="hero-card" aria-labelledby="three-title">
-          <strong id="three-title">Think in three phases.</strong>
-          <p>Application season gets easier when you stop treating “submit” as the finish line.</p>
-          <div class="three">
-            <span class="a">1. Prepare accurately</span>
-            <span class="b">2. Submit deliberately</span>
-            <span class="c">3. Update + respond</span>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="band white" aria-labelledby="branch-title">
-      <div class="wrap">
-        <div class="system-pick">
-          <p class="eyebrow" style="color:#8de7f8;">Choose your application</p>
-          <h2 id="branch-title">Which system are you applying to?</h2>
-          <p>We will show you the tasks that are genuinely different. If you are applying to both, run the tool twice.</p>
-
-          <div class="option-grid">
-            <label class="option">
-              <input type="radio" name="system" value="csu">
-              <span><strong>CSU / Cal State Apply</strong><small>California State University transfer application.</small></span>
-            </label>
-            <label class="option">
-              <input type="radio" name="system" value="uc">
-              <span><strong>UC application</strong><small>University of California transfer application.</small></span>
-            </label>
-          </div>
-
-          <button class="show-plan" type="button">Show my application plan</button>
-          <div class="plan" id="plan" hidden aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" aria-labelledby="phases-title">
-      <div class="wrap">
-        <div class="section-intro">
-          <p class="eyebrow">The application mental model</p>
-          <h2 id="phases-title">“Done” happens later than you think.</h2>
-        </div>
-
-        <div class="timeline">
-          <article class="phase">
-            <strong aria-hidden="true">1</strong>
-            <h3>Before submit</h3>
-            <p>Verify campus + major, gather academic records, enter every college/course accurately, and complete system-specific sections.</p>
-          </article>
-          <article class="phase">
-            <strong aria-hidden="true">2</strong>
-            <h3>Submit</h3>
-            <p>Review the application, handle fees/waivers, save confirmation information, and keep a PDF or copy of what you submitted.</p>
-          </article>
-          <article class="phase">
-            <strong aria-hidden="true">3</strong>
-            <h3>After submit</h3>
-            <p>Watch email/portals, complete academic updates, financial-aid applications, supplements, and later transcript/certification requests.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band white" aria-labelledby="ready-title">
-      <div class="wrap">
-        <div class="section-intro">
-          <p class="eyebrow">Before you hit submit</p>
-          <h2 id="ready-title">Application readiness check</h2>
-          <p>This does not decide whether you are admissible. It checks whether you are prepared to enter the application carefully.</p>
-        </div>
-
-        <div class="check-shell">
-          <div class="checklist" id="checklist">
-            <label>
-              <input type="checkbox">
-              <span><strong>I know the exact campus(es) and major(s) I am applying to.</strong><small>I checked current major availability/selection rather than choosing from memory.</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I have an unofficial transcript or accurate academic record from every college I attended.</strong><small>Including another CCC, dual-enrollment college work, summer coursework, or a college I attended briefly.</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I know my in-progress and planned coursework through transfer.</strong><small>The application needs the future plan too—not only completed classes.</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I rechecked major preparation and articulation for my destination.</strong><small>I am not relying only on “this course transfers.”</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I know whether ADT, TAG, TSP, Cal-GETC, or another pathway applies to me.</strong><small>And I know that these programs have different rules and benefits.</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I have one reliable email address I will actually monitor.</strong><small>I will also check campus applicant portals after submission.</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I know the submission deadline for my intended term.</strong><small>I am not treating “sometime in November” as a deadline.</small></span>
-            </label>
-            <label>
-              <input type="checkbox">
-              <span><strong>I have a plan for financial aid too.</strong><small>Admissions and financial aid run on parallel timelines.</small></span>
-            </label>
-          </div>
-
-          <aside class="score-card" aria-live="polite">
-            <p class="eyebrow">Readiness</p>
-            <div class="score"><span id="score">0</span>/8</div>
-            <p id="score-text">Start checking the items you have ready. Missing items are not a judgment—they are your to-do list.</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" aria-labelledby="system-title">
-      <div class="wrap">
-        <div class="section-intro">
-          <p class="eyebrow">Where CSU and UC diverge</p>
-          <h2 id="system-title">Same transfer goal. Different application work.</h2>
-        </div>
-
-        <div class="grid2">
-          <article class="card csu">
-            <h3>CSU application essentials</h3>
-            <ul>
-              <li><strong>Fall 2027:</strong> you can work in Cal State Apply now; application submission opens October 1, 2026, and the priority period ends November 30, 2026.</li>
-              <li>Use accurate academic history for all colleges attended, completed courses, fall work, and planned spring coursework.</li>
-              <li>Check <strong>Program Materials</strong> and campus instructions: some programs/campuses may have supplemental requirements.</li>
-              <li>If you are using an ADT, make sure your application accurately reflects the degree information expected by CSU.</li>
-              <li>After applying, follow each campus's portal/email instructions; the January Academic History Update is required by some campuses, optional at some, and not used by others.</li>
-            </ul>
-            <div class="dated"><strong>Fall 2027 note:</strong> CSU opened Cal State Apply early on August 1, 2026 so students can prepare; some transfer fields only become available when submission opens October 1.</div>
-          </article>
-
-          <article class="card uc">
-            <h3>UC application essentials</h3>
-            <ul>
-              <li><strong>Fall 2027:</strong> the application opened August 1, 2026; the current filing period is November 1–30, 2026.</li>
-              <li>If using TAG, the separate fall 2027 TAG filing period is September 1–30, 2026.</li>
-              <li>Transfer applicants answer <strong>one required Personal Insight Question plus three of seven additional questions</strong>, with up to 350 words per response.</li>
-              <li>Enter complete academic history and planned coursework accurately; most corrections become harder after submission.</li>
-              <li>After applying, <strong>every transfer applicant must complete the Transfer Academic Update (TAU)</strong>; the fall 2027 priority deadline is January 31, 2027.</li>
-            </ul>
-            <div class="dated"><strong>Helpful PIQ frame:</strong> the required transfer question asks how you prepared for your intended major and how that preparation supports success in upper-division work.</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band white" aria-labelledby="after-title">
-      <div class="wrap">
-        <div class="section-intro">
-          <p class="eyebrow">After submit</p>
-          <h2 id="after-title">The application left your screen. Your job did not.</h2>
-        </div>
-
-        <div class="grid2">
-          <article class="card after">
-            <h3>Save + monitor</h3>
-            <ul>
-              <li>Save the application confirmation, application ID, and a PDF/copy of what you submitted.</li>
-              <li>Set up applicant portals when campuses tell you to.</li>
-              <li>Check email and portals regularly; do not rely on one channel.</li>
-              <li>Respond to campus requests by the stated deadline.</li>
-            </ul>
-          </article>
-
-          <article class="card after">
-            <h3>Update academics</h3>
-            <ul>
-              <li>UC: complete the TAU even if your original academic record seemed complete.</li>
-              <li>CSU: complete the Academic History Update when required/used by your campuses and follow campus-specific instructions.</li>
-              <li>If a course or grade changes after you apply, do not wait for the final transcript to “explain it.” Use the proper update/reporting process.</li>
-            </ul>
-          </article>
-
-          <article class="card money">
-            <h3>Run financial aid in parallel</h3>
-            <ul>
-              <li>For fall 2027, UC's current calendar lists October 1, 2026 as the opening of the FAFSA/CADAA/GPA verification filing period and March 2, 2027 as the deadline for those California aid steps.</li>
-              <li>Use the current FAFSA or California Dream Act Application that applies to you.</li>
-              <li>Watch for university financial-aid portal tasks and missing-document notices separately from admissions.</li>
-            </ul>
-          </article>
-
-          <article class="card after">
-            <h3>Send official documents when asked</h3>
-            <ul>
-              <li>Do not assume universities want official transcripts at the same stage.</li>
-              <li>UC says final official transcripts are due to the enrolling campus by July 1 for fall 2027 admitted students, with AP/IB and Cal-GETC/IGETC certification due by July 15.</li>
-              <li>CSU campuses set transcript/document deadlines and instruct admitted students when to send them.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" aria-labelledby="mistakes-title">
-      <div class="wrap">
-        <div class="mistakes">
-          <p class="eyebrow">Avoid the preventable mistakes</p>
-          <h2 id="mistakes-title">Application errors are usually boring, not dramatic.</h2>
-          <ul>
-            <li><strong>Entering coursework from memory</strong> instead of using an actual record.</li>
-            <li><strong>Leaving out a college</strong> because the course was dual enrollment, old, brief, or unrelated to the major.</li>
-            <li><strong>Choosing a campus before checking the exact major/program</strong> and then discovering different preparation or selectivity later.</li>
-            <li><strong>Forgetting planned coursework</strong> because it has not happened yet.</li>
-            <li><strong>Writing UC PIQs like generic admissions essays</strong> instead of answering the actual prompt with concrete evidence.</li>
-            <li><strong>Assuming submit = finished</strong> and missing TAU/AHU, portal, supplemental, financial-aid, or document tasks.</li>
-            <li><strong>Waiting until the last day</strong> to discover a login, payment, course-entry, or program-material problem.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="band white" id="sources" aria-labelledby="sources-title">
-      <div class="wrap">
-        <div class="section-intro">
-          <p class="eyebrow">Official-source shelf</p>
-          <h2 id="sources-title">Use this page for the workflow. Use the application systems for the live details.</h2>
-        </div>
-
-        <div class="source-grid">
-          <a class="source-link" href="https://www.calstate.edu/apply/transfer">
-            <strong>Start or review a CSU transfer application</strong>
-            <span>Current fall 2027 CSU application timeline, transfer categories, pathways, and application access.</span>
-          </a>
-          <a class="source-link" href="https://www.calstate.edu/apply/Pages/resources.aspx">
-            <strong>Use CSU's current Cal State Apply guides and tutorials</strong>
-            <span>Transfer checklist, application guide, academic-history tutorials, and applicant help.</span>
-          </a>
-          <a class="source-link" href="https://www.calstate.edu/apply/casper/Pages/Academic-History.aspx">
-            <strong>Check whether your CSU campuses use the January Academic History Update</strong>
-            <span>Current campus-by-campus required, optional, or not-considered status.</span>
-          </a>
-          <a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/">
-            <strong>Start or review a UC transfer application</strong>
-            <span>Current application, transfer review, PIQs, and after-you-apply guidance.</span>
-          </a>
-          <a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/personal-insight-questions.html">
-            <strong>Read the current UC transfer Personal Insight Questions</strong>
-            <span>One required transfer question, seven choices, response limits, and UC's writing guidance.</span>
-          </a>
-          <a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/dates-and-deadlines.html">
-            <strong>Check the current UC transfer dates and deadlines</strong>
-            <span>TAG, application, TAU, financial aid, decisions, SIR, transcripts, and certification dates.</span>
-          </a>
-          <a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/after-you-apply/transfer-academic-update.html">
-            <strong>Complete the UC Transfer Academic Update</strong>
-            <span>Required post-application grade and course update for transfer applicants.</span>
-          </a>
-          <a class="source-link" href="something-changed.html">
-            <strong>Use “Something Changed” if your schedule, grade, major, or destination changes after applying</strong>
-            <span>Figure out whether the change is mainly a planning issue, an update/reporting issue, or something to contact the campus about promptly.</span>
-          </a>
-        </div>
-
-        <div class="next">
-          <h2>Faculty helping a student with transfer?</h2>
-          <p>
-            <a href="student-asked-me.html" style="color:#fff;"><strong>“A Student Just Asked Me…”</strong></a> gives faculty a quick way to separate what they can safely explain from what needs verification or individualized referral.
+</div>
+<aside aria-labelledby="three-title" class="hero-card">
+<strong id="three-title">Think in three phases.</strong>
+<p>Application season gets easier when you stop treating “submit” as the finish line.</p>
+<div class="three">
+<span class="a">1. Prepare accurately</span>
+<span class="b">2. Submit deliberately</span>
+<span class="c">3. Update + respond</span>
+</div>
+</aside>
+</div>
+</section>
+<section aria-labelledby="branch-title" class="band white">
+<div class="wrap">
+<div class="system-pick">
+<p class="eyebrow" style="color:#8de7f8;">Choose your application</p>
+<h2 id="branch-title">Which system are you applying to?</h2>
+<p>We will show you the tasks that are genuinely different. If you are applying to both, run the tool twice.</p>
+<div class="option-grid">
+<label class="option">
+<input name="system" type="radio" value="csu"/>
+<span><strong>CSU / Cal State Apply</strong><small>California State University transfer application.</small></span>
+</label>
+<label class="option">
+<input name="system" type="radio" value="uc"/>
+<span><strong>UC application</strong><small>University of California transfer application.</small></span>
+</label>
+</div>
+<button class="show-plan" type="button">Show my application plan</button>
+<div aria-live="polite" class="plan" hidden="" id="plan"></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="phases-title" class="band">
+<div class="wrap">
+<div class="section-intro">
+<p class="eyebrow">The application mental model</p>
+<h2 id="phases-title">“Done” happens later than you think.</h2>
+</div>
+<div class="timeline">
+<article class="phase">
+<strong aria-hidden="true">1</strong>
+<h3>Before submit</h3>
+<p>Verify campus + major, gather academic records, enter every college/course accurately, and complete system-specific sections.</p>
+</article>
+<article class="phase">
+<strong aria-hidden="true">2</strong>
+<h3>Submit</h3>
+<p>Review the application, handle fees/waivers, save confirmation information, and keep a PDF or copy of what you submitted.</p>
+</article>
+<article class="phase">
+<strong aria-hidden="true">3</strong>
+<h3>After submit</h3>
+<p>Watch email/portals, complete academic updates, financial-aid applications, supplements, and later transcript/certification requests.</p>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="ready-title" class="band white">
+<div class="wrap">
+<div class="section-intro">
+<p class="eyebrow">Before you hit submit</p>
+<h2 id="ready-title">Application readiness check</h2>
+<p>This does not decide whether you are admissible. It checks whether you are prepared to enter the application carefully.</p>
+</div>
+<div class="check-shell">
+<div class="checklist" id="checklist">
+<label>
+<input type="checkbox"/>
+<span><strong>I know the exact campus(es) and major(s) I am applying to.</strong><small>I checked current major availability/selection rather than choosing from memory.</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I have an unofficial transcript or accurate academic record from every college I attended.</strong><small>Including another CCC, dual-enrollment college work, summer coursework, or a college I attended briefly.</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I know my in-progress and planned coursework through transfer.</strong><small>The application needs the future plan too—not only completed classes.</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I rechecked major preparation and articulation for my destination.</strong><small>I am not relying only on “this course transfers.”</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I know whether ADT, TAG, TSP, Cal-GETC, or another pathway applies to me.</strong><small>And I know that these programs have different rules and benefits.</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I have one reliable email address I will actually monitor.</strong><small>I will also check campus applicant portals after submission.</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I know the submission deadline for my intended term.</strong><small>I am not treating “sometime in November” as a deadline.</small></span>
+</label>
+<label>
+<input type="checkbox"/>
+<span><strong>I have a plan for financial aid too.</strong><small>Admissions and financial aid run on parallel timelines.</small></span>
+</label>
+</div>
+<aside aria-live="polite" class="score-card">
+<p class="eyebrow">Readiness</p>
+<div class="score"><span id="score">0</span>/8</div>
+<p id="score-text">Start checking the items you have ready. Missing items are not a judgment—they are your to-do list.</p>
+</aside>
+</div>
+</div>
+</section>
+<section aria-labelledby="system-title" class="band">
+<div class="wrap">
+<div class="section-intro">
+<p class="eyebrow">Where CSU and UC diverge</p>
+<h2 id="system-title">Same transfer goal. Different application work.</h2>
+</div>
+<div class="grid2">
+<article class="card csu">
+<h3>CSU application essentials</h3>
+<ul>
+<li><strong>Fall 2027:</strong> you can work in Cal State Apply now; application submission opens October 1, 2026, and the priority period ends November 30, 2026.</li>
+<li>Use accurate academic history for all colleges attended, completed courses, fall work, and planned spring coursework.</li>
+<li>Check <strong>Program Materials</strong> and campus instructions: some programs/campuses may have supplemental requirements.</li>
+<li>If you are using an ADT, make sure your application accurately reflects the degree information expected by CSU.</li>
+<li>After applying, follow each campus's portal/email instructions; the January Academic History Update is required by some campuses, optional at some, and not used by others.</li>
+</ul>
+<div class="dated"><strong>Fall 2027 note:</strong> CSU opened Cal State Apply early on August 1, 2026 so students can prepare; some transfer fields only become available when submission opens October 1.</div>
+</article>
+<article class="card uc">
+<h3>UC application essentials</h3>
+<ul>
+<li><strong>Fall 2027:</strong> the application opened August 1, 2026; the current filing period is November 1–30, 2026.</li>
+<li>If using TAG, the separate fall 2027 TAG filing period is September 1–30, 2026.</li>
+<li>Transfer applicants answer <strong>one required Personal Insight Question plus three of seven additional questions</strong>, with up to 350 words per response.</li>
+<li>Enter complete academic history and planned coursework accurately; most corrections become harder after submission.</li>
+<li>After applying, <strong>every transfer applicant must complete the Transfer Academic Update (TAU)</strong>; the fall 2027 priority deadline is January 31, 2027.</li>
+</ul>
+<div class="dated"><strong>Helpful PIQ frame:</strong> the required transfer question asks how you prepared for your intended major and how that preparation supports success in upper-division work.</div>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="after-title" class="band white">
+<div class="wrap">
+<div class="section-intro">
+<p class="eyebrow">After submit</p>
+<h2 id="after-title">The application left your screen. Your job did not.</h2>
+</div>
+<div class="grid2">
+<article class="card after">
+<h3>Save + monitor</h3>
+<ul>
+<li>Save the application confirmation, application ID, and a PDF/copy of what you submitted.</li>
+<li>Set up applicant portals when campuses tell you to.</li>
+<li>Check email and portals regularly; do not rely on one channel.</li>
+<li>Respond to campus requests by the stated deadline.</li>
+</ul>
+</article>
+<article class="card after">
+<h3>Update academics</h3>
+<ul>
+<li>UC: complete the TAU even if your original academic record seemed complete.</li>
+<li>CSU: complete the Academic History Update when required/used by your campuses and follow campus-specific instructions.</li>
+<li>If a course or grade changes after you apply, do not wait for the final transcript to “explain it.” Use the proper update/reporting process.</li>
+</ul>
+</article>
+<article class="card money">
+<h3>Run financial aid in parallel</h3>
+<ul>
+<li>For fall 2027, UC's current calendar lists October 1, 2026 as the opening of the FAFSA/CADAA/GPA verification filing period and March 2, 2027 as the deadline for those California aid steps.</li>
+<li>Use the current FAFSA or California Dream Act Application that applies to you.</li>
+<li>Watch for university financial-aid portal tasks and missing-document notices separately from admissions.</li>
+</ul>
+</article>
+<article class="card after">
+<h3>Send official documents when asked</h3>
+<ul>
+<li>Do not assume universities want official transcripts at the same stage.</li>
+<li>UC says final official transcripts are due to the enrolling campus by July 1 for fall 2027 admitted students, with AP/IB and Cal-GETC/IGETC certification due by July 15.</li>
+<li>CSU campuses set transcript/document deadlines and instruct admitted students when to send them.</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="mistakes-title" class="band">
+<div class="wrap">
+<div class="mistakes">
+<p class="eyebrow">Avoid the preventable mistakes</p>
+<h2 id="mistakes-title">Application errors are usually boring, not dramatic.</h2>
+<ul>
+<li><strong>Entering coursework from memory</strong> instead of using an actual record.</li>
+<li><strong>Leaving out a college</strong> because the course was dual enrollment, old, brief, or unrelated to the major.</li>
+<li><strong>Choosing a campus before checking the exact major/program</strong> and then discovering different preparation or selectivity later.</li>
+<li><strong>Forgetting planned coursework</strong> because it has not happened yet.</li>
+<li><strong>Writing UC PIQs like generic admissions essays</strong> instead of answering the actual prompt with concrete evidence.</li>
+<li><strong>Assuming submit = finished</strong> and missing TAU/AHU, portal, supplemental, financial-aid, or document tasks.</li>
+<li><strong>Waiting until the last day</strong> to discover a login, payment, course-entry, or program-material problem.</li>
+</ul>
+</div>
+</div>
+</section>
+<section aria-labelledby="sources-title" class="band white" id="sources">
+<div class="wrap">
+<div class="section-intro">
+<p class="eyebrow">Official-source shelf</p>
+<h2 id="sources-title">Use this page for the workflow. Use the application systems for the live details.</h2>
+</div>
+<div class="source-grid">
+<a class="source-link" href="https://www.calstate.edu/apply/transfer">
+<strong>Start or review a CSU transfer application</strong>
+<span>Current fall 2027 CSU application timeline, transfer categories, pathways, and application access.</span>
+</a>
+<a class="source-link" href="https://www.calstate.edu/apply/Pages/resources.aspx">
+<strong>Use CSU's current Cal State Apply guides and tutorials</strong>
+<span>Transfer checklist, application guide, academic-history tutorials, and applicant help.</span>
+</a>
+<a class="source-link" href="https://www.calstate.edu/apply/casper/Pages/Academic-History.aspx">
+<strong>Check whether your CSU campuses use the January Academic History Update</strong>
+<span>Current campus-by-campus required, optional, or not-considered status.</span>
+</a>
+<a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/">
+<strong>Start or review a UC transfer application</strong>
+<span>Current application, transfer review, PIQs, and after-you-apply guidance.</span>
+</a>
+<a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/personal-insight-questions.html">
+<strong>Read the current UC transfer Personal Insight Questions</strong>
+<span>One required transfer question, seven choices, response limits, and UC's writing guidance.</span>
+</a>
+<a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/dates-and-deadlines.html">
+<strong>Check the current UC transfer dates and deadlines</strong>
+<span>TAG, application, TAU, financial aid, decisions, SIR, transcripts, and certification dates.</span>
+</a>
+<a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/after-you-apply/transfer-academic-update.html">
+<strong>Complete the UC Transfer Academic Update</strong>
+<span>Required post-application grade and course update for transfer applicants.</span>
+</a>
+<a class="source-link" href="something-changed.html">
+<strong>Use “Something Changed” if your schedule, grade, major, or destination changes after applying</strong>
+<span>Figure out whether the change is mainly a planning issue, an update/reporting issue, or something to contact the campus about promptly.</span>
+</a>
+</div>
+<div class="next">
+<h2>Faculty helping a student with transfer?</h2>
+<p>
+<a href="student-asked-me.html" style="color:#fff;"><strong>“A Student Just Asked Me…”</strong></a> gives faculty a quick way to separate what they can safely explain from what needs verification or individualized referral.
           </p>
-          <div class="next-links">
-            <a href="i-know-my-major.html">Plan by major →</a>
-            <a href="i-know-where.html">Plan by destination →</a>
-            <a href="something-changed.html">Something changed →</a>
-            <a href="assist-actually.html">ASSIST, Actually →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <a class="brand" href="index.html">Transfer<span>, Actually</span></a>
-          <p>An independent, faculty-created educational project. It explains transfer concepts and points to authoritative sources; it does not replace academic counseling, admissions guidance, articulation review, financial-aid advice, or official institutional information.</p>
-        </div>
-        <div class="footer-links" aria-label="Footer links">
-          <a href="index.html">Home</a>
-          <a href="index.html#students">Students</a>
-          <a href="index.html#faculty">Faculty</a>
-          <a href="assist-actually.html">ASSIST</a>
-          <a href="index.html#official-sources">Sources</a>
-          <a href="index.html#about">About</a>
-        </div>
-      </div>
-      <p class="meta">Last reviewed: September 2026. Application windows, academic-update rules, financial-aid dates, campus requirements, and document deadlines can change. Verify time-sensitive information in the current application system and campus instructions.</p>
-    </div>
-  </footer>
-
-  <script>
+<div class="next-links">
+<a href="i-know-my-major.html">Plan by major →</a>
+<a href="i-know-where.html">Plan by destination →</a>
+<a href="something-changed.html">Something changed →</a>
+<a href="assist-actually.html">ASSIST, Actually →</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<a class="brand" href="index.html">Transfer<span>, Actually</span></a>
+<p>An independent, faculty-created educational project. It explains transfer concepts and points to authoritative sources; it does not replace academic counseling, admissions guidance, articulation review, financial-aid advice, or official institutional information.</p>
+</div>
+<div aria-label="Footer links" class="footer-links"><a href="index.html#about">About</a><a href="accessibility.html">Accessibility</a><a href="privacy.html">Privacy</a><a href="index.html#official-sources">Sources</a></div>
+</div>
+<p class="meta">Last reviewed: September 2026. Application windows, academic-update rules, financial-aid dates, campus requirements, and document deadlines can change. Verify time-sensitive information in the current application system and campus instructions.</p>
+</div>
+</footer>
+<script>
     const plans = {
       csu: {
         title: "CSU: prepare → submit → monitor",
@@ -646,13 +615,33 @@
       const selected = document.querySelector('input[name="system"]:checked');
       if (!selected) {
         plan.hidden = false;
-        plan.innerHTML = '<h3>Choose CSU or UC first.</h3><p>If you are applying to both, run the tool once for each system—the post-submit steps are different.</p>';
+        plan.replaceChildren();
+        const heading = document.createElement('h3');
+        heading.textContent = 'Choose CSU or UC first.';
+        const message = document.createElement('p');
+        message.textContent = 'If you are applying to both, run the tool once for each system—the post-submit steps are different.';
+        plan.append(heading, message);
         return;
       }
       const p = plans[selected.value];
-      const steps = p.steps.map(x => `<li>${x}</li>`).join('');
-      const links = p.links.map(([label,href]) => `<a href="${href}">${label}</a>`).join('');
-      plan.innerHTML = `<h3>${p.title}</h3><ol>${steps}</ol><div class="plan-links">${links}</div>`;
+      plan.replaceChildren();
+      const heading = document.createElement('h3');
+      heading.textContent = p.title;
+      const list = document.createElement('ol');
+      p.steps.forEach(step => {
+        const item = document.createElement('li');
+        item.textContent = step;
+        list.appendChild(item);
+      });
+      const linkGroup = document.createElement('div');
+      linkGroup.className = 'plan-links';
+      p.links.forEach(([label, href]) => {
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        linkGroup.appendChild(link);
+      });
+      plan.append(heading, list, linkGroup);
       plan.hidden = false;
       plan.scrollIntoView({block:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     });
