@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+  <meta name="description" content="UC + CSU Translator explains common California Community College transfer terms such as TAG, TAP, TAU, Pathways+, ADT, TSP, impaction, Academic History Update, and more in plain language.">
+  <title>UC + CSU Translator | Transfer, Actually</title>
+  <style>
+    :root{
+      --bg:#faf8f3;--surface:#fff;--surface-soft:#f3f0e8;--ink:#17202a;--muted:#52606d;
+      --line:#d8d2c6;--blue:#1236b8;--blue-soft:#eaf0ff;--navy:#082a85;--cyan:#00bff3;
+      --cyan-soft:#e8fbff;--teal:#007c9e;--teal-soft:#e6f9fe;--rust:#7a3f2d;--rust-soft:#f5ebe7;
+      --gold:#6d5200;--gold-soft:#f8f0d6;--focus:#0067c5;--shadow:0 12px 34px rgba(18,54,184,.10);
+      --radius:22px;--radius-sm:14px;--max:1120px
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.68}
+    a{color:var(--blue);text-underline-offset:.18em;text-decoration-thickness:.08em}
+    a:focus-visible,summary:focus-visible{outline:4px solid var(--focus);outline-offset:4px;border-radius:7px}
+    .skip-link{position:absolute;left:1rem;top:-5rem;z-index:1000;background:var(--ink);color:#fff;padding:.75rem 1rem;border-radius:0 0 10px 10px;font-weight:800}.skip-link:focus{top:0}
+    .wrap{width:min(var(--max),calc(100% - 2rem));margin-inline:auto}
+    header{background:rgba(250,248,243,.97);border-bottom:1px solid var(--line)}
+    header::before{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--navy),var(--blue) 48%,var(--cyan))}
+    .topbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.75rem}
+    .brand{color:var(--ink);text-decoration:none;font-weight:900;letter-spacing:-.03em;font-size:1.3rem}.brand span{color:var(--blue)}
+    nav ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.25rem}
+    nav a{display:inline-flex;min-height:44px;align-items:center;color:var(--ink);text-decoration:none;padding:.5rem .62rem;border-radius:10px;font-weight:700;font-size:.93rem}nav a:hover{background:var(--surface-soft)}
+    .breadcrumb{padding-top:1.1rem;color:var(--muted);font-size:.94rem}.breadcrumb a{color:var(--muted)}
+    .hero{padding:clamp(2.8rem,7vw,5.3rem) 0 3.6rem}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+    .eyebrow{display:inline-block;margin:0 0 .85rem;color:var(--blue);font-weight:850;letter-spacing:.07em;text-transform:uppercase;font-size:.875rem}
+    h1,h2,h3{line-height:1.14;letter-spacing:-.03em;text-wrap:balance}h1{margin:0;max-width:13ch;font-size:clamp(2.6rem,7vw,5rem)}h2{margin:0 0 .8rem;font-size:clamp(1.9rem,4.5vw,2.8rem)}h3{margin:0 0 .4rem;font-size:1.22rem}
+    .lede{max-width:760px;margin:1rem 0 0;color:var(--muted);font-size:clamp(1.08rem,2vw,1.25rem)}
+    .hero-card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--cyan);border-radius:var(--radius);padding:1.3rem;box-shadow:var(--shadow)}
+    .hero-card p{margin:.25rem 0 0;color:var(--muted)}
+    .sequence{display:grid;gap:.5rem;margin-top:1rem}.sequence span{display:block;padding:.65rem .75rem;border-radius:10px;background:var(--blue-soft);font-weight:800}.sequence span:nth-child(even){background:var(--cyan-soft)}
+    .jump{padding:0 0 3rem}.jump-links{display:flex;flex-wrap:wrap;gap:.6rem}.jump-links a{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.65rem .85rem;text-decoration:none;font-weight:800}.jump-links a:hover{background:var(--cyan-soft)}
+    .band{padding:clamp(3.3rem,7vw,5.5rem) 0}.white{background:var(--surface);border-block:1px solid var(--line)}
+    .section-intro{max-width:820px;margin-bottom:1.7rem}.section-intro p{color:var(--muted);margin:0}
+    .compare-grid,.term-grid,.source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .compare-card,.term,.source{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.05rem}
+    .compare-card{border-top:5px solid var(--blue)}.compare-card:nth-child(even){border-top-color:var(--cyan)}
+    .compare-card p,.term p{margin:.35rem 0 0;color:var(--muted)}
+    .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:.55rem;align-items:start;margin-top:.65rem}.vs>div{background:var(--surface-soft);padding:.75rem;border-radius:10px}.vs>span{font-weight:900;color:var(--blue);padding-top:.75rem}
+    .system-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}.system-mark{display:inline-grid;place-items:center;min-width:3.2rem;height:3.2rem;padding:.4rem;border-radius:50%;background:var(--blue);color:#fff;font-weight:900}.system-mark.csu{background:var(--teal)}
+    .term{scroll-margin-top:1rem}.term.uc{border-left:5px solid var(--blue)}.term.csu{border-left:5px solid var(--teal)}.term.shared{border-left:5px solid var(--gold)}
+    .term .full{display:block;color:var(--muted);font-size:.9rem;font-weight:750;margin-top:.15rem}
+    .term .care{margin-top:.6rem;padding:.65rem .75rem;border-radius:10px;background:var(--blue-soft);color:var(--ink)}.term.csu .care{background:var(--teal-soft)}.term.shared .care{background:var(--gold-soft)}
+    .note{margin-top:1rem;padding:.9rem 1rem;border-left:5px solid var(--blue);background:var(--blue-soft);border-radius:0 12px 12px 0}
+    .source{display:block;text-decoration:none}.source:hover{background:var(--cyan-soft)}.source strong{display:block;color:var(--ink)}.source span{display:block;color:var(--muted);font-size:.94rem;margin-top:.2rem}
+    .next{margin-top:1.5rem;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:var(--radius);padding:1.35rem}.next h2{color:#fff}.next p{color:#dce4ea}.next a{display:inline-block;background:#fff;color:var(--ink);padding:.7rem .9rem;border-radius:10px;text-decoration:none;font-weight:850}
+    footer{border-top:1px solid var(--line);background:var(--surface);padding:2.4rem 0 3rem}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem}.footer-grid p{color:var(--muted)}.footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:.6rem 1rem}.meta{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    @media(max-width:800px){.hero-grid,.footer-grid,.compare-grid,.term-grid,.source-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+    @media(max-width:600px){.topbar{align-items:flex-start;flex-direction:column}nav ul{justify-content:flex-start}.vs{grid-template-columns:1fr}.vs>span{padding:0;text-align:center}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media(forced-colors:active){.hero-card,.compare-card,.term,.source{border:2px solid CanvasText}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header><div class="wrap topbar"><a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a><nav aria-label="Primary navigation"><ul><li><a href="index.html">Home</a></li><li><a href="index.html#students">Students</a></li><li><a href="index.html#faculty">Faculty</a></li><li><a href="assist-actually.html">ASSIST</a></li><li><a href="index.html#official-sources">Sources</a></li><li><a href="index.html#about">About</a></li></ul></nav></div></header>
+<main id="main-content">
+<div class="wrap breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> → UC + CSU Translator</div>
+<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">The alphabet soup, translated</p><h1>UC + CSU Translator</h1><p class="lede">You do not need to memorize every transfer acronym. Learn what the term does, when you might see it, and what it does <strong>not</strong> automatically mean.</p></div><aside class="hero-card"><h2 style="font-size:1.45rem;">Three UC terms that sound almost identical</h2><div class="sequence"><span><strong>UC TAP</strong> = planning tool</span><span><strong>TAG</strong> = admission guarantee</span><span><strong>TAU</strong> = post-application academic update</span></div><p>They are connected, but they happen at different points in the transfer process.</p></aside></div></section>
+<section class="jump" aria-label="Jump to a glossary section"><div class="wrap jump-links"><a href="#compare">Don't mix these up</a><a href="#uc">UC terms</a><a href="#csu">CSU terms</a><a href="#shared">Shared transfer terms</a><a href="piqs-actually.html">PIQ help</a></div></section>
+
+<section class="band white" id="compare" aria-labelledby="compare-title"><div class="wrap"><div class="section-intro"><p class="eyebrow">Start here</p><h2 id="compare-title">These sound alike. They are not the same thing.</h2><p>If you remember the distinctions below, most of the acronyms become much easier to place.</p></div><div class="compare-grid">
+<article class="compare-card"><h3>UC TAP / TAG / TAU</h3><div class="vs"><div><strong>TAP</strong><br>Plan and track coursework.</div><span>≠</span><div><strong>TAG</strong><br>A guarantee at one eligible UC campus.</div></div><p><strong>TAU</strong> comes later: it updates UC after you apply.</p></article>
+<article class="compare-card"><h3>Transfer Pathways / Pathways+</h3><div class="vs"><div><strong>Pathways</strong><br>Common preparation for selected UC majors.</div><span>≠</span><div><strong>Pathways+</strong><br>Pathway preparation plus a TAG option.</div></div></article>
+<article class="compare-card"><h3>ADT / TSP</h3><div class="vs"><div><strong>ADT</strong><br>A CCC transfer degree with CSU-system benefits.</div><span>≠</span><div><strong>TSP</strong><br>A separate agreement tied to a CSU campus/program.</div></div></article>
+<article class="compare-card"><h3>Transferable / articulated</h3><div class="vs"><div><strong>Transferable</strong><br>The system awards transfer unit credit.</div><span>≠</span><div><strong>Articulated</strong><br>An official agreement identifies a specific relationship.</div></div></article>
+<article class="compare-card"><h3>GE / major preparation</h3><div class="vs"><div><strong>GE</strong><br>Broad lower-division education requirements.</div><span>≠</span><div><strong>Major prep</strong><br>Courses expected for a particular major/program.</div></div></article>
+<article class="compare-card"><h3>Eligible / competitive</h3><div class="vs"><div><strong>Eligible</strong><br>You meet a published minimum or pathway condition.</div><span>≠</span><div><strong>Competitive</strong><br>You are strong enough for a selective campus/program's applicant pool.</div></div></article>
+</div></div></section>
+
+<section class="band" id="uc" aria-labelledby="uc-title"><div class="wrap"><div class="system-head"><span class="system-mark">UC</span><div><p class="eyebrow">University of California</p><h2 id="uc-title">UC terms worth knowing</h2></div></div><div class="term-grid">
+<article class="term uc" id="tap"><h3>UC TAP</h3><span class="full">Transfer Admission Planner</span><p>UC's online planning tool for entering completed and planned coursework and tracking progress toward transfer requirements. Students also submit a TAG through UC TAP.</p><p class="care"><strong>Why you care:</strong> TAP is a planner. It is not the UC admission application.</p></article>
+<article class="term uc" id="tag"><h3>TAG</h3><span class="full">Transfer Admission Guarantee</span><p>A separate guarantee available to eligible California Community College students at one of six participating campuses: Davis, Irvine, Merced, Riverside, Santa Barbara, or Santa Cruz. Campus and major requirements vary.</p><p class="care"><strong>Why you care:</strong> A TAG student still submits the regular UC application and must keep meeting the TAG conditions.</p></article>
+<article class="term uc" id="tau"><h3>TAU</h3><span class="full">Transfer Academic Update</span><p>The required post-application update where transfer applicants report final fall grades and in-progress or planned coursework. UC says applicants must complete it even if nothing changed.</p><p class="care"><strong>Why you care:</strong> A submitted application is not the end of the UC process.</p></article>
+<article class="term uc" id="pathways"><h3>UC Transfer Pathways</h3><p>Common lower-division major preparation for selected UC majors. The goal is to prepare for the same major across multiple UC campuses rather than building an entirely different preparation plan for each one.</p><p class="care"><strong>Why you care:</strong> A Pathway is major preparation. It is not itself an admission guarantee.</p></article>
+<article class="term uc" id="pathways-plus"><h3>Pathways+</h3><p>A route for eligible students whose major is covered by UC Transfer Pathways and who also want a TAG at a participating campus.</p><p class="care"><strong>Why you care:</strong> Think <strong>Pathway preparation + TAG</strong>, not a third separate guarantee program.</p></article>
+<article class="term uc" id="piq"><h3>PIQ</h3><span class="full">Personal Insight Question</span><p>Short UC application responses that help provide context about the applicant's experiences, preparation, interests, accomplishments, and thinking. Transfer applicants answer one required question plus three of seven optional questions.</p><p class="care"><strong>Why you care:</strong> PIQs are not generic admissions essays. <a href="piqs-actually.html">See PIQs, Actually</a>.</p></article>
+<article class="term uc" id="sir"><h3>SIR</h3><span class="full">Statement of Intent to Register</span><p>The step an admitted student uses to accept an offer of admission from a UC campus by the published deadline.</p><p class="care"><strong>Why you care:</strong> Admission does not automatically become enrollment. The student still has to accept the offer and complete campus next steps.</p></article>
+<article class="term uc" id="comprehensive-review"><h3>Comprehensive review</h3><p>UC's process for selecting among qualified applicants when a campus has more applicants than it can admit. Transfer review can consider preparation for the major, transferable GPA, honors, achievements, context, and other published factors.</p><p class="care"><strong>Why you care:</strong> Meeting minimum transfer requirements does not guarantee admission to a selective campus or major.</p></article>
+<article class="term uc" id="seven-course"><h3>Seven-course pattern</h3><p>A UC minimum transfer-admission course pattern. It is one part of UC eligibility and should not be confused with Cal-GETC or major preparation.</p><p class="care"><strong>Why you care:</strong> One course can serve more than one purpose, but the requirements still answer different questions.</p></article>
+<article class="term uc" id="uc-transferable"><h3>UC-transferable</h3><p>A course approved for UC transfer unit credit.</p><p class="care"><strong>Why you care:</strong> UC-transferable does not automatically mean Cal-GETC, course-to-course articulation, or major preparation.</p></article>
+</div></div></section>
+
+<section class="band white" id="csu" aria-labelledby="csu-title"><div class="wrap"><div class="system-head"><span class="system-mark csu">CSU</span><div><p class="eyebrow">California State University</p><h2 id="csu-title">CSU terms worth knowing</h2></div></div><div class="term-grid">
+<article class="term csu" id="adt"><h3>ADT</h3><span class="full">Associate Degree for Transfer: AA-T or AS-T</span><p>A California Community College transfer degree that provides CSU-system admission benefits and, when the student enters a CSU program deemed similar to the ADT, degree-completion protections.</p><p class="care"><strong>Why you care:</strong> The statewide ADT benefit is not automatically a promise of one particular CSU campus or major.</p></article>
+<article class="term csu" id="similar-major"><h3>Similar major</h3><p>A CSU bachelor's program officially determined to be similar to the student's ADT.</p><p class="care"><strong>Why you care:</strong> The ADT's 60-unit-after-transfer protection is tied to admission into a program deemed similar and to the CSU's conditions.</p></article>
+<article class="term csu" id="tsp"><h3>TSP</h3><span class="full">Transfer Success Pathway</span><p>A separate agreement for eligible new California Community College students that can guarantee admission to the CSU campus/program in the agreement when its requirements are met.</p><p class="care"><strong>Why you care:</strong> TSP is not another name for an ADT.</p></article>
+<article class="term csu" id="csu-planner"><h3>CSU Transfer Planner</h3><p>An online CSU planning tool for California Community College students to explore CSU options and plan transfer progress.</p><p class="care"><strong>Why you care:</strong> It helps organize the path; it does not replace Cal State Apply when it is time to apply.</p></article>
+<article class="term csu" id="impaction"><h3>Impaction</h3><p>A CSU campus, applicant level, or major can be impacted when demand exceeds available capacity. Impacted programs or campuses can use additional admission criteria.</p><p class="care"><strong>Why you care:</strong> Meeting CSU minimum eligibility may not be enough for an impacted choice.</p></article>
+<article class="term csu" id="local-area"><h3>Local admission area</h3><p>A geographic relationship used by some CSU campuses in admission. Students from the campus's local service/admission area can receive priority compared with students from outside the area, especially where capacity is limited.</p><p class="care"><strong>Why you care:</strong> Geography can affect selectivity at some CSU campuses.</p></article>
+<article class="term csu" id="udt"><h3>UDT</h3><span class="full">Upper-Division Transfer</span><p>A CSU transfer applicant who will have at least 60 transferable semester units or 90 transferable quarter units by enrollment.</p><p class="care"><strong>Why you care:</strong> Most CCC students plan for upper-division transfer, and the admission requirements differ from lower-division transfer.</p></article>
+<article class="term csu" id="ldt"><h3>LDT</h3><span class="full">Lower-Division Transfer</span><p>A CSU transfer applicant with 59 or fewer transferable semester units or 89 or fewer transferable quarter units by enrollment. Not every CSU accepts lower-division transfers.</p><p class="care"><strong>Why you care:</strong> Fewer than 60 units can change which campuses and requirements apply.</p></article>
+<article class="term csu" id="ahu"><h3>Academic History Update</h3><span class="full">Sometimes shortened to AHU</span><p>The January Cal State Apply period when transfer applicants can update fall grades, planned spring coursework, colleges attended, and other academic information.</p><p class="care"><strong>Why you care:</strong> Campus use varies. Some require it, some treat it as optional, and some do not consider it.</p></article>
+<article class="term csu" id="program-materials"><h3>Program Materials</h3><p>A section in Cal State Apply where a particular CSU program may collect program-specific prerequisites, questions, documents, or other information.</p><p class="care"><strong>Why you care:</strong> Finishing the general application does not guarantee every program-specific requirement is complete.</p></article>
+<article class="term csu" id="golden-four"><h3>Golden Four</h3><p>The CSU transfer-admission courses in written communication, critical thinking, oral communication, and mathematical concepts/quantitative reasoning.</p><p class="care"><strong>Why you care:</strong> They are admission requirements with timing and grade rules; do not treat them as just four random GE courses.</p></article>
+<article class="term csu" id="redirection"><h3>Redirection</h3><p>A CSU process that can send an eligible application to another CSU with capacity when the original choice could not admit the student because of space or impaction.</p><p class="care"><strong>Why you care:</strong> A denial from the first-choice campus is not always the end of the CSU path.</p></article>
+</div></div></section>
+
+<section class="band" id="shared" aria-labelledby="shared-title"><div class="wrap"><div class="section-intro"><p class="eyebrow">Both systems</p><h2 id="shared-title">Shared transfer language</h2></div><div class="term-grid">
+<article class="term shared"><h3>ASSIST</h3><p>California's official statewide source for articulation and transferability information among California public institutions and participating independent institutions.</p><p class="care"><strong>Use it for:</strong> transferability lists, GE lists, course articulation, and major agreements.</p></article>
+<article class="term shared"><h3>Cal-GETC</h3><p>California's current intersegmental lower-division general education pattern for students newly enrolling at a CCC beginning fall 2025, subject to catalog-rights rules for earlier students.</p><p class="care"><strong>Remember:</strong> GE completion is not the same as major-preparation completion.</p></article>
+<article class="term shared"><h3>Major preparation</h3><p>Lower-division coursework expected for a particular major/program before transfer.</p><p class="care"><strong>Remember:</strong> the same major name can have different preparation at different campuses.</p></article>
+<article class="term shared"><h3>Articulation</h3><p>An official relationship explaining how coursework at one institution can satisfy coursework or requirements at another.</p><p class="care"><strong>Remember:</strong> “no course articulated” is not the same as “not transferable.”</p></article>
+</div><p class="note"><strong>Best habit:</strong> when an acronym starts driving the plan, open the current official source. The glossary explains the term; it does not turn a general definition into an individualized transfer decision.</p></div></section>
+
+<section class="band white" id="sources"><div class="wrap"><div class="section-intro"><p class="eyebrow">Official-source shelf</p><h2>Go deeper when the term affects your plan.</h2></div><div class="source-grid">
+<a class="source" href="https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/transfer-planning-tools/uc-transfer-admission-planner.html"><strong>UC Transfer Admission Planner</strong><span>Official UC TAP explanation and TAG connection.</span></a>
+<a class="source" href="https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/uc-transfer-programs/transfer-admission-guarantee-tag.html"><strong>UC TAG</strong><span>Participating campuses and current TAG rules.</span></a>
+<a class="source" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/after-you-apply/transfer-academic-update.html"><strong>UC Transfer Academic Update</strong><span>What the TAU is and when transfer applicants need to update.</span></a>
+<a class="source" href="https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/uc-transfer-programs/"><strong>UC transfer programs</strong><span>Transfer Pathways, TAG, and Pathways+.</span></a>
+<a class="source" href="https://www.calstate.edu/apply/transfer"><strong>CSU transfer</strong><span>ADT, TSP, UDT/LDT, Transfer Planner, and current CSU transfer resources.</span></a>
+<a class="source" href="https://www.calstate.edu/apply/casper/Pages/Academic-History.aspx"><strong>CSU Academic History Update</strong><span>Current campus-by-campus use of the January transfer update.</span></a>
+<a class="source" href="https://www.calstate.edu/attend/impaction-at-the-csu"><strong>CSU impaction</strong><span>Impacted campuses/majors and local admission/service areas.</span></a>
+<a class="source" href="https://assist.org/"><strong>ASSIST</strong><span>Live transferability and articulation information.</span></a>
+</div><div class="next"><h2>UC applicant?</h2><p>Knowing what PIQ stands for is only the beginning. The next step is understanding what makes a useful transfer PIQ response.</p><a href="piqs-actually.html">Open PIQs, Actually →</a></div></div></section>
+</main>
+<footer><div class="wrap"><div class="footer-grid"><div><a class="brand" href="index.html">Transfer<span>, Actually</span></a><p>An independent, faculty-created educational project. Definitions are plain-language explanations, not individualized admission or counseling decisions.</p></div><div class="footer-links" aria-label="Footer links">
+          <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
+        </div></div><p class="meta">Last reviewed: September 2026. Program names, eligibility rules, participating campuses, and application processes can change. Verify current information with UC, CSU, ASSIST, and your college.</p></div></footer>
+</body></html>

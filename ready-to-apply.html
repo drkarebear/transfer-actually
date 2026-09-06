@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-E7rvuS2PTi79dZlhYBfQTPqkkkrGnzwCjfRkONsOTdA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1236b8">
   <link rel="icon" type="image/png" href="favicon12.png">
   <link rel="apple-touch-icon" href="favicon12.png">
@@ -273,7 +275,12 @@
       input[type="radio"], input[type="checkbox"] { accent-color: auto; }
     }
 
-  </style>
+  
+    .term-help{margin:1rem 0;padding:.9rem 1rem;border-left:5px solid var(--cyan);background:var(--cyan-soft);border-radius:0 12px 12px 0;color:var(--ink)}
+    .term-help a{font-weight:850}
+    .piq-help{margin:1rem 0;padding:1rem;border:1px solid #9cd9ea;border-top:5px solid var(--cyan);background:var(--surface);border-radius:var(--radius-sm)}
+    .piq-help p{color:var(--muted)}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -319,6 +326,10 @@
         </aside>
       </div>
     </section>
+  <div class="wrap">
+    <p class="term-help"><strong>Application acronym overload?</strong> Use the <a href="transfer-translator.html">UC + CSU Translator</a> for TAG, TAP, TAU, TSP, ADT, Academic History Update, impaction, and more.</p>
+  </div>
+
 
     <section class="band white" aria-labelledby="branch-title">
       <div class="wrap">
@@ -454,6 +465,11 @@
               <li>After applying, <strong>every transfer applicant must complete the Transfer Academic Update (TAU)</strong>; the fall 2027 priority deadline is January 31, 2027.</li>
             </ul>
             <div class="dated"><strong>Helpful PIQ frame:</strong> the required transfer question asks how you prepared for your intended major and how that preparation supports success in upper-division work.</div>
+            <div class="piq-help">
+              <h3>UC applicant? Give the PIQs their own planning time.</h3>
+              <p>PIQs are not generic admissions essays. Learn how to choose prompts, use concrete evidence, handle the required major-preparation response, and keep the student's own voice.</p>
+              <p><a href="piqs-actually.html"><strong>Open PIQs, Actually →</strong></a></p>
+            </div>
           </article>
         </div>
       </div>
@@ -545,6 +561,10 @@
             <strong>Check whether your CSU campuses use the January Academic History Update</strong>
             <span>Current campus-by-campus required, optional, or not-considered status.</span>
           </a>
+          <a class="source-link" href="piqs-actually.html">
+            <strong>PIQs, Actually</strong>
+            <span>Plain-language help with the required transfer PIQ, choosing optional prompts, evidence, revision, and authentic voice.</span>
+          </a>
           <a class="source-link" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/">
             <strong>Start or review a UC transfer application</strong>
             <span>Current application, transfer review, PIQs, and after-you-apply guidance.</span>
@@ -591,12 +611,10 @@
           <p>An independent, faculty-created educational project. It explains transfer concepts and points to authoritative sources; it does not replace academic counseling, admissions guidance, articulation review, financial-aid advice, or official institutional information.</p>
         </div>
         <div class="footer-links" aria-label="Footer links">
-          <a href="index.html">Home</a>
-          <a href="index.html#students">Students</a>
-          <a href="index.html#faculty">Faculty</a>
-          <a href="assist-actually.html">ASSIST</a>
-          <a href="index.html#official-sources">Sources</a>
           <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
         </div>
       </div>
       <p class="meta">Last reviewed: September 2026. Application windows, academic-update rules, financial-aid dates, campus requirements, and document deadlines can change. Verify time-sensitive information in the current application system and campus instructions.</p>
@@ -644,15 +662,43 @@
 
     btn.addEventListener('click', () => {
       const selected = document.querySelector('input[name="system"]:checked');
+      const clearPlan = () => {
+        while (plan.firstChild) plan.removeChild(plan.firstChild);
+      };
+
       if (!selected) {
+        clearPlan();
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Choose CSU or UC first.';
+        const p = document.createElement('p');
+        p.textContent = 'If you are applying to both, run the tool once for each system—the post-submit steps are different.';
+        plan.append(h3, p);
         plan.hidden = false;
-        plan.innerHTML = '<h3>Choose CSU or UC first.</h3><p>If you are applying to both, run the tool once for each system—the post-submit steps are different.</p>';
         return;
       }
+
       const p = plans[selected.value];
-      const steps = p.steps.map(x => `<li>${x}</li>`).join('');
-      const links = p.links.map(([label,href]) => `<a href="${href}">${label}</a>`).join('');
-      plan.innerHTML = `<h3>${p.title}</h3><ol>${steps}</ol><div class="plan-links">${links}</div>`;
+      clearPlan();
+
+      const h3 = document.createElement('h3');
+      h3.textContent = p.title;
+      const ol = document.createElement('ol');
+      p.steps.forEach(step => {
+        const li = document.createElement('li');
+        li.textContent = step;
+        ol.appendChild(li);
+      });
+
+      const linkBox = document.createElement('div');
+      linkBox.className = 'plan-links';
+      p.links.forEach(([label, href]) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
+        linkBox.appendChild(a);
+      });
+
+      plan.append(h3, ol, linkBox);
       plan.hidden = false;
       plan.scrollIntoView({block:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     });

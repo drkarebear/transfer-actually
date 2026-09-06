@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1236b8">
+  <link rel="icon" type="image/png" href="favicon12.png">
+  <link rel="apple-touch-icon" href="favicon12.png">
+  <meta name="description" content="PIQs, Actually gives California Community College transfer students plain-language guidance for the UC Personal Insight Questions, including the required major-preparation response, choosing optional prompts, examples, revision, and responsible AI use.">
+  <title>PIQs, Actually | Transfer, Actually</title>
+  <style>
+    :root{
+      --bg:#faf8f3;--surface:#fff;--surface-soft:#f3f0e8;--ink:#17202a;--muted:#52606d;--line:#d8d2c6;
+      --blue:#1236b8;--blue-soft:#eaf0ff;--navy:#082a85;--cyan:#00bff3;--cyan-soft:#e8fbff;--teal:#007c9e;--teal-soft:#e6f9fe;
+      --rust:#7a3f2d;--rust-soft:#f5ebe7;--gold:#6d5200;--gold-soft:#f8f0d6;--green:#245c3a;--green-soft:#e7f2e9;
+      --focus:#0067c5;--shadow:0 12px 34px rgba(18,54,184,.10);--radius:22px;--radius-sm:14px;--max:1120px
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.68}
+    a{color:var(--blue);text-underline-offset:.18em;text-decoration-thickness:.08em}a:focus-visible,summary:focus-visible{outline:4px solid var(--focus);outline-offset:4px;border-radius:7px}
+    .skip-link{position:absolute;left:1rem;top:-5rem;z-index:1000;background:var(--ink);color:#fff;padding:.75rem 1rem;border-radius:0 0 10px 10px;font-weight:800}.skip-link:focus{top:0}
+    .wrap{width:min(var(--max),calc(100% - 2rem));margin-inline:auto}
+    header{background:rgba(250,248,243,.97);border-bottom:1px solid var(--line)}header::before{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--navy),var(--blue) 48%,var(--cyan))}
+    .topbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.75rem}.brand{color:var(--ink);text-decoration:none;font-weight:900;letter-spacing:-.03em;font-size:1.3rem}.brand span{color:var(--blue)}
+    nav ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.25rem}nav a{display:inline-flex;min-height:44px;align-items:center;color:var(--ink);text-decoration:none;padding:.5rem .62rem;border-radius:10px;font-weight:700;font-size:.93rem}nav a:hover{background:var(--surface-soft)}
+    .breadcrumb{padding-top:1.1rem;color:var(--muted);font-size:.94rem}.breadcrumb a{color:var(--muted)}
+    .hero{padding:clamp(2.8rem,7vw,5.3rem) 0 3.6rem}.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+    .eyebrow{display:inline-block;margin:0 0 .85rem;color:var(--blue);font-weight:850;letter-spacing:.07em;text-transform:uppercase;font-size:.875rem}
+    h1,h2,h3{line-height:1.14;letter-spacing:-.03em;text-wrap:balance}h1{margin:0;max-width:12ch;font-size:clamp(2.6rem,7vw,5rem)}h2{margin:0 0 .8rem;font-size:clamp(1.9rem,4.5vw,2.8rem)}h3{margin:0 0 .4rem;font-size:1.22rem}
+    .lede{max-width:760px;margin:1rem 0 0;color:var(--muted);font-size:clamp(1.08rem,2vw,1.25rem)}
+    .hero-card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--cyan);border-radius:var(--radius);padding:1.3rem;box-shadow:var(--shadow)}.hero-card p{color:var(--muted)}
+    .basics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.9rem}.basic{background:var(--blue-soft);border-radius:10px;padding:.7rem;font-weight:800}.basic:nth-child(even){background:var(--cyan-soft)}
+    .band{padding:clamp(3.3rem,7vw,5.5rem) 0}.white{background:var(--surface);border-block:1px solid var(--line)}
+    .section-intro{max-width:820px;margin-bottom:1.7rem}.section-intro p{margin:0;color:var(--muted)}
+    .truth-grid,.move-grid,.prompt-grid,.source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .truth,.move,.prompt,.source{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.05rem}
+    .truth.good{border-top:5px solid var(--blue)}.truth.not{border-top:5px solid var(--rust)}
+    .truth p,.move p,.prompt p{color:var(--muted);margin-bottom:0}
+    .required{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:var(--radius);padding:clamp(1.3rem,4vw,2rem)}.required h2,.required h3{color:#fff}.required>p{color:#dce4ea}
+    .frame{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-top:1rem}.frame-step{background:#fff;color:var(--ink);border-radius:var(--radius-sm);padding:.85rem}.frame-step strong{display:block;color:var(--blue)}.frame-step p{margin:.25rem 0 0;color:var(--muted);font-size:.92rem}
+    .move{border-left:5px solid var(--blue)}.move:nth-child(even){border-left-color:var(--cyan)}
+    .weak{margin-top:1rem;padding:1rem;border-left:5px solid var(--rust);background:var(--rust-soft);border-radius:0 12px 12px 0}.weak ul{margin-bottom:0;padding-left:1.2rem}.weak li+li{margin-top:.35rem}
+    .prompt{border-top:5px solid var(--teal)}.prompt .theme{display:inline-block;margin-bottom:.45rem;padding:.18rem .5rem;border-radius:999px;background:var(--teal-soft);font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.04em}
+    .ai{background:var(--gold-soft);border:1px solid #d2bd69;border-radius:var(--radius);padding:1.2rem}.ai h2{font-size:1.8rem}.ai p{color:var(--ink)}
+    .checklist{background:var(--green-soft);border:1px solid #a9c9b3;border-radius:var(--radius);padding:1.2rem}.checklist ul{margin-bottom:0;padding-left:1.2rem}.checklist li+li{margin-top:.4rem}
+    .source{display:block;text-decoration:none}.source:hover{background:var(--cyan-soft)}.source strong{display:block;color:var(--ink)}.source span{display:block;color:var(--muted);font-size:.94rem;margin-top:.2rem}
+    .back{margin-top:1.5rem;background:var(--blue-soft);border-radius:var(--radius-sm);padding:1rem}.back p{margin:.1rem 0;color:var(--muted)}
+    footer{border-top:1px solid var(--line);background:var(--surface);padding:2.4rem 0 3rem}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem}.footer-grid p{color:var(--muted)}.footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:.6rem 1rem}.meta{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    @media(max-width:900px){.hero-grid,.footer-grid{grid-template-columns:1fr}.frame{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-links{justify-content:flex-start}}
+    @media(max-width:650px){.topbar{align-items:flex-start;flex-direction:column}nav ul{justify-content:flex-start}.truth-grid,.move-grid,.prompt-grid,.source-grid,.basics,.frame{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media(forced-colors:active){.hero-card,.truth,.move,.prompt,.source,.ai,.checklist{border:2px solid CanvasText}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header><div class="wrap topbar"><a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a><nav aria-label="Primary navigation"><ul><li><a href="index.html">Home</a></li><li><a href="index.html#students">Students</a></li><li><a href="index.html#faculty">Faculty</a></li><li><a href="assist-actually.html">ASSIST</a></li><li><a href="index.html#official-sources">Sources</a></li><li><a href="index.html#about">About</a></li></ul></nav></div></header>
+<main id="main-content">
+<div class="wrap breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> → <a href="ready-to-apply.html">Ready to Apply</a> → PIQs, Actually</div>
+<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">UC transfer application writing</p><h1>PIQs, Actually.</h1><p class="lede">A Personal Insight Question is not a five-paragraph English essay. UC is asking for useful information about <strong>you</strong>: what you did, how you think, how you prepared, and what your experiences help the reader understand.</p></div><aside class="hero-card"><h2 style="font-size:1.45rem;">The current transfer basics</h2><div class="basics"><div class="basic">1 required question</div><div class="basic">Choose 3 of 7 others</div><div class="basic">350 words maximum each</div><div class="basic">All 7 optional prompts are equal</div></div><p>You do not get extra points for choosing a supposedly “harder” optional prompt.</p></aside></div></section>
+
+<section class="band white" aria-labelledby="not-essay"><div class="wrap"><div class="section-intro"><p class="eyebrow">Change the mental model</p><h2 id="not-essay">Think evidence, not performance.</h2><p>The strongest response is not necessarily the most dramatic or the most polished-sounding. It is the one that answers the question specifically and helps UC understand the applicant.</p></div><div class="truth-grid">
+<article class="truth good"><h3>A PIQ can be direct.</h3><p>You can answer the question in the first few sentences. You do not need a mysterious hook before the reader learns what the response is about.</p></article>
+<article class="truth not"><h3>A PIQ is not a résumé paragraph.</h3><p>Listing awards, jobs, activities, or responsibilities without showing what you actually did gives the reader less insight.</p></article>
+<article class="truth good"><h3>“I” is useful.</h3><p>UC explicitly encourages first-person statements. The reader needs to know your decisions, actions, contributions, and learning.</p></article>
+<article class="truth not"><h3>You do not need a hardship story.</h3><p>Challenge is only one optional topic. Leadership, creativity, skill, educational opportunity, community contribution, and other strengths can be equally useful.</p></article>
+</div></div></section>
+
+<section class="band" aria-labelledby="required-title"><div class="wrap"><div class="required"><p class="eyebrow" style="color:#8de7f8;">The required transfer PIQ</p><h2 id="required-title">Show how you prepared for the major and upper-division work.</h2><p>UC's required transfer question asks about preparation for the intended major and readiness to succeed after transfer. That means the response should do more than explain why the subject is interesting.</p><div class="frame">
+<div class="frame-step"><strong>1. Major</strong><p>What are you preparing to study?</p></div>
+<div class="frame-step"><strong>2. Preparation</strong><p>Which courses, projects, jobs, research, service, or experiences built that preparation?</p></div>
+<div class="frame-step"><strong>3. Evidence</strong><p>What did you actually do, solve, make, analyze, practice, or learn?</p></div>
+<div class="frame-step"><strong>4. Readiness</strong><p>What skills or habits now make upper-division work more realistic?</p></div>
+<div class="frame-step"><strong>5. Direction</strong><p>How does this preparation connect to what you want to do next?</p></div>
+</div><p style="margin-bottom:0;"><strong>Useful test:</strong> if the response could be written by almost anyone who likes the same major, it probably needs more specific evidence from your experience.</p></div></div></section>
+
+<section class="band white" aria-labelledby="moves-title"><div class="wrap"><div class="section-intro"><p class="eyebrow">Strong PIQ moves</p><h2 id="moves-title">Give the reader something concrete to learn about you.</h2></div><div class="move-grid">
+<article class="move"><h3>Answer early.</h3><p>Do not spend half the response setting the scene before addressing the prompt.</p></article>
+<article class="move"><h3>Use a specific example.</h3><p>“I became a better leader” is a claim. A moment where you organized, decided, resolved, taught, or changed something is evidence.</p></article>
+<article class="move"><h3>Make your role visible.</h3><p>If other people were involved, clarify what <em>you</em> contributed. This is why “I” statements matter.</p></article>
+<article class="move"><h3>Explain the effect.</h3><p>What changed because of your actions? What did you understand differently? What skill did you build?</p></article>
+<article class="move"><h3>Let each PIQ add something.</h3><p>Four responses that all prove the same quality waste space. Use the set to show different dimensions of your preparation and experience.</p></article>
+<article class="move"><h3>Sound like yourself.</h3><p>Clear and conversational is better than replacing your natural language with words you would never actually use.</p></article>
+</div><div class="weak"><h3>Usually weaker</h3><ul><li>150 words of background before your actions become clear.</li><li>A list of accomplishments with no example or reflection.</li><li>Writing primarily about a parent, teacher, boss, or friend instead of your own role.</li><li>Trying to make every response inspirational.</li><li>Choosing a prompt because you think UC “likes it more.” UC says the optional questions receive equal consideration.</li><li>Making the required major-preparation PIQ mostly about “I have always loved…” without showing preparation.</li><li>Editing so heavily that the final answer no longer sounds like the student who lived the experience.</li></ul></div></div></section>
+
+<section class="band" aria-labelledby="choose-title"><div class="wrap"><div class="section-intro"><p class="eyebrow">Choosing the three optional PIQs</p><h2 id="choose-title">Choose the questions that reveal the best evidence you actually have.</h2><p>UC says the seven optional questions are considered equally. The goal is not to predict a secret preferred prompt.</p></div><div class="prompt-grid">
+<article class="prompt"><span class="theme">Leadership</span><h3>Where did you influence, organize, mentor, resolve, or take responsibility?</h3><p>A title is not required. Family, work, school, and community leadership can all provide evidence.</p></article>
+<article class="prompt"><span class="theme">Creativity</span><h3>How do you make, solve, design, adapt, or think originally?</h3><p>Creativity can be artistic, technical, practical, entrepreneurial, academic, or problem-solving.</p></article>
+<article class="prompt"><span class="theme">Talent or skill</span><h3>What have you deliberately developed over time?</h3><p>Recognition or awards are not required. Development and demonstration matter.</p></article>
+<article class="prompt"><span class="theme">Educational opportunity / barrier</span><h3>What opportunity did you use well, or what educational barrier did you actively navigate?</h3><p>Focus on your choices, strategy, resourcefulness, and what the experience changed.</p></article>
+<article class="prompt"><span class="theme">Challenge + academics</span><h3>What significant challenge affected you academically, and what steps did you take?</h3><p>The academic connection matters. Do not assume the challenge alone tells the reader what you did.</p></article>
+<article class="prompt"><span class="theme">Community</span><h3>What did you do to improve a group, school, workplace, family, or community you belong to?</h3><p>Define the community, then make your action and contribution visible.</p></article>
+<article class="prompt"><span class="theme">What else?</span><h3>What important strength or context has the rest of the application not shown?</h3><p>Use this to add something meaningful, not merely repeat information already clear elsewhere.</p></article>
+<article class="prompt"><span class="theme">Across all three</span><h3>Which combination gives the reader the clearest picture of you?</h3><p>Choose for evidence and range, not because one prompt sounds more impressive.</p></article>
+</div></div></section>
+
+<section class="band white" aria-labelledby="ai-title"><div class="wrap"><div class="ai"><h2 id="ai-title">AI and feedback: keep the student as the author.</h2><p>UC's current transfer guidance emphasizes authentic voice and personal experience. UC also says feedback from family, teachers, and friends can be useful, but the answers should reflect the applicant's own ideas and words.</p><p>Current UC counselor materials go a step further on AI: AI tools may be useful in early brainstorming, but the final PIQ should be entirely the student's own in <strong>voice, substance, and reflection</strong>.</p><p><strong>A safer use of AI:</strong> ask for brainstorming questions, ask where a draft is vague, or ask which sentences lack concrete evidence. <strong>A poor use:</strong> asking AI to write or rewrite the PIQ into a polished admissions voice that is no longer yours.</p></div></div></section>
+
+<section class="band" aria-labelledby="check-title"><div class="wrap"><div class="checklist"><h2 id="check-title">Before you paste the PIQ into the application</h2><ul><li>I answered the actual question.</li><li>A reader can identify what <strong>I</strong> did.</li><li>I used at least one concrete example rather than only general claims.</li><li>I explained why the example matters or what it shows.</li><li>The four PIQs do not all tell the same story.</li><li>The wording still sounds like me.</li><li>The response is my own work and uses my own words.</li><li>I proofread for clarity, spelling, and accidental formatting problems.</li><li>I saved a clean copy before pasting it into the application.</li></ul></div><div class="back"><strong>Need to decode UC terms first?</strong><p><a href="transfer-translator.html#uc">Open the UC section of the Transfer Translator</a> for PIQ, TAG, TAP, TAU, Pathways+, SIR, and more.</p></div></div></section>
+
+<section class="band white" id="sources"><div class="wrap"><div class="section-intro"><p class="eyebrow">Official-source shelf</p><h2>Use UC's current wording when the application opens.</h2></div><div class="source-grid">
+<a class="source" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/personal-insight-questions.html"><strong>UC transfer Personal Insight Questions</strong><span>Current questions, directions, and UC's writing tips.</span></a>
+<a class="source" href="https://admission.universityofcalifornia.edu/counselors/connect-to-resources/resource-library.html"><strong>UC transfer applicant resource library</strong><span>Current transfer PIQ guide and application-presentation materials.</span></a>
+<a class="source" href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-transfer/how-applications-are-reviewed.html"><strong>How UC reviews transfer applications</strong><span>Current comprehensive-review factors for qualified transfer applicants.</span></a>
+<a class="source" href="ready-to-apply.html"><strong>I'm Ready to Apply. Now What?</strong><span>Return to the full UC/CSU application workflow.</span></a>
+</div></div></section>
+</main>
+<footer><div class="wrap"><div class="footer-grid"><div><a class="brand" href="index.html">Transfer<span>, Actually</span></a><p>An independent, faculty-created educational project. This page explains UC's public PIQ guidance; it does not write application responses for students or predict admission decisions.</p></div><div class="footer-links" aria-label="Footer links">
+          <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
+        </div></div><p class="meta">Last reviewed: September 2026. UC application instructions can change. Check the current UC application and official transfer PIQ page before submitting.</p></div></footer>
+</body></html>

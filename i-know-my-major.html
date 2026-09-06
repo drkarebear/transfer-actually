@@ -2,9 +2,9 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta content="default-src 'self'; script-src 'self' 'sha256-V0RZI3GNkYZdV2ALUcCsmhwpGlQxmtZM6qorFS35fwc='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V0RZI3GNkYZdV2ALUcCsmhwpGlQxmtZM6qorFS35fwc='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="no-referrer" name="referrer"/>
 <meta content="#1236b8" name="theme-color"/>
 <link href="favicon12.png" rel="icon" type="image/png"/>
 <link href="favicon12.png" rel="apple-touch-icon"/>
@@ -829,7 +829,12 @@
       input[type="radio"], input[type="checkbox"] { accent-color: auto; }
     }
 
-  </style>
+  
+    .term-help{margin:1rem 0;padding:.9rem 1rem;border-left:5px solid var(--cyan);background:var(--cyan-soft);border-radius:0 12px 12px 0;color:var(--ink)}
+    .term-help a{font-weight:850}
+    .piq-help{margin:1rem 0;padding:1rem;border:1px solid #9cd9ea;border-top:5px solid var(--cyan);background:var(--surface);border-radius:var(--radius-sm)}
+    .piq-help p{color:var(--muted)}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -901,7 +906,7 @@
 <input name="destination" type="radio" value="csu"/>
 <span>
 <strong>I know I want CSU, but not which campus.</strong>
-<small>I want to understand ADT, TSP, impacted majors, and campus options.</small>
+<small>I want to understand ADT, TSP (Transfer Success Pathway), impacted majors, and campus options.</small>
 </span>
 </label>
 <label class="decision-option">
@@ -995,7 +1000,7 @@
 <ul>
 <li><strong>Check UC Transfer Pathways.</strong> For selected majors, one pathway provides a common set of lower-division major-preparation courses across UCs offering that major.</li>
 <li><strong>Consider Pathways+.</strong> It combines a Transfer Pathway with a TAG option when the major and campus are eligible.</li>
-<li><strong>Use UC TAP</strong> to organize coursework and, when eligible, submit a TAG.</li>
+<li><strong>Use UC TAP (Transfer Admission Planner)</strong> to organize coursework and, when eligible, submit a TAG.</li>
 <li><strong>Use ASSIST</strong> when you narrow to individual campuses or when the major is not covered by a Transfer Pathway.</li>
 </ul>
 <div class="current">
@@ -1145,7 +1150,12 @@
             An independent, faculty-created educational project. It explains transfer concepts and points to authoritative sources; it does not replace academic counseling, admissions guidance, articulation review, or official institutional information.
           </p>
 </div>
-<div aria-label="Footer links" class="footer-links"><a href="index.html#about">About</a><a href="accessibility.html">Accessibility</a><a href="privacy.html">Privacy</a><a href="index.html#official-sources">Sources</a></div>
+<div class="footer-links" aria-label="Footer links">
+          <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
+        </div>
 </div>
 <p class="meta">
         Last reviewed: September 2026. Transfer pathways, admission standards, articulation, eligibility, and application cycles can change. Verify time-sensitive or individualized information with current official sources and your college.

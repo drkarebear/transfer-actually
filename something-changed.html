@@ -2,9 +2,9 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta content="default-src 'self'; script-src 'self' 'sha256-ns+bwZibjfHvCFsi4sjAanXQkSp2srfsr8GSK2KJlF4='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ns+bwZibjfHvCFsi4sjAanXQkSp2srfsr8GSK2KJlF4='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="no-referrer" name="referrer"/>
 <meta content="#1236b8" name="theme-color"/>
 <link href="favicon12.png" rel="icon" type="image/png"/>
 <link href="favicon12.png" rel="apple-touch-icon"/>
@@ -795,7 +795,12 @@
       input[type="radio"], input[type="checkbox"] { accent-color: auto; }
     }
 
-  </style>
+  
+    .term-help{margin:1rem 0;padding:.9rem 1rem;border-left:5px solid var(--cyan);background:var(--cyan-soft);border-radius:0 12px 12px 0;color:var(--ink)}
+    .term-help a{font-weight:850}
+    .piq-help{margin:1rem 0;padding:1rem;border:1px solid #9cd9ea;border-top:5px solid var(--cyan);background:var(--surface);border-radius:var(--radius-sm)}
+    .piq-help p{color:var(--muted)}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -1173,7 +1178,12 @@
             An independent, faculty-created educational project. It explains transfer concepts and points to authoritative sources; it does not replace academic counseling, admissions guidance, articulation review, financial-aid advice, or official institutional information.
           </p>
 </div>
-<div aria-label="Footer links" class="footer-links"><a href="index.html#about">About</a><a href="accessibility.html">Accessibility</a><a href="privacy.html">Privacy</a><a href="index.html#official-sources">Sources</a></div>
+<div class="footer-links" aria-label="Footer links">
+          <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
+        </div>
 </div>
 <p class="meta">
         Last reviewed: September 2026. Transfer admission, academic-update rules, course repetition, articulation, financial aid, and campus conditions can change. Verify individualized or time-sensitive information with the current official source.

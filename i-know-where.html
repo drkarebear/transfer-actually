@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CMqGdmXFgAc7aMBxz3/Ydz5uSZPXPvUgQ+P06JZwxJU='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1236b8">
   <link rel="icon" type="image/png" href="favicon12.png">
   <link rel="apple-touch-icon" href="favicon12.png">
@@ -859,7 +861,12 @@
       input[type="radio"], input[type="checkbox"] { accent-color: auto; }
     }
 
-  </style>
+  
+    .term-help{margin:1rem 0;padding:.9rem 1rem;border-left:5px solid var(--cyan);background:var(--cyan-soft);border-radius:0 12px 12px 0;color:var(--ink)}
+    .term-help a{font-weight:850}
+    .piq-help{margin:1rem 0;padding:1rem;border:1px solid #9cd9ea;border-top:5px solid var(--cyan);background:var(--surface);border-radius:var(--radius-sm)}
+    .piq-help p{color:var(--muted)}
+</style>
 </head>
 
 <body>
@@ -909,6 +916,8 @@
         </aside>
       </div>
     </section>
+<div class="wrap"><p class="term-help"><strong>Seeing TAG, TAP, TSP, impaction, or redirection?</strong> <a href="transfer-translator.html">Open the UC + CSU Translator</a> before you build the destination-first plan.</p></div>
+
 
     <section class="band white" aria-labelledby="wizard-title">
       <div class="wrap">
@@ -1083,7 +1092,7 @@
               <li>Use the CSU Transfer Planner and campus transfer pages for admission planning.</li>
               <li>Check CSU impaction for the campus and major.</li>
               <li>Use ASSIST for articulation and major preparation.</li>
-              <li>Check whether ADT or TSP gives you a structured pathway.</li>
+              <li>Check whether ADT or TSP (Transfer Success Pathway) gives you a structured pathway.</li>
             </ul>
           </article>
 
@@ -1093,8 +1102,8 @@
             <ul>
               <li>Use the campus/UC admission pages for transfer requirements and selection.</li>
               <li>Use ASSIST for major-preparation articulation.</li>
-              <li>Check TAG if the campus participates and you are eligible.</li>
-              <li>Use UC TAP to organize coursework and TAG planning.</li>
+              <li>Check TAG (Transfer Admission Guarantee) if the campus participates and you are eligible.</li>
+              <li>Use UC TAP (Transfer Admission Planner) to organize coursework and TAG planning.</li>
             </ul>
           </article>
 
@@ -1244,12 +1253,10 @@
         </div>
 
         <div class="footer-links" aria-label="Footer links">
-          <a href="index.html">Home</a>
-          <a href="index.html#students">Students</a>
-          <a href="index.html#faculty">Faculty</a>
-          <a href="assist-actually.html">ASSIST</a>
-          <a href="index.html#official-sources">Sources</a>
           <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
         </div>
       </div>
 
@@ -1358,25 +1365,62 @@
       const system = document.querySelector('input[name="system"]:checked');
       const major = document.querySelector('input[name="major"]:checked');
 
+      const clearResult = () => {
+        while (result.firstChild) result.removeChild(result.firstChild);
+      };
+
       if (!system || !major) {
+        clearResult();
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Choose one answer in each section.';
+        const p = document.createElement('p');
+        p.textContent = 'We need both pieces because the same destination can require a very different plan depending on the major.';
+        result.append(h3, p);
         result.hidden = false;
-        result.innerHTML = '<h3>Choose one answer in each section.</h3><p>We need both pieces because the same destination can require a very different plan depending on the major.</p>';
         return;
       }
 
       const route = baseRoutes[system.value];
       const modifier = majorModifiers[major.value];
-      const steps = route.steps.map(step => `<li>${step}</li>`).join('');
-      const links = route.links.map(([label, href]) => `<a href="${href}">${label}</a>`).join('');
+      clearResult();
 
-      result.innerHTML = `
-        <h3>${route.label}: your next moves</h3>
-        <p><strong>${modifier.lead}</strong></p>
-        <ol>${steps}</ol>
-        <div class="route-note"><strong>Major check:</strong> ${modifier.extra}</div>
-        <div class="route-note"><strong>Current-system note:</strong> ${route.note}</div>
-        <div class="route-links">${links}</div>
-      `;
+      const h3 = document.createElement('h3');
+      h3.textContent = `${route.label}: your next moves`;
+
+      const leadP = document.createElement('p');
+      const leadStrong = document.createElement('strong');
+      leadStrong.textContent = modifier.lead;
+      leadP.appendChild(leadStrong);
+
+      const ol = document.createElement('ol');
+      route.steps.forEach(step => {
+        const li = document.createElement('li');
+        li.textContent = step;
+        ol.appendChild(li);
+      });
+
+      const majorNote = document.createElement('div');
+      majorNote.className = 'route-note';
+      const majorStrong = document.createElement('strong');
+      majorStrong.textContent = 'Major check: ';
+      majorNote.append(majorStrong, document.createTextNode(modifier.extra));
+
+      const systemNote = document.createElement('div');
+      systemNote.className = 'route-note';
+      const systemStrong = document.createElement('strong');
+      systemStrong.textContent = 'Current-system note: ';
+      systemNote.append(systemStrong, document.createTextNode(route.note));
+
+      const linkBox = document.createElement('div');
+      linkBox.className = 'route-links';
+      route.links.forEach(([label, href]) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
+        linkBox.appendChild(a);
+      });
+
+      result.append(h3, leadP, ol, majorNote, systemNote, linkBox);
       result.hidden = false;
       result.scrollIntoView({
         block: 'nearest',

@@ -2,10 +2,10 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#1236b8" name="theme-color"/>
-<meta content="no-referrer" name="referrer"/>
 <link href="favicon12.png" rel="icon" type="image/png"/>
 <link href="favicon12.png" rel="apple-touch-icon"/>
 <meta content="Accessibility practices and current design commitments for Transfer, Actually." name="description"/>
@@ -27,5 +27,10 @@
 </div></div></section>
 <section class="band"><div class="wrap prose"><h2>Current accessibility practices</h2><ul><li>Semantic headings, landmarks, fieldsets, legends, and labels are used for page structure and interactive choices.</li><li>Visible radio buttons and checkboxes are consistently sized and keyboard accessible.</li><li>Interactive feedback is exposed through accessible live regions where appropriate.</li><li>Focus indicators remain visible on light and dark surfaces.</li><li>Pages reflow at narrow phone widths without requiring horizontal page scrolling.</li><li>Reduced-motion preferences are respected.</li><li>Decorative symbols are not used as the only way to communicate meaning.</li><li>System fonts and local assets avoid unnecessary third-party dependencies.</li></ul><h2>If something is difficult to use</h2><p>Accessibility is an ongoing maintenance task, especially as transfer tools and pages are added. If a page or control is difficult to use with a keyboard, screen reader, magnification, voice input, high-contrast mode, or another access method, the problem should be corrected in the source rather than worked around with a separate inaccessible version.</p><p class="notice"><strong>Privacy and accessibility support each other here:</strong> the site intentionally avoids third-party embeds, trackers, and complex account interfaces, which reduces both privacy exposure and accessibility failure points.</p><div class="links"><a href="privacy.html">Privacy statement</a><a href="index.html#official-sources">Official transfer sources</a></div></div></section>
 </main>
-<footer><div class="wrap"><div class="footer-grid"><div><a class="brand" href="index.html">Transfer<span>, Actually</span></a><p>An independent, faculty-created educational project. Not an official website of the California Community Colleges Chancellor's Office, California State University, University of California, or ASSIST.</p></div><div aria-label="Footer links" class="footer-links"><a href="index.html#about">About</a><a href="accessibility.html">Accessibility</a><a href="privacy.html">Privacy</a><a href="index.html#official-sources">Sources</a></div></div><p class="footer-meta">Last reviewed: September 2026.</p></div></footer>
+<footer><div class="wrap"><div class="footer-grid"><div><a class="brand" href="index.html">Transfer<span>, Actually</span></a><p>An independent, faculty-created educational project. Not an official website of the California Community Colleges Chancellor's Office, California State University, University of California, or ASSIST.</p></div><div class="footer-links" aria-label="Footer links">
+          <a href="index.html#about">About</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="index.html#official-sources">Sources</a>
+        </div></div><p class="footer-meta">Last reviewed: September 2026.</p></div></footer>
 </body></html>
