@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta charset="utf-8"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#1236b8" name="theme-color"/>
@@ -914,7 +914,33 @@
   
     .translator-jump{margin-top:1rem;padding:.9rem 1rem;border-left:5px solid var(--cyan);background:var(--cyan-soft);border-radius:0 12px 12px 0}
     .translator-jump a{font-weight:850}
-</style>
+
+    /* v17 deep accessibility audit fixes */
+    .next p a, .next h2 a {
+      display:inline !important;
+      background:transparent !important;
+      color:#fff !important;
+      padding:0 !important;
+      border-radius:0 !important;
+      text-decoration:underline !important;
+      text-decoration-thickness:.1em !important;
+      text-underline-offset:.18em !important;
+    }
+    .decision-option input:checked + span,
+    .option input:checked + span,
+    .route-option input:checked + span {
+      border-color:var(--blue) !important;
+    }
+  
+    /* Reflow multi-step diagrams when users enlarge text independently of page zoom. */
+    .five-step { grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr)) !important; }
+    .reverse-flow { grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr)) !important; }
+    .question-flow { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)) !important; }
+    .timeline { grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr)) !important; }
+    .mental-model { grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr)) !important; }
+    .roles { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)) !important; }
+    .role p, .role h3 { overflow-wrap:anywhere; }
+  </style>
 </head>
 <body class="transfer-home">
 <a class="skip-link" href="#main-content">Skip to main content</a>

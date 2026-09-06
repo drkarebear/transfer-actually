@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1236b8">
@@ -52,13 +52,39 @@
     @media(max-width:650px){.topbar{align-items:flex-start;flex-direction:column}nav ul{justify-content:flex-start}.truth-grid,.move-grid,.prompt-grid,.source-grid,.basics,.frame{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
     @media(forced-colors:active){.hero-card,.truth,.move,.prompt,.source,.ai,.checklist{border:2px solid CanvasText}}
+  
+    /* v17 deep accessibility audit fixes */
+    .next p a, .next h2 a {
+      display:inline !important;
+      background:transparent !important;
+      color:#fff !important;
+      padding:0 !important;
+      border-radius:0 !important;
+      text-decoration:underline !important;
+      text-decoration-thickness:.1em !important;
+      text-underline-offset:.18em !important;
+    }
+    .decision-option input:checked + span,
+    .option input:checked + span,
+    .route-option input:checked + span {
+      border-color:var(--blue) !important;
+    }
+  
+    /* Reflow multi-step diagrams when users enlarge text independently of page zoom. */
+    .five-step { grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr)) !important; }
+    .reverse-flow { grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr)) !important; }
+    .question-flow { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)) !important; }
+    .timeline { grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr)) !important; }
+    .mental-model { grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr)) !important; }
+    .roles { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)) !important; }
+    .role p, .role h3 { overflow-wrap:anywhere; }
   </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <header><div class="wrap topbar"><a class="brand" href="index.html" aria-label="Transfer, Actually home">Transfer<span>, Actually</span></a><nav aria-label="Primary navigation"><ul><li><a href="index.html">Home</a></li><li><a href="index.html#students">Students</a></li><li><a href="index.html#faculty">Faculty</a></li><li><a href="assist-actually.html">ASSIST</a></li><li><a href="index.html#official-sources">Sources</a></li><li><a href="index.html#about">About</a></li></ul></nav></div></header>
 <main id="main-content">
-<div class="wrap breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> → <a href="ready-to-apply.html">Ready to Apply</a> → PIQs, Actually</div>
+<nav class="wrap breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> → <a href="ready-to-apply.html">Ready to Apply</a> → PIQs, Actually</nav>
 <section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">UC transfer application writing</p><h1>PIQs, Actually.</h1><p class="lede">A Personal Insight Question is not a five-paragraph English essay. UC is asking for useful information about <strong>you</strong>: what you did, how you think, how you prepared, and what your experiences help the reader understand.</p></div><aside class="hero-card"><h2 style="font-size:1.45rem;">The current transfer basics</h2><div class="basics"><div class="basic">1 required question</div><div class="basic">Choose 3 of 7 others</div><div class="basic">350 words maximum each</div><div class="basic">All 7 optional prompts are equal</div></div><p>You do not get extra points for choosing a supposedly “harder” optional prompt.</p></aside></div></section>
 
 <section class="band white" aria-labelledby="not-essay"><div class="wrap"><div class="section-intro"><p class="eyebrow">Change the mental model</p><h2 id="not-essay">Think evidence, not performance.</h2><p>The strongest response is not necessarily the most dramatic or the most polished-sounding. It is the one that answers the question specifically and helps UC understand the applicant.</p></div><div class="truth-grid">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CMqGdmXFgAc7aMBxz3/Ydz5uSZPXPvUgQ+P06JZwxJU='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CMqGdmXFgAc7aMBxz3/Ydz5uSZPXPvUgQ+P06JZwxJU='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1236b8">
@@ -866,7 +866,33 @@
     .term-help a{font-weight:850}
     .piq-help{margin:1rem 0;padding:1rem;border:1px solid #9cd9ea;border-top:5px solid var(--cyan);background:var(--surface);border-radius:var(--radius-sm)}
     .piq-help p{color:var(--muted)}
-</style>
+
+    /* v17 deep accessibility audit fixes */
+    .next p a, .next h2 a {
+      display:inline !important;
+      background:transparent !important;
+      color:#fff !important;
+      padding:0 !important;
+      border-radius:0 !important;
+      text-decoration:underline !important;
+      text-decoration-thickness:.1em !important;
+      text-underline-offset:.18em !important;
+    }
+    .decision-option input:checked + span,
+    .option input:checked + span,
+    .route-option input:checked + span {
+      border-color:var(--blue) !important;
+    }
+  
+    /* Reflow multi-step diagrams when users enlarge text independently of page zoom. */
+    .five-step { grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr)) !important; }
+    .reverse-flow { grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr)) !important; }
+    .question-flow { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)) !important; }
+    .timeline { grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr)) !important; }
+    .mental-model { grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr)) !important; }
+    .roles { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)) !important; }
+    .role p, .role h3 { overflow-wrap:anywhere; }
+  </style>
 </head>
 
 <body>
@@ -889,9 +915,9 @@
   </header>
 
   <main id="main-content">
-    <div class="wrap breadcrumb" role="navigation" aria-label="Breadcrumb">
+    <nav class="wrap breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a> → I Know Where I Want to Go. Now What?
-    </div>
+    </nav>
 
     <section class="hero" aria-labelledby="page-title">
       <div class="wrap hero-grid">
@@ -1228,7 +1254,7 @@
           <h2>If the plan changes, switch to recovery mode.</h2>
           <p>
             Major-first and destination-first planning work well until a course, grade, major, destination, admission result, or financial situation changes.
-            <a href="something-changed.html" style="color:#fff;"><strong>“Something Changed. Now What?”</strong></a> helps identify what needs replanning, reporting, or prompt campus follow-up.
+            <a href="something-changed.html"><strong>“Something Changed. Now What?”</strong></a> helps identify what needs replanning, reporting, or prompt campus follow-up.
           </p>
           <div class="next-links">
             <a href="something-changed.html">Go to the recovery route →</a>
